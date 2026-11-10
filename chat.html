@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Chatway App</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Reset for the iframe */
+    body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: transparent; overflow: hidden; pointer-events: none; }
+
+    /* Only the popup is clickable */
+    #chat-popup { pointer-events: auto; }
+
+    /* --- The Popup Window --- */
+    #chat-popup {
+        position: absolute;
+        bottom: 90px;
+        right: 20px;
+        width: 350px;
+        height: 500px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(0);
+        z-index: 99;
+        transition: width 0.4s ease, height 0.4s ease, bottom 0.4s ease, right 0.4s ease;
+    }
+
+    /* --- THE LARGE FLOATING STATE (desktop) --- */
+    #chat-popup.fullscreen {
+        position: fixed;
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 90vw !important;
+        max-width: 800px !important;
+        height: 90vh !important;
+        max-height: 800px !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        border-radius: 20px !important;
+        z-index: 9999 !important;
+    }
+
+    /* Header */
+    .chat-header {
+        background: linear-gradient(135deg, #0043FF 0%, #0066FF 100%);
+        padding: 20px;
+        color: #fff;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; width: 100%; }
+    .chat-logo { width: 40px; height: 40px; border-radius: 50%; background: #fff; object-fit: contain; padding: 4px; }
+    .chat-header-actions { display: flex; gap: 15px; cursor: pointer; color: #fff; }
+    .chat-header-actions svg:hover { opacity: 0.8; }
+    .chat-header-title { font-size: 22px; font-weight: 600; line-height: 1.3; display: flex; align-items: center; gap: 8px; }
+    .wave { font-size: 24px; }
+
+    /* Swap icons based on state */
+    .icon-collapse { display: none; }
+    #chat-popup.fullscreen .icon-expand { display: none; }
+    #chat-popup.fullscreen .icon-collapse { display: block; }
+
+    /* Body */
+    .chat-body { padding: 20px; background: #F4F7FA; flex-grow: 1; overflow-y: auto; }
+    .chat-message-card { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 15px; }
+    .chat-message-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    .chat-brand-logo { width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 1px solid #eee; }
+    .chat-online-badge { background: #E6F4EA; color: #1E8E3E; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+    .chat-online-badge .dot { width: 6px; height: 6px; background: #1E8E3E; border-radius: 50%; }
+    .chat-text { font-size: 15px; color: #333; margin-bottom: 15px; }
+    .chat-start-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; background: #0056FF; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.3s; }
+    .chat-start-btn:hover { background: #0043FF; }
+
+    /* Footer */
+    .chat-footer { text-align: center; padding: 15px; font-size: 12px; color: #999; background: #fff; display: flex; justify-content: center; align-items: center; gap: 5px; flex-shrink: 0; border-top: 1px solid #eee; }
+    .chat-footer strong { color: #0056FF; font-weight: 700; display: flex; align-items: center; gap: 4px; }
+
+    /* Mobile Sizing */
+    @media (max-width: 767px) {
+        #chat-popup { width: calc(100vw - 30px); right: 15px; bottom: 80px; height: 70vh; }
+        .chat-header-title { font-size: 20px; }
+
+        /* Mobile Fullscreen: cover the entire screen */
+        #chat-popup.fullscreen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            height: 100vh !important;
+            height: 100dvh !important; /* handles mobile browser address bar */
+            max-height: none !important;
+            border-radius: 0 !important;
+            z-index: 9999 !important;
+        }
+
+        /* Keep header clear of the phone notch */
+        #chat-popup.fullscreen .chat-header { padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
+        #chat-popup.fullscreen .chat-footer { padding-bottom: calc(15px + env(safe-area-inset-bottom, 0px)); }
+    }
+</style>
+</head>
+<body>
+
+<!-- The Popup -->
+<div id="chat-popup">
+    <div class="chat-header">
+        <div class="chat-header-top">
+            <img src="https://thunderboltcarriers.com/wp-content/uploads/2026/08/cropped-Designer-192x192.png" alt="Logo" class="chat-logo">
+            <div class="chat-header-actions">
+
+                <!-- EXPAND ICON (shows when small) -->
+                <svg class="icon-expand" onclick="toggleFullscreen()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Expand</title>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+
+                <!-- COLLAPSE ICON (shows when large) -->
+                <svg class="icon-collapse" onclick="toggleFullscreen()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Collapse</title>
+                    <polyline points="4 14 10 14 10 20"></polyline>
+                    <polyline points="20 10 14 10 14 4"></polyline>
+                    <line x1="14" y1="10" x2="21" y2="3"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+
+                <!-- Close Icon -->
+                <svg onclick="closeChat()" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor:pointer;">
+                    <title>Close</title>
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+
+            </div>
+        </div>
+        <div class="chat-header-title">
+            <span class="wave">👋</span> Our team is here for you
+        </div>
+    </div>
+
+    <div class="chat-body">
+        <div class="chat-message-card">
+            <div class="chat-message-top">
+                <img src="https://thunderboltcarriers.com/wp-content/uploads/2026/08/cropped-Designer-192x192.png" alt="Logo" class="chat-brand-logo">
+                <span class="chat-online-badge"><span class="dot"></span> ONLINE</span>
+            </div>
+            <p class="chat-text">Hi, how can we help?</p>
+            <button class="chat-start-btn" onclick="startChat()">
+                Start a new chat
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </div>
+        <div id="chat-messages" style="display: none;"></div>
+    </div>
+
+    <div class="chat-footer">
+        Powered by <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> <strong>chatway</strong>
+    </div>
+</div>
+
+<script>
+    // 1. Close the widget: works inside an iframe or standalone
+    function closeChat() {
+        if (window.parent && window.parent !== window) {
+            // Inside an iframe: tell the parent to hide us
+            window.parent.postMessage({ action: 'closeChatWidget' }, '*');
+        } else {
+            // Standalone: hide popup and body
+            document.getElementById('chat-popup').style.display = 'none';
+            document.body.style.display = 'none';
+        }
+    }
+
+    // 2. Toggle fullscreen (large window)
+    function toggleFullscreen() {
+        var popup = document.getElementById('chat-popup');
+        popup.classList.toggle('fullscreen');
+
+        // Tell the parent page to resize the iframe too
+        if (window.parent && window.parent !== window) {
+            window.parent.postMessage({
+                action: 'toggleChatFullscreen',
+                fullscreen: popup.classList.contains('fullscreen')
+            }, '*');
+        }
+    }
+
+    // 3. Start chat
+    function startChat() {
+        document.querySelector('.chat-message-card').style.display = 'none';
+        document.getElementById('chat-messages').style.display = 'block';
+
+        document.getElementById('chat-messages').innerHTML = `
+            <div style="background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 10px; font-size: 14px; border: 1px solid #eee;">
+                <strong>System:</strong> Chat session started. (AI backend will connect here soon!)
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>

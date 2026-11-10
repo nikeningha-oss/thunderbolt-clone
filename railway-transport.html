@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Railway Transport - Thunderboltcarriers</title>
+	<link rel="icon" href="https://thunderboltcarriers.com/wp-content/uploads/2026/08/cropped-Designer-32x32.png" sizes="32x32">
+
+	<!-- FONTS -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900|Outfit:100,200,300,400,500,600,700,800,900&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+
+	<!-- THEME CSS -->
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/uploads/elementor/css/base-desktop.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/uploads/elementor/css/base-mobile.css" media="(max-width:767px)">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/elementor/assets/css/frontend.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/style.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/uploads/elementor/css/post-12374.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/swiper.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/animate.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/vendor/fontello.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/wpcargo/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<!-- SITE CSS -->
+	<style>
+	:root{
+		--rt-primary-color:#FFCC00;
+		--rt-body-bg-color:#ffffff;
+		--rt-body-color:#484848;
+		--rt-title-color:#000000;
+	}
+
+	/* ================= MOBILE FIXES ================= */
+	@media (max-width: 991px) {
+		body, html, #page, #content, .elementor {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+		}
+		.row {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			flex-direction: column !important;
+			align-items: center !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			width: 100% !important;
+		}
+		[class*="col-"] {
+			flex: 0 0 100% !important;
+			max-width: 100% !important;
+			width: 100% !important;
+			padding-left: 15px !important;
+			padding-right: 15px !important;
+		}
+		/* Turn off sticky on mobile */
+		aside#sidebar { position: static !important; }
+	}
+
+	/* ========= Fixed Header ========= */
+	.site-header{
+		position:fixed !important; top:0; left:0; width:100%; z-index:999;
+		background:transparent !important;
+		transition:transform .35s ease,background-color .3s ease,box-shadow .3s ease;
+		will-change:transform;
+	}
+	.site-header.headroom--pinned  { transform:translateY(0); }
+	.site-header.headroom--unpinned{ transform:translateY(-100%); }
+	.site-header.headroom--not-top { background-color:#000 !important; box-shadow:0 4px 20px rgba(0,0,0,.25); }
+	.site-header.headroom--not-top .main-header-section{ background-color:#000 !important; }
+	.site-header.headroom--top,
+	.site-header.headroom--top .main-header-section{ background-color:transparent !important; box-shadow:none !important; }
+	.site-header .site-title a{ color:#fff !important; font-weight:700; font-size:24px; }
+	.site-header .kariez-navigation ul li a{ color:#fff !important; }
+	.site-header .kariez-navigation ul li a:hover{ color:#FFCC00 !important; }
+	.site-header .phone-box .content span{ color:#fff !important; }
+	.site-header .phone-box .phone-icon{ background:#FFCC00; color:#000; }
+	.site-header .menu-bar span{ background:#fff; }
+	.site-header .main-header-section{ padding-top:20px; padding-bottom:20px; background:transparent; }
+
+	/* Google Translate */
+	#google_translate_element{ display:inline-block; margin-left:20px; }
+	@media (max-width:1024px){ #google_translate_element{ display:none !important; } }
+	@media (min-width:1025px){
+		.goog-te-gadget-simple{ background:transparent !important; border:1px solid rgba(255,255,255,.4) !important;
+			padding:8px 15px !important; border-radius:30px !important;
+			display:inline-flex !important; align-items:center !important; justify-content:center !important; }
+		.goog-te-gadget-simple span,
+		.goog-te-gadget-simple a,
+		.goog-te-gadget-simple div{ color:#fff !important; font-family:'DM Sans',sans-serif !important; font-size:14px !important; }
+		.goog-te-gadget-icon{ display:none !important; }
+		.goog-te-menu-frame{ box-shadow:0 4px 15px rgba(0,0,0,.2) !important; border-radius:8px !important; }
+	}
+	body{ top:0 !important; }
+	.skiptranslate iframe{ display:none !important; }
+
+	/* Breadcrumb */
+	.kariez-breadcrumb-wrapper{
+		background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://thunderboltcarriers.com/wp-content/uploads/2025/02/breadcrumb-1-scaled-1.jpg') center/cover no-repeat;
+		padding: 160px 0 80px;
+		text-align: center;
+	}
+	.kariez-breadcrumb-wrapper .entry-title{ color: #fff; font-size: 45px; font-weight: 700; margin-bottom: 15px; }
+	.kariez-breadcrumb-wrapper .entry-breadcrumb span { color: #fff; font-size: 16px; }
+	.kariez-breadcrumb-wrapper .entry-breadcrumb a { color: #FFCC00; }
+
+	/* Content Area */
+	.content-area { padding: 80px 0; background: #fff; }
+	.service-single-item .post-thumbnail img { width: 100%; border-radius: 10px; margin-bottom: 30px; }
+	.service-heading h2 { font-size: 36px; font-weight: 700; margin-bottom: 20px; }
+	.elementor-widget-text-editor p { line-height: 1.8; color: #555; margin-bottom: 20px; }
+
+	/* =========================================================
+	   FAQ Accordion (Exact Match to Screenshots)
+	   ========================================================= */
+	.e-n-accordion-item { border: 1px solid #eee; margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+	.e-n-accordion-item-title { background: #ffffff; padding: 15px 20px; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; color: #000;}
+	.e-n-accordion-item-title::-webkit-details-marker { display: none; }
+	.e-n-accordion-item-title-text { margin: 0; }
+	
+	/* Icon Box */
+	.e-n-accordion-item-title-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 4px;
+		background: #FFCC00; 
+		color: #000;
+		font-size: 16px;
+	}
+
+	/* Open State */
+	.e-n-accordion-item[open] .e-n-accordion-item-title { background: #FFCC00; }
+	.e-n-accordion-item[open] .e-n-accordion-item-title-icon { background: #ffffff; }
+	.e-n-accordion-item[open] .e-n-accordion-item-title-icon .e-closed { display: none; }
+	.e-n-accordion-item:not([open]) .e-n-accordion-item-title-icon .e-opened { display: none; }
+	.e-n-accordion-item-content { padding: 20px; background: #fff; line-height: 1.7; color: #555; font-size: 15px;}
+
+	/* =========================================================
+	   STICKY SIDEBAR & NAV DESIGN WITH BLACK HOVER LINE
+	   ========================================================= */
+	aside#sidebar {
+		position: -webkit-sticky !important;
+		position: sticky !important;
+		top: 100px !important;
+		align-self: flex-start !important;
+		height: max-content !important;
+		z-index: 10;
+	}
+	.kariez-widget-area .widget {
+		background: #ffffff !important;
+		border: 1px solid #eaeaea !important;
+		padding: 30px !important;
+		border-radius: 10px !important;
+		margin-bottom: 30px;
+	}
+	.kariez-widget-area .widget-title {
+		font-size: 22px;
+		font-weight: 700;
+		margin-bottom: 20px;
+		border-bottom: 2px solid #FFCC00;
+		padding-bottom: 10px;
+		display: inline-block;
+	}
+	.sidebar-nav-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		border-top: 1px solid #eaeaea;
+	}
+	.sidebar-nav-list li {
+		margin-bottom: 0 !important;
+		border-bottom: 1px solid #eaeaea;
+	}
+	.sidebar-nav-list li a {
+		color: #333 !important;
+		font-weight: 500;
+		text-decoration: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 15px 0 !important;
+		background: transparent !important;
+		border-radius: 0 !important;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+	
+	/* The Black Progress Line */
+	.sidebar-nav-list li a::after {
+		content: "";
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: #000000;
+		transform: scaleX(0);
+		transform-origin: left center;
+		transition: transform 0.35s ease;
+	}
+	
+	.sidebar-nav-list li a:hover::after,
+	.sidebar-nav-list li.active a::after {
+		transform: scaleX(1);
+	}
+
+	.sidebar-nav-list li a i {
+		font-size: 16px;
+		color: #999;
+		transition: color 0.3s ease;
+	}
+	.sidebar-nav-list li a:hover,
+	.sidebar-nav-list li.active a {
+		color: #FFCC00 !important;
+	}
+	.sidebar-nav-list li a:hover i,
+	.sidebar-nav-list li.active a i {
+		color: #FFCC00 !important;
+	}
+	
+	/* Override for the Ad widget to keep it clean */
+	.widget-ad {
+		background: transparent !important; 
+		border: none !important; 
+		padding: 0 !important;
+	}
+	.widget-ad img { width: 100%; border-radius: 10px; }
+
+	/* Related Services */
+	.rt-related-service { padding: 80px 0; background: #fcfcfc; border-top: 1px solid #eee; }
+	.rt-related-service .related-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+	.rt-related-service .service-item { background: #fff; padding: 40px 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
+	.rt-related-service .service-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+	.rt-related-service .service-icon i { font-size: 45px; color: #000; margin-bottom: 20px; display: inline-block; }
+	.rt-related-service .service-title { font-size: 22px; font-weight: 700; margin-bottom: 15px; }
+	.rt-related-service .service-title a { color: #000; text-decoration: none; }
+	.rt-related-service .service-title a:hover { color: #FFCC00; }
+	.rt-related-service .service-item p { font-size: 15px; color: #666; margin-bottom: 25px; line-height: 1.6; }
+	.rt-related-service .btn.button-4 { display: inline-flex; align-items: center; gap: 10px; background: #f4f4f4; color: #000; padding: 8px 8px 8px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 14px; width: fit-content; margin-top: auto; transition: 0.3s; }
+	.rt-related-service .btn.button-4:hover { background: #FFCC00; color: #000; }
+	.rt-related-service .btn.button-4 .btn-round-shape { width: 36px; height: 36px; background: #FFCC00; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; transition: 0.3s; }
+	.rt-related-service .btn.button-4:hover .btn-round-shape { background: #000; color: #FFCC00; }
+
+	/* =========================================================
+	   FOOTER (White Background)
+	   ========================================================= */
+	footer.rt-footer, .rt-footer { 
+		background-color: #ffffff !important; 
+		background: #ffffff !important; 
+		color: #555 !important; 
+		padding: 80px 0 0; 
+		border-top: 1px solid #eaeaea;
+	}
+	.rt-footer-container{ max-width:1320px; margin:0 auto; padding:0 20px; }
+	.rt-footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:60px; }
+	.rt-footer h4{ color:#000 !important; font-size:20px; font-weight:600; margin:0 0 22px; font-family:'Outfit',sans-serif; }
+	.rt-footer p{ font-size:15px; line-height:1.8; color:#555 !important; }
+	.rt-footer ul{ list-style:none; padding:0; margin:0; }
+	.rt-footer ul li{ margin-bottom:12px; }
+	.rt-footer a{ text-decoration:none !important; box-shadow:none !important; }
+
+	.rt-footer ul li a, .rt-footer-contact a, .rt-footer-bottom ul a{
+		position:relative; color:#555 !important; display:inline-block; padding-bottom:3px;
+		transition:color .3s ease; font-size:15px;
+	}
+	.rt-footer ul li a::after, .rt-footer-contact a::after, .rt-footer-bottom ul a::after{
+		content:""; position:absolute; left:0; bottom:0; width:100%; height:1px;
+		background:#FFCC00 !important; transform:scaleX(0); transform-origin:left center;
+		transition:transform .35s ease;
+	}
+	.rt-footer ul li a:hover, .rt-footer ul li a:focus,
+	.rt-footer-contact a:hover, .rt-footer-contact a:focus,
+	.rt-footer-bottom ul a:hover, .rt-footer-bottom ul a:focus{ color:#FFCC00 !important; }
+	.rt-footer ul li a:hover::after, .rt-footer ul li a:focus::after,
+	.rt-footer-contact a:hover::after, .rt-footer-contact a:focus::after,
+	.rt-footer-bottom ul a:hover::after, .rt-footer-bottom ul a:focus::after{ transform:scaleX(1); }
+
+	.rt-footer-social{ display:flex; gap:14px; margin-top:22px; }
+	.rt-footer-social a{ 
+		width:42px; height:42px; border-radius:50%; background:#f4f4f4;
+		display:inline-flex !important; align-items:center !important; justify-content:center !important; 
+		color:#555; text-decoration:none !important; transition:0.3s; padding: 0; margin: 0;
+	}
+	.rt-footer-social a:hover{ background:#FFCC00; color:#000; }
+	.rt-footer-social a i{ font-size:18px !important; line-height:1 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+
+	.rt-footer-contact li{ display:flex; gap:12px; align-items:flex-start; margin-bottom:18px; color:#555; font-size:15px; }
+	.rt-footer-contact i{ color:#FFCC00 !important; margin-top:5px; font-size:15px; }
+
+	.rt-footer-bottom{ border-top:1px solid #eaeaea; padding:25px 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:15px; font-size:14px; color:#777; }
+	.rt-footer-bottom ul{ display:flex; gap:24px; list-style:none; padding:0; margin:0; }
+	.rt-footer-bottom ul a { color: #777 !important; }
+
+	@media (max-width:991px){ .rt-footer-grid{ grid-template-columns:repeat(2,1fr); gap:34px; } .rt-footer{ padding-top:60px; } .kariez-breadcrumb-wrapper { padding: 120px 0 60px !important; } }
+	@media (max-width:767px){
+		.rt-footer-grid{ grid-template-columns:1fr; gap:30px; padding-bottom:40px; }
+		.rt-footer h4{ font-size:18px; margin-bottom:16px; }
+		.rt-footer-bottom{ flex-direction:column; text-align:center; align-items:center; }
+		.rt-footer-bottom ul{ gap:16px; flex-wrap:wrap; justify-content:center; }
+		.kariez-breadcrumb-wrapper .entry-title { font-size: 32px !important; }
+	}
+	</style>
+</head>
+
+<body class="wp-singular single single-rt-service page-template-default wp-theme-kariez has-trheader tr-header-light has-menu-shadow has-banner layout-left-sidebar">
+
+<!-- preloader -->
+<div id="preloader"><img width="200" height="200" src="https://thunderboltcarriers.com/wp-content/uploads/2024/12/preloader.gif" alt=""></div>
+<div class="rt-focus"></div>
+
+<div id="page" class="site">
+
+	<!-- ============================== HEADER ============================== -->
+	<header id="masthead" class="site-header headroom" role="banner">
+		<div class="main-header-section">
+			<div class="header-container rt-container">
+				<div class="row navigation-menu-wrap align-middle m-0">
+					<div class="site-branding">
+						<span class="site-title"><a href="index.html" rel="home" aria-label="site logo">Thunderboltcarriers</a></span>
+					</div>
+					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation">
+						<div class="menu-main-menu-container">
+							<ul class="kariez-navbar">
+								<li class="menu-item"><a href="index.html">Home</a></li>
+								<li class="menu-item menu-item-has-children dropdown current-menu-parent">
+									<a href="service.html" class="dropdown-toggle">Services
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="service.html">All Services</a></li>
+										<li><a href="air-freight.html">Air Freight</a></li>
+										<li><a href="road-transport.html">Road Transport</a></li>
+										<li><a href="ocean-transport.html">Ocean Transport</a></li>
+										<li class="current-menu-item"><a href="railway-transport.html">Railway Transport</a></li>
+										<li><a href="warehousing.html">Warehousing</a></li>
+										<li><a href="distribution.html">Distribution</a></li>
+									</ul>
+								</li>
+								<li class="menu-item"><a href="about.html">About Us</a></li>
+								<li class="menu-item"><a href="track.html">Track Consignment</a></li>
+								<li class="menu-item"><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+					<div class="menu-icon-wrapper ml-auto">
+						<ul class="menu-icon-action">
+							<li style="display:flex; align-items:center;">
+								<div id="google_translate_element"></div>
+							</li>
+							<li class="ham-burger mobile-hamburg">
+								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</li>
+							<li class="rt-phone-2">
+								<a class="phone-box" href="tel:+14428886223" aria-label="phone number">
+									<div class="phone-icon"><i class="fa-solid fa-phone"></i></div>
+									<div class="content">
+										<span class="phone-label">Have Any Questions?</span>
+										<span class="phone-number">+1 (442) 888-6223</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- ============================== OFFCANVAS ============================== -->
+	<div class="kariez-offcanvas-drawer">
+		<div class="offcanvas-logo">
+			<span class="site-title"><a href="index.html" rel="home">Thunderboltcarriers</a></span>
+			<a class="trigger-icon trigger-off-canvas" href="#">×</a>
+		</div>
+		<div class="offcanvas-about offcanvas-address">
+			<label>About Us</label>
+			<p>At Thunderbolt Carriers, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+		</div>
+		<nav class="offcanvas-navigation" role="navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu-1" class="menu">
+					<li class="menu-item"><a href="index.html">Home</a></li>
+					<li class="menu-item menu-item-has-children dropdown">
+						<a href="service.html" class="dropdown-toggle">Services
+							<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+						</a>
+						<ul class="dropdown-menu depth_0">
+							<li><a href="service.html">All Services</a></li>
+							<li><a href="air-freight.html">Air Freight</a></li>
+							<li><a href="road-transport.html">Road Transport</a></li>
+							<li><a href="ocean-transport.html">Ocean Transport</a></li>
+							<li><a href="railway-transport.html">Railway Transport</a></li>
+							<li><a href="warehousing.html">Warehousing</a></li>
+							<li><a href="distribution.html">Distribution</a></li>
+						</ul>
+					</li>
+					<li class="menu-item"><a href="about.html">About Us</a></li>
+					<li class="menu-item"><a href="track.html">Track Consignment</a></li>
+					<li class="menu-item"><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="offcanvas-address">
+			<label>Contact Info</label>
+			<ul class="offcanvas-info">
+				<li><i class="fa-solid fa-location-dot"></i>USA, UK, Canada, Europe, Australia, Asia.</li>
+				<li><i class="fa-solid fa-phone"></i><a href="tel:+16788563229">+1 (678) 856-3229</a></li>
+				<li><i class="fa-regular fa-envelope"></i><a href="mailto:info@thunderboltcarriers.com">info@thunderboltcarriers.com</a></li>
+				<li><i class="fa-regular fa-clock"></i>24/7</li>
+			</ul>
+			<div class="offcanvas-social-icon">
+				<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+				<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="kariez-body-overlay"></div>
+
+	<!-- ============================== CONTENT ============================== -->
+	<div id="content" class="site-content">
+		
+		<!-- Breadcrumb -->
+		<div class="kariez-breadcrumb-wrapper">
+			<div class="container default">
+				<h1 class="entry-title">Service Details</h1>
+				<div class="breadcrumb-area">
+					<div class="entry-breadcrumb">
+						<span><a href="index.html" class="home"><span>Thunderboltcarriers</span></a></span>
+						<span class="dvdr"></span>
+						<span><a href="service.html"><span>Services</span></a></span>
+						<span class="dvdr"></span>
+						<span><span class="current-item">Railway Transport</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="primary" class="content-area">
+			<div class="container">
+				<div class="row">
+					<!-- MAIN CONTENT -->
+					<div class="col-xl-8">
+						<main id="main" class="site-main">
+							<div class="service-single-item">
+								<div class="post-thumbnail-wrap">
+									<figure class="post-thumbnail">
+										<img src="https://thunderboltcarriers.com/wp-content/uploads/2025/02/service-big-4.jpg" alt="Railway Transport">
+									</figure>
+								</div>
+								<div class="service-heading">
+									<h2 class="entry-title">Railway Transport</h2>
+								</div>
+								<div class="service-content">
+									<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc that semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris any consectetur platea.Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer at quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque.</p>
+									<p>The as Suscipit tristique nam it enim mauris consectetur platea.Lorem ipsum dolor sit amet consectetur that adipiscing elit. Mauris any nullam the as integer quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris consectetur platea.</p>
+									
+									<ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+										<li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+											<span style="background: #FFCC00; color: #000; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px;"><i class="fas fa-check"></i></span>
+											Lorem ipsum dolor consectetur the nunc semper pulvinar vulputate neque.
+										</li>
+										<li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+											<span style="background: #FFCC00; color: #000; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px;"><i class="fas fa-check"></i></span>
+											Dolor consectetur the nunc pulvinar vulputate neque.
+										</li>
+										<li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+											<span style="background: #FFCC00; color: #000; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px;"><i class="fas fa-check"></i></span>
+											Consectetur the nunc semper pulvinar vulputate neque.
+										</li>
+									</ul>
+
+									<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc that semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris any consectetur platea.Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer at quam dolor nunc semper faucibus pulvinar vulputate neque.</p>
+
+									<!-- Accordion (7 Questions) -->
+									<div style="margin-top: 40px;">
+										<h3 style="margin-bottom: 20px;">Frequently Asked Questions</h3>
+										
+										<details class="e-n-accordion-item" open>
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">What happens to my data if I cancel?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt..</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">What are the different types of marketing solutions?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">How often should I work on the digital marketing?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">Are social media good for the business growth?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">What is the most important thing in a designing?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">What is the most important thing in a designing?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+
+										<details class="e-n-accordion-item">
+											<summary class="e-n-accordion-item-title">
+												<span class="e-n-accordion-item-title-text">What is the purpose of a UI / UX?</span>
+												<span class="e-n-accordion-item-title-icon">
+													<span class="e-opened"><i class="fas fa-minus"></i></span>
+													<span class="e-closed"><i class="fas fa-plus"></i></span>
+												</span>
+											</summary>
+											<div class="e-n-accordion-item-content">
+												<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+											</div>
+										</details>
+									</div>
+								</div>
+							</div>
+						</main>
+					</div>
+
+					<!-- SIDEBAR (Sticky & Matches Screenshot) -->
+					<aside id="sidebar" class="col-xl-4">
+						<div class="kariez-widget-area">
+							<section class="widget">
+								<h3 class="widget-title">Transport Solutions</h3>
+								<ul class="sidebar-nav-list">
+									<li><a href="air-freight.html">Air Freight <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+									<li><a href="road-transport.html">Road Transport <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+									<li><a href="ocean-transport.html">Ocean Transport <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+									<li class="active"><a href="railway-transport.html">Railway Transport <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+									<li><a href="warehousing.html">Warehousing <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+									<li><a href="distribution.html">Distribution <i class="fa-solid fa-circle-arrow-right"></i></a></li>
+								</ul>
+							</section>
+							
+							<section class="widget-ad">
+								<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/add-2.png" alt="Ad">
+							</section>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+
+		<!-- RELATED SERVICES -->
+		<div class="rt-related-service">
+			<div class="container">
+				<h2 class="related-title">Related Service</h2>
+				<div class="row g-4">
+					<div class="col-lg-4 col-md-6">
+						<div class="service-item">
+							<div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+							<h2 class="service-title"><a href="warehousing.html">Warehousing</a></h2>
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+							<a class="btn button-4" href="warehousing.html">
+								<span class="button-text">See Details</span>
+								<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="service-item">
+							<div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+							<h2 class="service-title"><a href="railway-transport.html">Railway Transport</a></h2>
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+							<a class="btn button-4" href="railway-transport.html">
+								<span class="button-text">See Details</span>
+								<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="service-item">
+							<div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
+							<h2 class="service-title"><a href="ocean-transport.html">Ocean Transport</a></h2>
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+							<a class="btn button-4" href="ocean-transport.html">
+								<span class="button-text">See Details</span>
+								<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- #content -->
+
+	<!-- ============================== FOOTER (White Background) ============================== -->
+	<footer class="rt-footer" style="background-color: #ffffff !important; background: #ffffff !important;">
+		<div class="rt-footer-container">
+			<div class="rt-footer-grid">
+				<div>
+					<a href="index.html" class="rt-logo" style="color:#000; font-family:'Outfit',sans-serif; font-weight:700;">Thunderboltcarriers</a>
+					<p style="margin-top:18px;">At Thunderbolt Carriers, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+					<div class="rt-footer-social">
+						<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+					</div>
+				</div>
+				<div>
+					<h4>Company Links</h4>
+					<ul>
+						<li><a href="service.html">Services</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="disclaimer.html">Disclaimer</a></li>
+						<li><a href="job-application.html">Careers</a></li>
+						<li><a href="privacy-policy.html">Privacy Policy</a></li>
+						<li><a href="contact.html">Location</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Company Service</h4>
+					<ul>
+						<li><a href="what-we-do.html">What We Do</a></li>
+						<li><a href="contact.html">Request a Freight</a></li>
+						<li><a href="track-trace.html">Track &amp; Trace</a></li>
+						<li><a href="air-freight.html">Air Freight</a></li>
+						<li><a href="rail-freight.html">Rail Freight</a></li>
+						<li><a href="maritime-transport.html">Maritime Transport</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Say Hello!</h4>
+					<ul class="rt-footer-contact">
+						<li><i class="fa-solid fa-phone"></i><div><strong style="color:#000;">Support Centre 24/7</strong><br>+1 (442) 888-6223</div></li>
+						<li><i class="fa-regular fa-envelope"></i><div><strong style="color:#000;">Get in touch with us:</strong><br><a href="mailto:info@thunderboltcarriers.com">info@thunderboltcarriers.com</a></div></li>
+						<li><i class="fa-solid fa-location-dot"></i><div><strong style="color:#000;">Address:</strong><br>USA, Canada, UK, Europe, Australia, Asia.</div></li>
+					</ul>
+				</div>
+			</div>
+			<div class="rt-footer-bottom">
+				<div>© 2026 Thunderbolt Carriers. All Rights Reserved</div>
+				
+			</div>
+		</div>
+	</footer>
+
+	<a href="#" class="kariez-bc-totop" id="bcTop">
+		<span class="progress-wrapper"><span class="progress"></span></span>
+		<i class="fa-solid fa-arrow-up" style="color: #000; font-size: 18px;"></i>
+	</a>
+
+</div><!-- #page -->
+
+<!-- ============================== COOKIE & CHAT WIDGETS ============================== -->
+<iframe id="cookieIframe" src="cookie.html" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 999999; display: none;"></iframe>
+<iframe id="chatIframe" src="chat.html" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 999998; display: none;"></iframe>
+
+<div class="clone-cookie-widget" onclick="document.getElementById('cookieIframe').style.display='block';">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="#ffffff">
+		<path d="M257.5 27.6c-.8-5.4-4.9-9.8-10.3-10.6v0c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.1l36.7-75.6c9.8-20.1 13-42.9 9.1-64.9v0c-.9-5.4-5.3-9.5-10.7-10.3l-51.5-7.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-44.1-6.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-51.5-7.2c-4.9-.7-9.4-3.9-11.8-8.2zM176 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm64 96a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-128a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+	</svg>
+</div>
+
+<div class="clone-chatway-widget" onclick="document.getElementById('chatIframe').style.display='block';">
+	<div class="clone-chat-bubble">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30" fill="#ffffff" style="margin-top: 2px;">
+			<path d="M48 12H16C12.686 12 10 14.686 10 18v24c0 3.314 2.686 6 6 6h18.343l9.829 9.829c.63.63 1.707.184 1.707-.707V48H48c3.314 0 6-2.686 6-6V18c0-3.314-2.686-6-6-6zM38 38H26c-1.1 0-2-.9-2-2s.9-2 2-2h12c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+		</svg>
+	</div>
+</div>
+
+<!-- ============================== SCRIPTS ============================== -->
+<script src="https://thunderboltcarriers.com/wp-includes/js/jquery/jquery.min.js"></script>
+<script src="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/js/swiper.min.js"></script>
+<script src="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/js/wow.min.js"></script>
+<script src="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/js/headroom.js"></script>
+<script src="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/js/scripts.js"></script>
+
+<!-- ================= HEADROOM & GOOGLE TRANSLATE INIT ================= -->
+<script>
+(function(){
+	function initHeadroom(){
+		if (typeof Headroom === 'undefined'){
+			if (!initHeadroom.tries) initHeadroom.tries = 0;
+			if (initHeadroom.tries++ < 20) return setTimeout(initHeadroom, 150);
+			return;
+		}
+		var headerEl = document.querySelector('.site-header');
+		if (!headerEl) return;
+		new Headroom(headerEl, {
+			offset: 80,
+			tolerance: { up: 5, down: 5 },
+			classes: { initial:'headroom', pinned:'headroom--pinned', unpinned:'headroom--unpinned',
+			           top:'headroom--top', notTop:'headroom--not-top' }
+		}).init();
+	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initHeadroom);
+	else initHeadroom();
+})();
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,fr,es,de,it,pt,ru,zh-CN,ar',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+window.addEventListener('message', function(event) {
+	if (event.data && event.data.action === 'closeCookieWidget') {
+		document.getElementById('cookieIframe').style.display = 'none';
+	}
+	if (event.data && event.data.action === 'cookiePreferencesSaved') {
+		document.getElementById('cookieIframe').style.display = 'none';
+	}
+	if (event.data && event.data.action === 'closeChatWidget') {
+		document.getElementById('chatIframe').style.display = 'none';
+	}
+});
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<!-- =========================================================
+     COOKIE IFRAME
+     ========================================================= -->
+<iframe id="cookieIframe" src="cookie.html" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 999999; display: none;"></iframe>
+
+<!-- =========================================================
+     CHAT IFRAME
+     ========================================================= -->
+<iframe id="chatIframe" src="chat.html" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 999998; display: none;"></iframe>
+
+<!-- =========================================================
+     COOKIE BUTTON (Left Bottom)
+     ========================================================= -->
+<div onclick="document.getElementById('cookieIframe').style.display='block';" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999999; width: 50px; height: 50px; background-color: #1863dc; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="#ffffff">
+		<path d="M257.5 27.6c-.8-5.4-4.9-9.8-10.3-10.6v0c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.1l36.7-75.6c9.8-20.1 13-42.9 9.1-64.9v0c-.9-5.4-5.3-9.5-10.7-10.3l-51.5-7.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-44.1-6.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-51.5-7.2c-4.9-.7-9.4-3.9-11.8-8.2zM176 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm64 96a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-128a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+	</svg>
+</div>
+
+<!-- =========================================================
+     CHAT BUTTON (Right Bottom)
+     ========================================================= -->
+<div onclick="document.getElementById('chatIframe').style.display='block';" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999999; width: 60px; height: 60px; background-color: #0056FF; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="34" height="34" fill="#ffffff" style="margin-top: 2px;">
+		<path d="M48 12H16C12.686 12 10 14.686 10 18v24c0 3.314 2.686 6 6 6h18.343l9.829 9.829c.63.63 1.707.184 1.707-.707V48H48c3.314 0 6-2.686 6-6V18c0-3.314-2.686-6-6-6zM38 38H26c-1.1 0-2-.9-2-2s.9-2 2-2h12c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+	</svg>
+</div>
+
+<!-- =========================================================
+     FLOATING BUTTON MOBILE SIZES
+     ========================================================= -->
+<style>
+	@media (max-width: 767px) {
+		div[onclick*="cookieIframe"] { width: 42px !important; height: 42px !important; bottom: 15px !important; left: 15px !important; }
+		div[onclick*="chatIframe"]   { width: 50px !important; height: 50px !important; bottom: 15px !important; right: 15px !important; }
+		div[onclick*="chatIframe"] svg   { width: 26px !important; height: 26px !important; }
+		div[onclick*="cookieIframe"] svg { width: 20px !important; height: 20px !important; }
+	}
+</style>
+
+<!-- =========================================================
+     CLOSE LISTENER
+     ========================================================= -->
+<script>
+window.addEventListener('message', function(event) {
+	if (event.data && event.data.action === 'closeCookieWidget') {
+		document.getElementById('cookieIframe').style.display = 'none';
+	}
+	if (event.data && event.data.action === 'cookiePreferencesSaved') {
+		console.log('Preferences saved:', event.data.preferences);
+		document.getElementById('cookieIframe').style.display = 'none';
+	}
+	if (event.data && event.data.action === 'closeChatWidget') {
+		document.getElementById('chatIframe').style.display = 'none';
+	}
+});
+</script>
+</body>
+</html>

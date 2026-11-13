@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Faq - Kariez</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin/>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900|Outfit:100,200,300,400,500,600,700,800,900&display=swap">
+	<link rel="stylesheet" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-30dfa37d2f1c78c9b5ad85be7038f551.css" media="all" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<style>
+		/* ============================================================
+		   KARIEZ DEFAULT STYLES
+		   ============================================================ */
+		:root{
+			--rt-primary-color: #FFCC00;
+			--rt-secondary-color: #FFFCEE;
+			--rt-tertiary-color: #ffb000;
+			--rt-body-bg-color: #ffffff;
+			--rt-body-color: #484848;
+			--rt-border-color: #B0B0B0;
+			--rt-title-color: #000000;
+			--rt-button-color: #ffffff;
+			--rt-button-text-color: #000000;
+			--rt-meta-color: #FFCC00;
+			--rt-meta-light: #b2c2c0;
+			--rt-gray10: #f1f1f1;
+			--rt-gray20: #edf5f4;
+			--rt-body-rgb: 72, 72, 72;
+			--rt-title-rgb: 0, 0, 0;
+			--rt-primary-rgb: 255, 204, 0;
+			--rt-secondary-rgb: 255, 252, 238;
+			--rt-tertiary-rgb: 255, 176, 0;
+			--rt-container-width: 1320px;
+			--rt-body-font: 'DM Sans', sans-serif;
+			--rt-heading-font: 'Outfit', sans-serif;
+			--rt-menu-font: 'DM Sans', sans-serif;
+		}
+		body{color: #484848; font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 30px; font-weight: normal; margin: 0;}
+		.site-header{font-family: 'DM Sans', sans-serif;}
+		.kariez-navigation ul li a{font-size: 16px; line-height: 22px; font-weight: 600;}
+		.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family: 'Outfit', sans-serif; font-weight: 700;}
+		h1, .h1{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		h2, .h2{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		h3, .h3{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		h4, .h4{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		h5, .h5{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		h6, .h6{font-family: 'Outfit', sans-serif; font-weight: 100;}
+		.site-branding .rt-mobile-logo{max-width: 180px; max-height: 40px; object-fit: contain;}
+		body .main-header-section{border-bottom: none;}
+		body .kariez-breadcrumb-wrapper{border-bottom: none;}
+
+		/* ============================================================
+		   MOBILE MENU OFFCANVAS CUSTOMIZATION (MATCHING IMAGE)
+		   ============================================================ */
+		@media (max-width: 991px) {
+			.kariez-offcanvas-drawer {
+				position: fixed; top: 0; right: -400px; width: 360px; max-width: 90vw;
+				height: 100vh; background: #fff; z-index: 99999; padding: 30px;
+				overflow-y: auto; transition: right 0.35s ease;
+				box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+			}
+			.kariez-offcanvas-drawer.active { right: 0; }
+			.kariez-body-overlay {
+				position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 99998;
+				opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+			}
+			.kariez-body-overlay.active { opacity: 1; visibility: visible; }
+
+			.offcanvas-logo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+			.offcanvas-logo .site-title img { max-height: 40px; width: auto; }
+			
+			/* Yellow Square Close Button */
+			.offcanvas-logo .trigger-icon {
+				background: #FFCC00 !important; color: #fff !important;
+				width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+				font-size: 18px; text-decoration: none; transition: 0.3s;
+			}
+			.offcanvas-logo .trigger-icon:hover { background: #000 !important; }
+
+			.offcanvas-address label {
+				font-size: 18px; font-weight: 700; color: #000;
+				text-transform: none; letter-spacing: 0; margin-bottom: 20px;
+				font-family: 'Outfit', sans-serif; display: block;
+			}
+			.offcanvas-address p { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 30px; }
+
+			/* Navigation List */
+			.offcanvas-navigation ul { list-style: none; padding: 0; margin: 0 0 30px 0; }
+			.offcanvas-navigation ul li { border-bottom: none !important; margin-bottom: 20px; }
+			
+			/* FORCE FLEXBOX to fix the broken layout */
+			.offcanvas-navigation ul li > a {
+				display: flex !important; 
+				flex-direction: row !important;
+				justify-content: space-between !important; 
+				align-items: center !important;
+				width: 100% !important;
+				padding: 0 !important; 
+				color: #000 !important; 
+				font-size: 17px !important; 
+				font-weight: 700 !important;
+				font-family: 'Outfit', sans-serif !important; 
+				text-decoration: none !important;
+			}
+			
+			/* Active State */
+			.offcanvas-navigation ul li.current-menu-item > a,
+			.offcanvas-navigation ul li.current-menu-parent > a,
+			.offcanvas-navigation ul li.current_page_parent > a,
+			.offcanvas-navigation ul li.active > a { color: #FFCC00 !important; }
+
+			/* Black Square Dropdown Arrow */
+			.offcanvas-navigation ul li > a .menu-toggle-icon {
+				display: inline-flex !important;
+				align-items: center !important; 
+				justify-content: center !important;
+				background: #000 !important; 
+				color: #fff !important;
+				width: 24px !important; 
+				height: 24px !important; 
+				margin-left: auto !important; /* Pushes arrow to the right */
+				flex-shrink: 0 !important;
+				font-size: 12px !important; 
+				border-radius: 0 !important;
+			}
+
+			/* Submenu */
+			.offcanvas-navigation ul li ul.dropdown-menu { padding-left: 0; margin-top: 15px; display: none; }
+			.offcanvas-navigation ul li.open ul.dropdown-menu { display: block; }
+			.offcanvas-navigation ul li ul.dropdown-menu li { margin-bottom: 12px; }
+			.offcanvas-navigation ul li ul.dropdown-menu li a {
+				font-weight: 500 !important; color: #666 !important; font-size: 15px !important;
+				font-family: 'DM Sans', sans-serif !important; display: block !important; padding: 0 !important;
+			}
+			.offcanvas-navigation ul li ul.dropdown-menu li a:hover { color: #FFCC00 !important; }
+
+			/* Contact Info */
+			.offcanvas-address .offcanvas-info { list-style: none; padding: 0; margin: 0 0 25px 0; }
+			.offcanvas-info li {
+				display: flex; gap: 12px; align-items: flex-start;
+				margin-bottom: 15px; font-size: 15px; line-height: 1.5; color: #555;
+			}
+			.offcanvas-info li i { color: #333; font-size: 16px; margin-top: 4px; width: 20px; text-align: center; }
+			.offcanvas-info li a { color: #555; text-decoration: none; }
+			.offcanvas-info li a:hover { color: #FFCC00; }
+
+			/* Social Icons */
+			.offcanvas-social-icon { display: flex; gap: 10px; margin-top: 25px; }
+			.offcanvas-social-icon a {
+				width: 36px; height: 36px; border: 1px solid #ccc; border-radius: 50%; color: #333;
+				display: flex; align-items: center; justify-content: center;
+				text-decoration: none; transition: 0.3s;
+			}
+			.offcanvas-social-icon a:hover { background: #FFCC00; border-color: #FFCC00; color: #000; }
+		}
+
+		/* Fix for mobile logos displaying properly */
+		@media (max-width: 991px) {
+			.site-branding .rt-site-logo { display: none; }
+			.site-branding .rt-mobile-logo { display: block; }
+		}
+		@media (min-width: 992px) {
+			.site-branding .rt-mobile-logo { display: none; }
+			.site-branding .rt-site-logo.dark-logo { display: block; }
+		}
+
+		/* ============================================================
+		   FAQ PAGE LAYOUT FIX
+		   ============================================================ */
+		@media (min-width: 992px) {
+			.elementor-element-ac3a5ba > .e-con-inner {
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+				gap: 40px;
+			}
+			.elementor-element-d545495 {
+				width: 66.6666%;
+				flex: 0 0 66.6666%;
+			}
+			.elementor-element-d740f9d {
+				width: 33.3333%;
+				flex: 0 0 33.3333%;
+			}
+		}
+	</style>
+</head>
+
+<body class="wp-singular page-template page-template-elementor_header_footer page page-id-4194 wp-embed-responsive wp-theme-kariez kariez-header-1 kariez-footer-1 has-trheader tr-header-light has-menu-shadow has-banner has-top-bar layout-right-sidebar has-sticky-header elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-4194">
+
+<!-- preloader -->
+<div id="preloader"><img width="200" height="200" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2024/12/preloader.gif" alt="" decoding="async" /></div>
+
+<!-- ajax search overlay -->
+<div class="rt-focus"></div>
+	<!-- =========================================================
+	     HEADER
+	     ========================================================= -->
+	<header id="masthead" class="site-header headroom" role="banner">
+		<div class="main-header-section">
+			<div class="header-container rt-container">
+				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex; align-items:center;">
+
+					<div class="site-branding">
+						<span class="site-title">
+							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
+							</a>
+						</span>
+					</div>
+
+					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
+						<div class="menu-main-menu-container">
+							<ul class="kariez-navbar" style="display:flex; justify-content:center; list-style:none; margin:0; padding:0; gap:24px;">
+
+								<!-- HOME (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Home
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Multi Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+						 						<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- One Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+												<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- SERVICES (current) -->
+								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
+									<a href="service-kariez.html" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Services
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="current-menu-item"><a href="all-services.html">All Services</a></li>
+										<li><a href="air-kariez">Air Freight</a></li>
+										<li><a href="road-kariez.html">Road Transport</a></li>
+										<li><a href="ocean-kariez.html">Ocean Transport</a></li>
+										<li><a href="railway-kariez.html">Railway Transport</a></li>
+										<li><a href="warehousing-kariez.html">Warehousing</a></li>
+										<li><a href="distribution-kariez.html">Distribution</a></li>
+									</ul>
+								</li>
+
+								<!-- PAGES -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Pages
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="about-page.html">About Us</a></li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Team Default <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="team-01.html">Team 01</a></li>
+												<li><a href="alex-hales.html">Team Single</a></li>
+											</ul>
+										</li>
+										<li><a href="error.html">Error Page</a></li>
+										<li><a href="job-application.html">Job Application</a></li>
+										<li><a href="job-details.html">Job Details</a></li>
+										<li><a href="faq.html">Faq</a></li>
+									</ul>
+								</li>
+
+								<!-- PROJECT -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Project
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Grid View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="grid-col-2.html">Grid Col-2</a></li>
+												<li><a href="grid-col-3.html">Grid Col-3</a></li>
+												<li><a href="grid-col-4.html">Grid Col-4</a></li>
+												<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+												<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+											</ul>
+										</li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Masonry View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="col2.html">Masonry col-2</a></li>
+												<li><a href="col3.html">Masonry col-3</a></li>
+												<li><a href="masonry-wide.html">Masonry Wide</a></li>
+												<li><a href="masonry-hover.html">Masonry Hover</a></li>
+											</ul>
+										</li>
+										<li><a href="project-single.html">Project Single</a></li>
+									</ul>
+								</li>
+
+								<!-- BLOG (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Blog
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Blog Archive</h4>
+											<ul>
+												<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+												<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+												<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+												<li><a href="blog-list-01.html">Blog List 01</a></li>
+												<li><a href="blog-list-02.html">Blog List 02</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- Blog Single</h4>
+											<ul>
+												<li><a href="blog-single-01.html">Default From Theme</a></li>
+												<li><a href="blog-single-02.html">Container width Thumb</a></li>
+												<li><a href="blog-single-03.html">Transparent Thumb</a></li>
+												<li><a href="blog-single-04.html">Content Over on Thumb</a></li>
+												<li><a href="blog-single-05.html">Meta Under Thumb</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- CONTACT -->
+								<li class="menu-item"><a href="contact-kariez.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+
+					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+						<ul class="menu-icon-action" style="display:flex; align-items:center; gap:18px; list-style:none; margin:0; padding:0;">
+							<li style="display:flex; align-items:center;">
+								<div id="google_translate_element"></div>
+							</li>
+							<li class="ham-burger mobile-hamburg">
+								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</li>
+							<li class="rt-phone-2">
+								<a class="phone-box" href="tel:+16788563229" aria-label="phone number" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+									<div class="phone-icon" style="width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-phone"></i></div>
+									<div class="content" style="display:flex; flex-direction:column; line-height:1.3;">
+										<span class="phone-label" style="font-size:12px; opacity:0.8;">Have Any Questions?</span>
+										<span class="phone-number" style="font-size:14px; font-weight:700;">+1 (442) 888-6223</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- =========================================================
+	     OFFCANVAS MOBILE MENU
+	     ========================================================= -->
+	<div class="kariez-offcanvas-drawer">
+		<div class="offcanvas-logo">
+			<a href="index.html" class="site-title-logo">
+				<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Kariez">
+			</a>
+			<a class="trigger-icon trigger-off-canvas" href="#"><i class="fa-solid fa-xmark"></i></a>
+		</div>
+
+		<div class="offcanvas-about offcanvas-address">
+			<label>About Us</label>
+			<p>Manage and streamline operations across multiple locations, sales channels, and employees to has improve efficiency and your bottom line.</p>
+		</div>
+
+		<nav class="offcanvas-navigation" role="navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu-1" class="menu">
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Home</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html">Main Home</a></li>
+							<li><a href="home01.html">Cargo Shipping</a></li>
+							<li><a href="home02.html">Ship Shipping</a></li>
+							<li><a href="home03.html">Air Shipping</a></li>
+							<li><a href="home04.html">Moving Company</a></li>
+							<li><a href="home05.html">Land Transport</a></li>
+							<li><a href="home06.html">Shipment</a></li>
+							<li><a href="home07.html">Slider Home</a></li>
+							<li><a href="home08.html">Global Logistics</a></li>
+							<li><a href="home09.html">Transport</a></li>
+							<li><a href="home10.html">Global Logistics 02</a></li>
+							<li><a href="home11.html">Transportation</a></li>
+							<li><a href="home12.html">Moving Service</a></li>
+							<li><a href="home13.html">Truck Freight</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children current-menu-item">
+						<a href="service.html"><span class="menu-text">Services</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="service-kariez.html">All Services</a></li>
+							<li><a href="air-kariez.html">Air Freight</a></li>
+							<li><a href="road-kariez.html">Road Transport</a></li>
+							<li><a href="ocean-kariez.html">Ocean Transport</a></li>
+							<li><a href="railway-kariez.html">Railway Transport</a></li>
+							<li><a href="warehousing-kariez.html">Warehousing</a></li>
+							<li><a href="distribution-kariez.html">Distribution</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Pages</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="team-01.html">Team Default</a></li>
+							<li><a href="job-application.html">Job Application</a></li>
+							<li><a href="job-details.html">Job Details</a></li>
+							<li><a href="error.html">Error Page</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Project</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="project-grid.html">Grid View</a></li>
+							<li><a href="project-masonry.html">Masonry View</a></li>
+							<li><a href="project-single.html">Project Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Blog</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="blog-archive.html">Blog Archive</a></li>
+							<li><a href="blog-single.html">Blog Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item"><a href="contact-kariez.html"><span class="menu-text">Contact</span></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="offcanvas-address">
+			<label>Contact Info</label>
+			<ul class="offcanvas-info">
+				<li><i class="fa-solid fa-location-dot"></i> <span>USA, Canada, UK, Europe, Australia, Asia.</span></li>
+				<li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@kariez.com">info@kariez.com</a></li>
+				<li><i class="fa-regular fa-clock"></i> <span>Mon - Frd : 8:00 -16:00</span></li>
+			</ul>
+			<div class="offcanvas-social-icon">
+				<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+				<a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+				<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="kariez-body-overlay"></div>
+
+	<!-- ============================== BREADCRUMB ============================== -->
+	<div id="content" class="site-content">
+		<div class="kariez-breadcrumb-wrapper has-bg no-color banner-light">
+			<span class="banner-image" style="background-image:url(https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/breadcrumb-1-scaled.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;"></span>
+			<div class="container default">
+				<h1 class="entry-title">Faq</h1>
+				<div class="breadcrumb-area">
+					<div class="entry-breadcrumb">
+						<span><a href="index.html" class="home"><span>Kariez</span></a></span>
+						<span class="dvdr"></span>
+						<span><span class="post post-page current-item">Faq</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-elementor-type="wp-page" data-elementor-id="4194" class="elementor elementor-4194">
+			<div class="elementor-element elementor-element-ac3a5ba e-flex e-con-boxed rt-parallax-bg-no e-con e-parent" data-id="ac3a5ba" data-element_type="container" data-e-type="container">
+				<div class="e-con-inner">
+					
+					<!-- FAQ Accordion -->
+					<div class="elementor-element elementor-element-d545495 e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="d545495" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-ffefb97 faq-style-1 elementor-widget elementor-widget-n-accordion" data-id="ffefb97" data-element_type="widget" data-e-type="widget" data-settings='{"default_state":"expanded","max_items_expended":"one","n_accordion_animation_duration":{"unit":"ms","size":400,"sizes":[]}}' data-widget_type="nested-accordion.default">
+							<div class="elementor-widget-container">
+								<div class="e-n-accordion" aria-label="Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys">
+									<details id="e-n-accordion-item-2680" class="e-n-accordion-item" open>
+										<summary class="e-n-accordion-item-title" data-accordion-index="1" tabindex="0" aria-expanded="true" aria-controls="e-n-accordion-item-2680">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> What happens to my data if I cancel? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2680" class="elementor-element elementor-element-cbb4f33 e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="cbb4f33" data-element_type="container" data-e-type="container">
+											<div role="region" aria-labelledby="e-n-accordion-item-2680" class="elementor-element elementor-element-6dc86bd e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="6dc86bd" data-element_type="container" data-e-type="container">
+												<div class="e-con-inner">
+													<div class="elementor-element elementor-element-b7398f7 elementor-widget elementor-widget-text-editor" data-id="b7398f7" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2681" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="2" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2681">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> What are the different types of marketing solutions? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2681" class="elementor-element elementor-element-2713d02 e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="2713d02" data-element_type="container" data-e-type="container">
+											<div role="region" aria-labelledby="e-n-accordion-item-2681" class="elementor-element elementor-element-9ca37b9 e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="9ca37b9" data-element_type="container" data-e-type="container">
+												<div class="e-con-inner">
+													<div class="elementor-element elementor-element-522eef3 elementor-widget elementor-widget-text-editor" data-id="522eef3" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<div> </div><p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2682" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="3" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2682">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> How often should i work on the digital marketing? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2682" class="elementor-element elementor-element-10b5e3f e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="10b5e3f" data-element_type="container" data-e-type="container">
+											<div role="region" aria-labelledby="e-n-accordion-item-2682" class="elementor-element elementor-element-a582615 e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="a582615" data-element_type="container" data-e-type="container">
+												<div class="e-con-inner">
+													<div class="elementor-element elementor-element-fe41bca elementor-widget elementor-widget-text-editor" data-id="fe41bca" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2683" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="4" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2683">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> Are social media good for the business growth? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2683" class="elementor-element elementor-element-268d870 e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="268d870" data-element_type="container" data-e-type="container">
+											<div class="e-con-inner">
+												<div role="region" aria-labelledby="e-n-accordion-item-2683" class="elementor-element elementor-element-cee08bb e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="cee08bb" data-element_type="container" data-e-type="container">
+													<div class="elementor-element elementor-element-49c9e6d elementor-widget elementor-widget-text-editor" data-id="49c9e6d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2684" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="5" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2684">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> What activities are done in the development? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2684" class="elementor-element elementor-element-579d60b e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="579d60b" data-element_type="container" data-e-type="container">
+											<div class="e-con-inner">
+												<div role="region" aria-labelledby="e-n-accordion-item-2684" class="elementor-element elementor-element-b9e8c35 e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="b9e8c35" data-element_type="container" data-e-type="container">
+													<div class="elementor-element elementor-element-2a3763d elementor-widget elementor-widget-text-editor" data-id="2a3763d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2685" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="6" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2685">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> What is the most important thing in a designing? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2685" class="elementor-element elementor-element-57de9fd e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="57de9fd" data-element_type="container" data-e-type="container">
+											<div class="e-con-inner">
+												<div role="region" aria-labelledby="e-n-accordion-item-2685" class="elementor-element elementor-element-afbe72d e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="afbe72d" data-element_type="container" data-e-type="container">
+													<div class="elementor-element elementor-element-93bd200 elementor-widget elementor-widget-text-editor" data-id="93bd200" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+									<details id="e-n-accordion-item-2686" class="e-n-accordion-item">
+										<summary class="e-n-accordion-item-title" data-accordion-index="7" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-2686">
+											<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> What is the purpose of a UI / UX? </div></span>
+											<span class='e-n-accordion-item-title-icon'>
+												<span class='e-opened'><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+												<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+											</span>
+										</summary>
+										<div role="region" aria-labelledby="e-n-accordion-item-2686" class="elementor-element elementor-element-456a226 e-flex e-con-boxed rt-parallax-bg-no e-con e-child" data-id="456a226" data-element_type="container" data-e-type="container">
+											<div class="e-con-inner">
+												<div role="region" aria-labelledby="e-n-accordion-item-2686" class="elementor-element elementor-element-20350f0 e-con-full e-flex rt-parallax-bg-no e-con e-child" data-id="20350f0" data-element_type="container" data-e-type="container">
+													<div class="elementor-element elementor-element-0ab0089 elementor-widget elementor-widget-text-editor" data-id="0ab0089" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the as integer quam dolor nunc semper. Ornare non nulla faucibus pulvinar vulputate neque. The as Suscipit tristique nam enim mauris consectetur as platea. The Cras aliquet accumsan. Egestas ut eget egestas as that ultrices mauris commodo pellente pretium tincidunt.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</details>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Sidebar -->
+					<div class="elementor-element elementor-element-d740f9d e-con-full kariez-widget-area e-flex rt-parallax-bg-no e-con e-child" data-id="d740f9d" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-e5a9727 elementor-widget elementor-widget-sidebar" data-id="e5a9727" data-element_type="widget" data-e-type="widget" data-widget_type="sidebar.default">
+							<div class="elementor-widget-container">
+								<section id="kariez_search-2" class=" widget rt-sidebar widget_kariez_search">        
+									<div class="quaxa-search-form">
+										<form method="get" class="kariez-search-form" action="#">
+											<div class="search-box">
+												<input type="text" class="form-control" placeholder="Type your search" value="" name="s" />
+												<button class="item-btn" type="submit">
+													<span  class='rticon-search'><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.06714 1.61988C7.23998 1.13407 8.49703 0.884033 9.7665 0.884033C11.036 0.884033 12.293 1.13407 13.4659 1.61988C14.6387 2.10569 15.7044 2.81775 16.602 3.7154C17.4997 4.61305 18.2117 5.67872 18.6975 6.85156C19.1833 8.02441 19.4334 9.28145 19.4334 10.5509C19.4334 11.8204 19.1833 13.0774 18.6975 14.2503C18.3398 15.114 17.8594 15.9195 17.2725 16.6427L21.3069 20.6771C21.6975 21.0677 21.6975 21.7008 21.3069 22.0914C20.9164 22.4819 20.2833 22.4819 19.8927 22.0914L15.8583 18.0569C14.1437 19.4485 11.9948 20.2178 9.7665 20.2178C7.20268 20.2178 4.74387 19.1993 2.93098 17.3864C1.11808 15.5736 0.0996094 13.1147 0.0996094 10.5509C0.0996094 7.9871 1.11808 5.52829 2.93098 3.7154C3.82863 2.81775 4.8943 2.10569 6.06714 1.61988ZM9.7665 2.88403C8.75967 2.88403 7.7627 3.08234 6.83251 3.46764C5.90232 3.85294 5.05713 4.41768 4.34519 5.12961C2.90737 6.56743 2.09961 8.51754 2.09961 10.5509C2.09961 12.5843 2.90737 14.5344 4.34519 15.9722C5.78301 17.4101 7.73311 18.2178 9.7665 18.2178C11.7999 18.2178 13.75 17.4101 15.1878 15.9722C15.8997 15.2603 16.4645 14.4151 16.8498 13.4849C17.2351 12.5547 17.4334 11.5578 17.4334 10.5509C17.4334 9.54409 17.2351 8.54712 16.8498 7.61693C16.4645 6.68674 15.8997 5.84155 15.1878 5.12961C14.4759 4.41768 13.6307 3.85294 12.7005 3.46764C11.7703 3.08234 10.7733 2.88403 9.7665 2.88403Z"/></svg></span>
+													<span class="btn-label">Search</span>
+												</button>
+											</div>
+										</form>
+									</div>
+								</section>
+								<section id="block-11" class=" widget rt-sidebar widget_block">
+									<h3 class="widget-title">Categories</h3>
+									<div class="wp-widget-group__inner-blocks">
+										<ul class="wp-block-categories-list wp-block-categories-taxonomy-category wp-block-categories">
+											<li class="cat-item"><a href="#">Airways</a></li>
+											<li class="cat-item"><a href="#">Cargo</a></li>
+											<li class="cat-item"><a href="#">Check</a></li>
+											<li class="cat-item"><a href="#">Commercial</a></li>
+											<li class="cat-item"><a href="#">Packaging</a></li>
+											<li class="cat-item"><a href="#">Track</a></li>
+										</ul>
+									</div>
+								</section>
+								<section id="block-12" class=" widget rt-sidebar widget_block">
+									<h3 class="widget-title">Tags</h3>
+									<div class="wp-widget-group__inner-blocks">
+										<p class="wp-block-tag-cloud">
+											<a href="#" class="tag-cloud-link">Agriculture</a>
+											<a href="#" class="tag-cloud-link">Delivery</a>
+											<a href="#" class="tag-cloud-link">Shipping</a>
+											<a href="#" class="tag-cloud-link">Transport</a>
+											<a href="#" class="tag-cloud-link">Truck</a>
+											<a href="#" class="tag-cloud-link">Warehouse</a>
+										</p>
+									</div>
+								</section>
+								<section id="block-16" class=" widget rt-sidebar widget_block widget_media_image">
+									<figure class="wp-block-image size-full">
+										<img loading="lazy" decoding="async" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/add.png" width="832" height="780" alt="" class="wp-image-10003 lazyload">
+									</figure>
+								</section>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+			<div class="elementor-element elementor-element-a0f2cef e-con-full e-flex rt-parallax-bg-no e-con e-parent" data-id="a0f2cef" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-f274ffd elementor-invisible elementor-widget elementor-widget-rt-logo-brand" data-id="f274ffd" data-element_type="widget" data-e-type="widget" data-widget_type="rt-logo-brand.default">
+					<div class="elementor-widget-container">
+						<div class="rt-logo-brand">
+							<div class="rt-swiper-slider default" data-xld='{"slidesPerView":2,"loop":true,"spaceBetween":24,"slidesPerGroup":1,"centeredSlides":false,"slideToClickedSlide":true,"autoplay":{"delay":5000},"speed":1000,"breakpoints":{"0":{"slidesPerView":1},"320":{"slidesPerView":"1"},"425":{"slidesPerView":"2"},"576":{"slidesPerView":"3"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"5"},"1600":{"slidesPerView":"7"}},"auto":true}'>
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-1.svg" width="126" height="50" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-2.svg" width="241" height="48" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-1.svg" width="126" height="50" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-3.svg" width="250" height="50" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-5.svg" width="120" height="50" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-4.svg" width="205" height="52" alt=""></a></div></div>
+									<div class="swiper-slide"><div class="logo-box gray wow-off fadeIn"><a href="#" aria-label="brand logo"><img loading="lazy" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/brand-logo-3.svg" width="250" height="50" alt=""></a></div></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="elementor-element elementor-element-cf9796d e-flex e-con-boxed rt-parallax-bg-no e-con e-parent" data-id="cf9796d" data-element_type="container" data-e-type="container" data-settings='{"background_background":"classic"}'>
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-5581563 elementor-invisible elementor-widget elementor-widget-rt-title" data-id="5581563" data-element_type="widget" data-e-type="widget" data-widget_type="rt-title.default">
+						<div class="elementor-widget-container">
+							<div class="section-title-wrapper section-title-wrapper-layout-1">
+								<div class="title-inner-wrapper">
+									<div class="wow-off fadeInUp" data-wow-delay="400ms" data-wow-duration="1200ms">
+										<h2 class="main-title">Have a Project in Mind?</h2>
+									</div>
+									<div class="description wow-off fadeInUp" data-wow-delay="600ms" data-wow-duration="1200ms"><p>As a app web crawler expert, We will help to organise.</p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-0a6ae92 elementor-invisible elementor-widget elementor-widget-rt-button" data-id="0a6ae92" data-element_type="widget" data-e-type="widget" data-widget_type="rt-button.default">
+						<div class="elementor-widget-container">
+							<div class="rt-button wow-off fadeInUp" data-wow-delay="200ms" data-wow-duration="1200ms">
+								<a class="btn button-4 " href="contact-kariez.html" aria-label="button link">
+									<span class="button-text">Get In Touch</span>
+									<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ============================== FOOTER ============================== -->
+	<footer class="site-footer kariez-footer-builder" role="contentinfo">
+		<div data-elementor-type="wp-post" data-elementor-id="6589" class="elementor elementor-6589">
+			<div class="elementor-element elementor-element-29998d3 e-flex e-con-boxed rt-parallax-bg-no e-con e-parent" data-settings='{"background_background":"classic"}'>
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-f71132e e-con-full e-flex rt-parallax-bg-no e-con e-child">
+						<div class="elementor-element elementor-element-1676c06 e-con-full e-flex rt-parallax-bg-no e-con e-child">
+							<div class="elementor-element elementor-element-572c6ca elementor-widget elementor-widget-rt-site-logo">
+								<div class="elementor-widget-container">
+									<div class="site-branding light">
+										<span class="site-title">
+											<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
+												<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo dark-logo" alt="" />
+											</a>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-d90b873 elementor-widget elementor-widget-text-editor">
+								<div class="elementor-widget-container">
+									<p>Lorem ipsum dolor amet consectetur adipiscing elit integer.</p>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-92d7d83 elementor-invisible elementor-widget elementor-widget-rt-social-icon">
+								<div class="elementor-widget-container">
+									<div class="rt-social-icon">
+										<div class="rt-social-item">
+											<a href="#" aria-label="Social Icon"><i class="fa-brands fa-facebook-f"></i></a>
+											<a href="#" aria-label="Social Icon"><i class="fa-brands fa-x-twitter"></i></a>
+											<a href="#" aria-label="Social Icon"><i class="fa-brands fa-linkedin-in"></i></a>
+											<a href="#" aria-label="Social Icon"><i class="fa-brands fa-instagram"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-3afd1ec e-con-full e-flex rt-parallax-bg-no e-con e-child">
+							<div class="elementor-element elementor-element-e1d1a00 elementor-invisible elementor-widget elementor-widget-rt-title">
+								<div class="elementor-widget-container">
+									<div class="section-title-wrapper section-title-wrapper-layout-2">
+										<div class="title-inner-wrapper">
+											<div class="wow-off fadeInUp" data-wow-delay="400ms" data-wow-duration="1200ms">
+												<h2 class="main-title">Company Links</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-a37258f elementor-widget elementor-widget-rt-site-menu">
+								<div class="elementor-widget-container">
+									<nav class="kariez-navigation" role="navigation">
+										<div class="menu-footer-menu-1-container">
+											<ul id="menu-footer-menu-1" class="kariez-navbar">
+												<li class="menu-item"><a href="service-kariez.html">Services</a></li>
+												<li class="menu-item"><a href="contact-kariez.html">Contact Us</a></li>
+												<li class="menu-item"><a href="disclaimer-kariez.html">Disclaimer</a></li>
+												<li class="menu-item"><a href="job-application.html">Careers</a></li>
+												<li class="menu-item"><a href="privacy-kariez.html">Privacy Policy</a></li>
+												<li class="menu-item"><a href="contact-kariez.html">Location</a></li>
+											</ul>
+										</div>
+									</nav>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-9001c8b e-con-full e-flex rt-parallax-bg-no e-con e-child">
+							<div class="elementor-element elementor-element-278d57b elementor-invisible elementor-widget elementor-widget-rt-title">
+								<div class="elementor-widget-container">
+									<div class="section-title-wrapper section-title-wrapper-layout-2">
+										<div class="title-inner-wrapper">
+											<div class="wow-off fadeInUp" data-wow-delay="400ms" data-wow-duration="1200ms">
+												<h2 class="main-title">Company Service</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-015f496 elementor-widget elementor-widget-rt-site-menu">
+								<div class="elementor-widget-container">
+									<nav class="kariez-navigation" role="navigation">
+										<div class="menu-footer-menu-2-container">
+											<ul id="menu-footer-menu-2" class="kariez-navbar">
+												<li class="menu-item"><a href="service-kariez.html">What We Do</a></li>
+												<li class="menu-item"><a href="contact-kariez.html">Request a Freight</a></li>
+												<li class="menu-item"><a href="contact-kariez.html">Track &#038; Trace</a></li>
+												<li class="menu-item"><a href="air-kariez.html">Air Freight</a></li>
+												<li class="menu-item"><a href="railway-kariez.html">Rail Freight</a></li>
+												<li class="menu-item"><a href="ocean-kariez.html">Maritime Transport</a></li>
+											</ul>
+										</div>
+									</nav>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-738f38c e-con-full e-flex rt-parallax-bg-no e-con e-child">
+							<div class="elementor-element elementor-element-dd552ee elementor-invisible elementor-widget elementor-widget-rt-title">
+								<div class="elementor-widget-container">
+									<div class="section-title-wrapper section-title-wrapper-layout-2">
+										<div class="title-inner-wrapper">
+											<div class="wow-off fadeInUp" data-wow-delay="400ms" data-wow-duration="1200ms">
+												<h2 class="main-title">Say Hello!</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-72b3a0e elementor-position-inline-start rt-support-wrap elementor-mobile-position-inline-start elementor-view-default elementor-widget elementor-widget-icon-box">
+								<div class="elementor-widget-container">
+									<div class="elementor-icon-box-wrapper">
+										<div class="elementor-icon-box-icon">
+											<a href="#" class="elementor-icon" tabindex="-1" aria-label="Support Centre 24/7">
+												<i aria-hidden="true" class="fa-solid fa-phone"></i>
+											</a>
+										</div>
+										<div class="elementor-icon-box-content">
+											<h3 class="elementor-icon-box-title"><a href="#">Support Centre 24/7</a></h3>
+											<p class="elementor-icon-box-description">897 686 5475 48</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-89d1c5a elementor-invisible elementor-widget elementor-widget-rt-contact-info">
+								<div class="elementor-widget-container">
+									<div class="rt-contact-info wow-off fadeInUp" data-wow-delay="200ms" data-wow-duration="1200ms">
+										<div class="content-holder">
+											<ul class="contact-list list-vertical">
+												<li class="list "><span>Get in touch with us:</span> yourwebsitename.com</li>
+												<li class="list "><span>Address:</span> Germany —785 15h Street, Office 478Berlin, De 81566</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-element elementor-element-95e87e5 e-flex e-con-boxed rt-parallax-bg-no e-con e-parent" data-settings='{"background_background":"classic"}'>
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-1776642 e-con-full e-flex rt-parallax-bg-no e-con e-child">
+						<div class="elementor-element elementor-element-fec114d elementor-widget elementor-widget-rt-copy-right">
+							<div class="elementor-widget-container">
+								<div class="copyright-text">© 2026 RadiusTheme. All Rights Reserved</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-05935de e-con-full e-flex rt-parallax-bg-no e-con e-child">
+						<div class="elementor-element elementor-element-1191554 rt-copyright-menu elementor-widget elementor-widget-rt-site-menu">
+							<div class="elementor-widget-container">
+								<nav class="kariez-navigation" role="navigation">
+									<div class="menu-copyright-menu-container">
+										<ul id="menu-copyright-menu" class="kariez-navbar">
+											<li class="menu-item"><a href="privacy-kariez.html">Privacy</a></li>
+											<li class="menu-item"><a href="terms-conditions.html">Тerms &#038; Conditions</a></li>
+											<li class="menu-item"><a href="contact-kariez.html"> Site map </a></li>
+											<li class="menu-item"><a href="contact-kariez.html">Contact</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<a href="#" class="kariez-bc-totop ">
+		<span class="progress-wrapper"><span class="progress"></span></span>
+		<i class="fa-solid fa-arrow-up"></i>
+	</a>
+</div><!-- #page -->
+
+<!-- FLOATING BUY NOW BUTTON -->
+<div class="rtdsp-buy-now-float-wrap rtdsp-buy-now-float-wrap--middle-right" style="--rtdsp-bnf-dx: 15px; --rtdsp-bnf-dy: 24px; position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 99;">
+	<a class="rtdsp-buy-now-float-btn" href="#" target="_blank" rel="noopener" style="background-color: #82b440; color: #ffffff; display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 30px 0 0 30px; text-decoration: none; font-weight: 600; font-size: 14px;">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+		<span class="rtdsp-buy-now-float-btn__text">Buy Now</span>
+	</a>
+</div>
+
+<!-- ============================== SCRIPTS ============================== -->
+<script id="jquery-core-js" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-includes/js/jquery/jquery.min.js"></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/headroom.js"></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/swiper.min.js"></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/wow.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	// Offcanvas Menu Toggle
+	const triggerBtns = document.querySelectorAll('.trigger-off-canvas');
+	const drawer = document.querySelector('.kariez-offcanvas-drawer');
+	const overlay = document.querySelector('.kariez-body-overlay');
+
+	triggerBtns.forEach(btn => {
+		btn.addEventListener('click', function(e) {
+			e.preventDefault();
+			drawer.classList.toggle('active');
+			overlay.classList.toggle('active');
+		});
+	});
+
+	overlay.addEventListener('click', function() {
+		drawer.classList.remove('active');
+		overlay.classList.remove('active');
+	});
+
+	// Mobile Submenu Toggle
+	const parents = document.querySelectorAll('.offcanvas-navigation li.menu-item-has-children > a');
+	parents.forEach(function(a){
+		a.addEventListener('click', function(e){
+			e.preventDefault();
+			a.parentElement.classList.toggle('open');
+		});
+	});
+
+	// Headroom init
+	if (typeof Headroom !== 'undefined') {
+		var headerEl = document.querySelector('.site-header');
+		if (headerEl) {
+			new Headroom(headerEl, {
+				offset: 80,
+				tolerance: { up: 5, down: 5 },
+				classes: { initial:'headroom', pinned:'headroom--pinned', unpinned:'headroom--unpinned', top:'headroom--top', notTop:'headroom--not-top' }
+			}).init();
+		}
+	}
+	
+	// Logo Swiper init
+	if (typeof Swiper !== 'undefined') {
+		var sliders = document.querySelectorAll('.rt-swiper-slider');
+		sliders.forEach(function(el) {
+			var cfg = {};
+			try { cfg = JSON.parse(el.getAttribute('data-xld') || '{}'); } catch(e) {}
+			new Swiper(el, cfg);
+		});
+	}
+});
+</script>
+
+</body>
+</html>

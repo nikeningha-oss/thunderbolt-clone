@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Page 3 - Thunderboltcarriers</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           THEME VARIABLES & BASE STYLES
+           ============================================================ */
+        :root {
+            --rt-primary: #FFCC00;
+            --rt-body-font: 'DM Sans', sans-serif;
+            --rt-heading-font: 'Outfit', sans-serif;
+            --rt-dark: #000000;
+            --rt-gray: #484848;
+            --rt-light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: var(--rt-body-font);
+            color: var(--rt-gray);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--rt-heading-font);
+            color: var(--rt-dark);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; }
+
+        /* ============================================================
+           HEADER & NAVBAR
+           ============================================================ */
+        .site-header {
+            background: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand img { max-height: 40px; }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+        }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: var(--rt-primary);
+        }
+        
+        /* Hamburger Button */
+        .navbar-toggler {
+            border: none;
+            color: #fff;
+            font-size: 24px;
+        }
+        .navbar-toggler:focus { box-shadow: none; }
+
+        /* ============================================================
+           OFFCANVAS MOBILE MENU
+           ============================================================ */
+        .offcanvas {
+            width: 360px;
+            max-width: 90vw;
+            padding: 30px;
+            border-left: none;
+        }
+
+        /* Yellow Close Button */
+        .offcanvas-header { padding: 0 0 30px 0; }
+        .btn-close-custom {
+            background-color: var(--rt-primary);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn-close-custom:hover { background-color: #000; color: #fff; }
+
+        /* About Text */
+        .offcanvas-about label {
+            font-family: var(--rt-heading-font);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--rt-dark);
+            display: block;
+            margin-bottom: 20px;
+        }
+        .offcanvas-about p { font-size: 14px; color: #555; margin-bottom: 30px; }
+
+        /* Navigation Links */
+        .offcanvas .navbar-nav { margin-bottom: 30px; }
+        .offcanvas .nav-item { margin-bottom: 15px; }
+        
+        .offcanvas .nav-link {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100%;
+            padding: 0;
+            color: var(--rt-dark);
+            font-family: var(--rt-heading-font);
+            font-size: 17px;
+            font-weight: 700;
+        }
+        .offcanvas .nav-link.active { color: var(--rt-primary) !important; }
+
+        /* Black Square Arrow */
+        .menu-toggle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            font-size: 12px;
+        }
+
+        /* Submenu */
+        .offcanvas .dropdown-menu {
+            border: none;
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+        .offcanvas .dropdown-item {
+            font-size: 15px;
+            color: #666;
+            font-family: var(--rt-body-font);
+            font-weight: 500;
+            padding: 8px 0;
+        }
+        .offcanvas .dropdown-item:hover { color: var(--rt-primary); background: transparent; }
+
+        /* Contact Info */
+        .offcanvas-info { list-style: none; padding: 0; margin: 0 0 25px 0; }
+        .offcanvas-info li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #555;
+        }
+        .offcanvas-info li i { color: #333; margin-top: 4px; width: 16px; text-align: center; }
+
+        /* Social Icons */
+        .offcanvas-social { display: flex; gap: 10px; }
+        .offcanvas-social a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .offcanvas-social a:hover { background: var(--rt-primary); border-color: var(--rt-primary); color: #000; }
+
+        /* ============================================================
+           BREADCRUMB
+           ============================================================ */
+        .breadcrumb-area {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://thunderboltcarriers.com/wp-content/uploads/2025/02/breadcrumb-1-scaled-1.jpg') center/cover no-repeat;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: #fff;
+        }
+        .breadcrumb-area h1 { color: #fff; font-size: 45px; margin-bottom: 15px; }
+        .breadcrumb-item a { color: var(--rt-primary); }
+        .breadcrumb-item.active { color: #fff; }
+
+        /* ============================================================
+           SERVICES CARDS
+           ============================================================ */
+        .services-section { padding: 100px 0; background: #fff; }
+        
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--rt-primary);
+        }
+        
+        /* Outline Icon Style */
+        .service-icon i {
+            font-size: 50px;
+            color: transparent;
+            -webkit-text-stroke: 1.5px #000;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .service-title a { color: #000; transition: 0.3s; }
+        .service-title a:hover { color: var(--rt-primary); }
+        
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-service {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--rt-light-gray);
+            color: #000;
+            padding: 8px 8px 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            width: fit-content;
+            transition: 0.3s;
+        }
+        .btn-service:hover { background: #000; color: #fff; }
+        .btn-service .icon-circle {
+            background: var(--rt-primary);
+            color: #000;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .btn-service:hover .icon-circle {
+            background: #fff;
+            color: #000;
+        }
+
+        /* ============================================================
+           PAGINATION
+           ============================================================ */
+        .pagination-area { margin-top: 50px; }
+        .pagination-list { display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0; margin: 0; }
+        .pagination-list li a {
+            display: flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; border-radius: 5px;
+            background: #000; color: var(--rt-primary); font-weight: 600; text-decoration: none;
+            transition: 0.3s; font-size: 18px;
+        }
+        .pagination-list li.active a, .pagination-list li a:hover {
+            background: var(--rt-primary); color: #000;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .site-footer { background: #0a0a0a; color: #aaa; padding: 80px 0 30px; }
+        .site-footer h4 { color: #fff; font-size: 20px; margin-bottom: 25px; }
+        .site-footer ul { list-style: none; padding: 0; }
+        .site-footer ul li { margin-bottom: 12px; }
+        .site-footer ul li a { color: #aaa; transition: 0.3s; }
+        .site-footer ul li a:hover { color: var(--rt-primary); }
+        .footer-bottom { border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; text-align: center; font-size: 14px; }
+        
+        /* Floating Widgets */
+        .clone-cookie-widget {
+            position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px;
+            background-color: #1863dc; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            z-index: 9999; cursor: pointer; border: 2px solid #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .clone-chatway-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        .clone-chat-bubble {
+            width: 60px; height: 60px; background-color: #0056FF; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;
+            position: relative; border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+
+	<!-- =========================================================
+	     HEADER
+	     ========================================================= -->
+	<header id="masthead" class="site-header headroom" role="banner">
+		<div class="main-header-section">
+			<div class="header-container rt-container">
+				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex; align-items:center;">
+
+					<div class="site-branding">
+						<span class="site-title">
+							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
+							</a>
+						</span>
+					</div>
+
+					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
+						<div class="menu-main-menu-container">
+							<ul class="kariez-navbar" style="display:flex; justify-content:center; list-style:none; margin:0; padding:0; gap:24px;">
+
+								<!-- HOME (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Home
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Multi Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+						 						<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- One Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+												<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- SERVICES (current) -->
+								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
+									<a href="service-kariez.html" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Services
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="current-menu-item"><a href="all-services.html">All Services</a></li>
+										<li><a href="air-kariez">Air Freight</a></li>
+										<li><a href="road-kariez.html">Road Transport</a></li>
+										<li><a href="ocean-kariez.html">Ocean Transport</a></li>
+										<li><a href="railway-kariez.html">Railway Transport</a></li>
+										<li><a href="warehousing-kariez.html">Warehousing</a></li>
+										<li><a href="distribution-kariez.html">Distribution</a></li>
+									</ul>
+								</li>
+
+								<!-- PAGES -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Pages
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="about-page.html">About Us</a></li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Team Default <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="team-01.html">Team 01</a></li>
+												<li><a href="alex-hales.html">Team Single</a></li>
+											</ul>
+										</li>
+										<li><a href="error.html">Error Page</a></li>
+										<li><a href="job-application.html">Job Application</a></li>
+										<li><a href="job-details.html">Job Details</a></li>
+										<li><a href="faq.html">Faq</a></li>
+									</ul>
+								</li>
+
+								<!-- PROJECT -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Project
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Grid View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="grid-col-2.html">Grid Col-2</a></li>
+												<li><a href="grid-col-3.html">Grid Col-3</a></li>
+												<li><a href="grid-col-4.html">Grid Col-4</a></li>
+												<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+												<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+											</ul>
+										</li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Masonry View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="col2.html">Masonry col-2</a></li>
+												<li><a href="col3.html">Masonry col-3</a></li>
+												<li><a href="masonry-wide.html">Masonry Wide</a></li>
+												<li><a href="masonry-hover.html">Masonry Hover</a></li>
+											</ul>
+										</li>
+										<li><a href="project-single.html">Project Single</a></li>
+									</ul>
+								</li>
+
+								<!-- BLOG (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Blog
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Blog Archive</h4>
+											<ul>
+												<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+												<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+												<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+												<li><a href="blog-list-01.html">Blog List 01</a></li>
+												<li><a href="blog-list-02.html">Blog List 02</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- Blog Single</h4>
+											<ul>
+												<li><a href="blog-single-01.html">Default From Theme</a></li>
+												<li><a href="blog-single-02.html">Container width Thumb</a></li>
+												<li><a href="blog-single-03.html">Transparent Thumb</a></li>
+												<li><a href="blog-single-04.html">Content Over on Thumb</a></li>
+												<li><a href="blog-single-05.html">Meta Under Thumb</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- CONTACT -->
+								<li class="menu-item"><a href="contact-kariez.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+
+					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+						<ul class="menu-icon-action" style="display:flex; align-items:center; gap:18px; list-style:none; margin:0; padding:0;">
+							<li style="display:flex; align-items:center;">
+								<div id="google_translate_element"></div>
+							</li>
+							<li class="ham-burger mobile-hamburg">
+								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</li>
+							<li class="rt-phone-2">
+								<a class="phone-box" href="tel:+16788563229" aria-label="phone number" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+									<div class="phone-icon" style="width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-phone"></i></div>
+									<div class="content" style="display:flex; flex-direction:column; line-height:1.3;">
+										<span class="phone-label" style="font-size:12px; opacity:0.8;">Have Any Questions?</span>
+										<span class="phone-number" style="font-size:14px; font-weight:700;">+1 (442) 888-6223</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+    
+    <!-- ============================== MOBILE OFFCANVAS MENU ============================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-body p-0">
+            
+            <!-- Logo & Close Button -->
+            <div class="offcanvas-header">
+                <a href="index.html"><img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Logo" style="max-height: 40px;"></a>
+                <button type="button" class="btn-close-custom" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- About Text -->
+            <div class="offcanvas-about">
+                <label>About Us</label>
+                <p>At Thunderbolt Carriers, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="collapse" href="#submenuServices" role="button">
+                        Services <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+                    <div class="collapse show" id="submenuServices">
+                        <ul class="list-unstyled ps-3 mt-2">
+                            <li><a class="dropdown-item" href="service-kariez.html">All Services</a></li>
+                            <li><a class="dropdown-item" href="air-kariez.html">Air Freight</a></li>
+                            <li><a class="dropdown-item" href="road-kariez.html">Road Transport</a></li>
+                            <li><a class="dropdown-item" href="ocean-kariez.html">Ocean Transport</a></li>
+                            <li><a class="dropdown-item" href="railway-kariez.html">Railway Transport</a></li>
+                            <li><a class="dropdown-item" href="warehousing-kariez.html">Warehousing</a></li>
+                            <li><a class="dropdown-item" href="distribution-kariez.html">Distribution</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about-kariez.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact-kariez.html">Track Consignment</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact-kariez.html">Contact</a></li>
+            </ul>
+
+            <!-- Contact Info -->
+            <div class="offcanvas-about">
+                <label>Contact Info</label>
+                <ul class="offcanvas-info">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>USA, UK, Canada, Europe, Australia, Asia.</span></li>
+                    <li><i class="fa-solid fa-phone"></i> <a href="tel:+16788563229" style="color:#555;">+1 (678) 856-3229</a></li>
+                    <li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@thunderboltcarriers.com" style="color:#555;">info@thunderboltcarriers.com</a></li>
+                    <li><i class="fa-regular fa-clock"></i> <span>24/7</span></li>
+                </ul>
+                
+                <!-- Social -->
+                <div class="offcanvas-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================== BREADCRUMB ============================== -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <h1>Our Services</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Thunderboltcarriers</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Services</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================== SERVICES GRID ============================== -->
+    <section class="services-section">
+        <div class="container">
+            <div class="row g-4">
+                
+                <!-- Service 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3 class="service-title"><a href="#">24/7 Hours Support</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="service-title"><a href="#">Security For Cargo</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
+                        <h3 class="service-title"><a href="#">Warehouse Storage</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <h3 class="service-title"><a href="#">Fast & Efficient Delivery</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h3 class="service-title"><a href="#">Transparent Pricing</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-regular fa-folder-open"></i></div>
+                        <h3 class="service-title"><a href="#">Real-Time Tracking</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam</p>
+                        <a href="#" class="btn-service">
+                            <span>See Details</span>
+                            <span class="icon-circle"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-area">
+                <ul class="pagination-list">
+                    <li><a href="page2-kariez.html"><i class="fa-solid fa-arrow-left"></i></a></li>
+                    <li><a href="service-kariez.html">1</a></li>
+                    <li><a href="page2-kariez.html">2</a></li>
+                    <li class="active"><a href="page3-kariez.html">3</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="index.html" style="color:#fff; font-family:'Outfit',sans-serif; font-weight:700; font-size:24px;">Thunderboltcarriers</a>
+                    <p style="font-size: 15px; margin-top: 18px;">At Thunderbolt Carriers, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4>Company Links</h4>
+                    <ul>
+                        <li><a href="service-kariez.html">Services</a></li>
+                        <li><a href="contact-kariez.html">Contact Us</a></li>
+                        <li><a href="job-application.html">Careers</a></li>
+                        <li><a href="privacy-kariez.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h4>Company Service</h4>
+                    <ul>
+                        <li><a href="service-kariez.html">What We Do</a></li>
+                        <li><a href="contact-kariez.html">Request a Freight</a></li>
+                        <li><a href="contact-kariez.html">Track & Trace</a></li>
+                        <li><a href="air-kariez.html">Air Freight</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h4>Say Hello!</h4>
+                    <ul style="font-size: 15px;">
+                        <li style="display:flex; gap:10px;"><i class="fa-solid fa-phone" style="color:var(--rt-primary); margin-top:4px;"></i> <div><strong>Support Centre 24/7</strong><br>+1 (442) 888-6223</div></li>
+                        <li style="display:flex; gap:10px;"><i class="fa-regular fa-envelope" style="color:var(--rt-primary); margin-top:4px;"></i> <div><strong>Get in touch:</strong><br>info@thunderboltcarriers.com</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thunderbolt Carriers. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING BUY NOW BUTTON -->
+<div class="rtdsp-buy-now-float-wrap rtdsp-buy-now-float-wrap--middle-right" style="--rtdsp-bnf-dx: 15px; --rtdsp-bnf-dy: 24px; position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 99;">
+	<a class="rtdsp-buy-now-float-btn" href="#" target="_blank" rel="noopener" style="background-color: #82b440; color: #ffffff; display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 30px 0 0 30px; text-decoration: none; font-weight: 600; font-size: 14px;">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+		<span class="rtdsp-buy-now-float-btn__text">Buy Now</span>
+	</a>
+</div>
+
+    <!-- ============================== COOKIE & CHAT WIDGETS ============================== -->
+    <div class="clone-cookie-widget" onclick="alert('Cookie settings would open here.')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="#ffffff">
+            <path d="M257.5 27.6c-.8-5.4-4.9-9.8-10.3-10.6v0c-22.1-3.1-44.6 .9-64.4 11.4l-74 39.5C89.1 78.4 73.2 94.9 63.4 115L26.7 190.6c-9.8 20.1-13 42.9-9.1 64.9l14.5 82.8c3.9 22.1 14.6 42.3 30.7 57.9l60.3 58.4c16.1 15.6 36.6 25.6 58.7 28.7l83 11.7c22.1 3.1 44.6-.9 64.4-11.4l74-39.5c19.7-10.5 35.6-27 45.4-47.1l36.7-75.6c9.8-20.1 13-42.9 9.1-64.9v0c-.9-5.4-5.3-9.5-10.7-10.3l-51.5-7.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-44.1-6.2c-22.9-3.2-40-24.1-37.3-47.1l6-51.7c.6-5.5-3.3-10.4-8.8-11.2l-51.5-7.2c-4.9-.7-9.4-3.9-11.8-8.2zM176 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm64 96a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-128a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+        </svg>
+    </div>
+
+    <div class="clone-chatway-widget" onclick="alert('Chat window would open here.')">
+        <div class="clone-chat-bubble">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30" fill="#ffffff" style="margin-top: 2px;">
+                <path d="M48 12H16C12.686 12 10 14.686 10 18v24c0 3.314 2.686 6 6 6h18.343l9.829 9.829c.63.63 1.707.184 1.707-.707V48H48c3.314 0 6-2.686 6-6V18c0-3.314-2.686-6-6-6zM38 38H26c-1.1 0-2-.9-2-2s.9-2 2-2h12c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Mobile Menu Submenu Toggle Icon Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapseElements = document.querySelectorAll('.offcanvas .collapse');
+            collapseElements.forEach(function(el) {
+                el.addEventListener('show.bs.collapse', function () {
+                    this.previousElementSibling.querySelector('.menu-toggle-icon i').classList.replace('fa-chevron-down', 'fa-chevron-up');
+                });
+                el.addEventListener('hide.bs.collapse', function () {
+                    this.previousElementSibling.querySelector('.menu-toggle-icon i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

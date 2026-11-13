@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>All Services - Kariez</title>
+	<meta name="robots" content="max-image-preview:large" />
+
+	<!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900|Outfit:100,200,300,400,500,600,700,800,900&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+
+	<!-- THEME CSS -->
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/uploads/elementor/css/base-desktop.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/uploads/elementor/css/base-mobile.css" media="(max-width:767px)">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/elementor/assets/css/frontend.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/style.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/swiper.min.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/css/animate.css">
+	<link rel="stylesheet" href="https://thunderboltcarriers.com/wp-content/plugins/wpcargo/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<style>
+		/* ---------- 1. Design Tokens ---------- */
+		:root{
+			--rt-primary-color:#FFCC00;
+			--rt-secondary-color:#FFFCEE;
+			--rt-tertiary-color:#ffb000;
+			--rt-body-bg-color:#ffffff;
+			--rt-body-color:#484848;
+			--rt-border-color:#B0B0B0;
+			--rt-title-color:#000000;
+			--rt-button-color:#ffffff;
+			--rt-button-text-color:#000000;
+			--rt-meta-color:#FFCC00;
+			--rt-container-width:1320px;
+			--rt-body-font:'DM Sans',sans-serif;
+			--rt-heading-font:'Outfit',sans-serif;
+		}
+		body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:30px;font-weight:normal;color:#484848;}
+		.site-header{font-family:'DM Sans',sans-serif;}
+		.kariez-navigation ul li a{font-size:16px;line-height:22px;font-weight:600;}
+		.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{font-family:'Outfit',sans-serif;font-weight:700;}
+		.site-branding .rt-mobile-logo{max-width:180px;max-height:40px;object-fit:contain;}
+		body .main-header-section{border-bottom:none;}
+		body .kariez-breadcrumb-wrapper{border-bottom:none;}
+
+		/* ---------- 2. Language Switcher ---------- */
+		#google_translate_element { display: inline-block; margin-left: 20px; }
+		@media (max-width: 1024px) { #google_translate_element { display: none !important; } }
+		@media (min-width: 1025px) {
+			.goog-te-gadget-simple { background-color: transparent !important; border: 1px solid rgba(255,255,255,0.4) !important; padding: 8px 15px !important; border-radius: 30px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+			.goog-te-gadget-simple span, .goog-te-gadget-simple a, .goog-te-gadget-simple div { color: #ffffff !important; font-family: 'DM Sans', sans-serif !important; font-size: 14px !important; }
+			.goog-te-gadget-icon { display: none !important; }
+		}
+		body { top: 0 !important; }
+		.skiptranslate iframe { display: none !important; }
+
+		/* ============================================================
+		   FIXED HEADER & NAVIGATION (DESKTOP)
+		   ============================================================ */
+		.site-header{
+			position:fixed !important; top:0; left:0; width:100%; z-index:999;
+			background:transparent !important;
+			transition:transform .35s ease,background-color .3s ease,box-shadow .3s ease;
+			will-change:transform;
+		}
+		.site-header.headroom--pinned  { transform:translateY(0); }
+		.site-header.headroom--unpinned{ transform:translateY(-100%); }
+		.site-header.headroom--not-top { background-color:#000 !important; box-shadow:0 4px 20px rgba(0,0,0,.25); }
+		.site-header.headroom--not-top .main-header-section{ background-color:#000 !important; }
+		.site-header.headroom--top,
+		.site-header.headroom--top .main-header-section{ background-color:transparent !important; box-shadow:none !important; }
+		.site-header .site-title a{ color:#fff !important; font-weight:700; font-size:24px; text-decoration:none;}
+		.site-header .kariez-navigation ul li a{ color:#fff !important; font-size:15px; font-weight:600; }
+		.site-header .kariez-navigation ul li a:hover{ color:#FFCC00 !important; }
+		.site-header .kariez-navigation ul li.active > a,
+		.site-header .kariez-navigation ul li.current-menu-item > a,
+		.site-header .kariez-navigation ul li.current-menu-parent > a { color:#FFCC00 !important; }
+		.site-header .phone-box .content span{ color:#fff !important; }
+		.site-header .phone-box .phone-icon{ background:#FFCC00; color:#000; }
+		.site-header .main-header-section{ padding-top:20px; padding-bottom:20px; background:transparent; }
+
+		/* ========= NAV MEGA MENU ========= */
+		.kariez-navigation ul.dropdown-menu {
+			background: #fff; border: none; border-radius: 6px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+			padding: 10px 0; min-width: 220px; display: none;
+			position: absolute; top: 100%; left: 0; z-index: 1000;
+		}
+		.kariez-navigation ul.dropdown-menu li { margin: 0; }
+		.kariez-navigation ul.dropdown-menu li a {
+			color: #333 !important; font-size: 14px !important;
+			padding: 8px 20px !important; display: block;
+			text-decoration: none; transition: color 0.2s, background 0.2s;
+		}
+		.kariez-navigation ul.dropdown-menu li a:hover { color: #FFCC00 !important; background: #f9f9f9; }
+		.kariez-navigation ul.dropdown-menu li.dropdown-submenu > a::after { content: "\25B8"; float: right; color: #999; }
+		.kariez-navigation ul.dropdown-menu li.dropdown-submenu { position: relative; }
+		.kariez-navigation ul.dropdown-menu li.dropdown-submenu > ul.sub-menu { left: 100%; top: 0; }
+		.kariez-navigation ul.kariez-navbar > li { position: relative; }
+		.kariez-navigation ul.kariez-navbar > li:hover > ul.dropdown-menu,
+		.kariez-navigation ul.dropdown-menu > li:hover > ul.dropdown-menu { display: block; }
+		.kariez-navigation ul.kariez-navbar > li.mega-menu:hover > ul.dropdown-menu { display: flex !important; }
+		.kariez-navigation ul.kariez-navbar > li.mega-menu > ul.dropdown-menu { width: 650px; padding: 35px; gap: 50px; }
+		.mega-col { flex: 1; }
+		.mega-col h4 { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 20px; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+		.mega-col ul { list-style: none; padding: 0; margin: 0; }
+		.mega-col ul li { margin-bottom: 12px; }
+		.mega-col ul li a { color: #555 !important; font-size: 15px !important; font-weight: 500 !important; padding: 0 !important; display: inline-block !important; text-decoration: none !important; transition: all 0.2s !important; position: relative; }
+		.mega-col ul li a:hover { color: #000 !important; background: transparent !important; }
+
+		/* Mobile hamburger */
+		.ham-burger .menu-bar { background: transparent !important; border: none !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; cursor: pointer; }
+		.ham-burger .menu-bar i { font-size: 26px !important; line-height: 1 !important; color: #ffffff !important; display: block !important; }
+
+		@media (max-width: 991px) {
+			.kariez-navigation { display: none !important; }
+			.rt-phone-2 { display: none !important; }
+		}
+
+		/* ============================================================
+		   OFFCANVAS DRAWER (MOBILE)
+		   ============================================================ */
+		.kariez-offcanvas-drawer {
+			position: fixed; top: 0; right: -400px; width: 360px; max-width: 90vw;
+			height: 100vh; background: #fff; z-index: 99999; padding: 30px;
+			overflow-y: auto; transition: right 0.35s ease;
+			box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+		}
+		.kariez-offcanvas-drawer.active { right: 0; }
+		.kariez-body-overlay {
+			position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 99998;
+			opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+		}
+		.kariez-body-overlay.active { opacity: 1; visibility: visible; }
+
+		.offcanvas-logo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+		.offcanvas-logo .site-title-logo img { max-height: 40px; width: auto; }
+		.offcanvas-logo .trigger-icon {
+			background: #FFCC00; color: #fff; width: 30px; height: 30px;
+			display: flex; align-items: center; justify-content: center;
+			font-size: 16px; text-decoration: none; transition: 0.3s;
+		}
+		.offcanvas-logo .trigger-icon:hover { background: #000; }
+
+		.offcanvas-address label {
+			font-size: 18px; font-weight: 700; color: #000;
+			text-transform: none; letter-spacing: 0; margin-bottom: 20px;
+			font-family: 'Outfit', sans-serif; display: block;
+		}
+		.offcanvas-address p { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 30px; }
+
+		.offcanvas-navigation ul { list-style: none; padding: 0; margin: 0 0 30px 0; }
+		.offcanvas-navigation ul li { border-bottom: none; margin-bottom: 20px; }
+
+		/* --- FLEXBOX SIDEBAR MENU (fixed) --- */
+		.kariez-offcanvas-drawer .offcanvas-navigation ul li > a {
+			display: flex !important;
+			justify-content: space-between !important;
+			align-items: center !important;
+			width: 100% !important;
+			flex-wrap: nowrap !important;
+			padding: 0 !important;
+			color: #000 !important;
+			font-size: 17px !important;
+			font-weight: 700 !important;
+			font-family: 'Outfit', sans-serif !important;
+			text-decoration: none !important;
+		}
+		.kariez-offcanvas-drawer .offcanvas-navigation ul li > a:hover { color: #FFCC00 !important; }
+		.kariez-offcanvas-drawer .offcanvas-navigation ul li.current-menu-item > a { color: #FFCC00 !important; }
+		.kariez-offcanvas-drawer .offcanvas-navigation ul li > a .menu-text { flex: 1 1 auto !important; }
+		.kariez-offcanvas-drawer .offcanvas-navigation ul li > a .menu-toggle-icon {
+			margin-left: auto !important;
+			flex: 0 0 auto !important;
+			background: #000 !important;
+			color: #fff !important;
+			width: 24px !important;
+			height: 24px !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			font-size: 12px !important;
+			border-radius: 0 !important;
+			pointer-events: none !important;
+		}
+
+		.offcanvas-navigation ul li ul.dropdown-menu { padding-left: 0; margin-top: 15px; display: none; }
+		.offcanvas-navigation ul li.open ul.dropdown-menu { display: block; }
+		.offcanvas-navigation ul li ul.dropdown-menu li { margin-bottom: 12px; }
+		.offcanvas-navigation ul li ul.dropdown-menu li a {
+			font-weight: 500; color: #666; font-size: 15px;
+			font-family: 'DM Sans', sans-serif; display: block; padding: 0;
+		}
+		.offcanvas-navigation ul li ul.dropdown-menu li a:hover { color: #FFCC00; }
+
+		.offcanvas-info { list-style: none; padding: 0; margin: 0 0 25px 0; }
+		.offcanvas-info li {
+			display: flex; gap: 12px; align-items: flex-start;
+			margin-bottom: 15px; font-size: 15px; line-height: 1.5; color: #555;
+		}
+		.offcanvas-info li i { color: #333; font-size: 16px; margin-top: 4px; width: 20px; text-align: center; }
+		.offcanvas-info li a { color: #555; text-decoration: none; }
+		.offcanvas-info li a:hover { color: #FFCC00; }
+
+		.offcanvas-social-icon { display: flex; gap: 10px; margin-top: 25px; }
+		.offcanvas-social-icon a {
+			width: 36px; height: 36px; border: 1px solid #ccc;
+			border-radius: 50%; color: #333;
+			display: flex; align-items: center; justify-content: center;
+			text-decoration: none; transition: 0.3s;
+		}
+		.offcanvas-social-icon a:hover { background: #FFCC00; border-color: #FFCC00; color: #000; }
+
+		/* ============================================================
+		   BUTTON-4 FIX
+		   ============================================================ */
+		html body a.btn.button-4,
+		html body a.btn.button-4:hover,
+		html body a.btn.button-4:focus,
+		html body a.btn.button-4:active {
+			display: inline-flex !important; flex-direction: row !important;
+			flex-wrap: nowrap !important; align-items: center !important;
+			justify-content: space-between !important; gap: 20px !important;
+			box-sizing: border-box !important; height: 56px !important;
+			min-height: 56px !important; width: auto !important; max-width: max-content !important;
+			padding: 4px 4px 4px 28px !important; margin: 0 !important;
+			background: #000 !important; background-image: none !important;
+			color: #fff !important; border: 1px solid #222 !important;
+			border-radius: 50px !important; box-shadow: none !important;
+			text-decoration: none !important; white-space: nowrap !important;
+			overflow: hidden !important; position: relative !important; transform: none !important;
+		}
+		html body a.btn.button-4::before, html body a.btn.button-4::after { display: none !important; content: none !important; }
+		html body a.btn.button-4 .button-text {
+			display: flex !important; align-items: center !important;
+			position: static !important; width: auto !important;
+			margin: 0 !important; padding: 0 !important; transform: none !important;
+			color: inherit !important; font-size: 16px !important; font-weight: 600 !important; line-height: 1 !important;
+		}
+		html body a.btn.button-4 .btn-round-shape {
+			display: flex !important; align-items: center !important; justify-content: center !important;
+			position: static !important; flex-shrink: 0 !important; box-sizing: border-box !important;
+			width: 46px !important; height: 46px !important; min-width: 46px !important;
+			min-height: 46px !important; margin: 0 !important; padding: 0 !important;
+			border-radius: 50% !important; background: #FFCC00 !important; color: #000 !important;
+		}
+		html body a.btn.button-4 .btn-round-shape i {
+			display: flex !important; align-items: center !important; justify-content: center !important;
+			position: static !important; width: auto !important; height: auto !important;
+			margin: 0 !important; padding: 0 !important; font-size: 18px !important;
+			line-height: 1 !important; color: #000 !important;
+		}
+		body a.btn.button-4:hover { background-color: #FFCC00 !important; color: #000 !important; border-color: #FFCC00 !important; }
+		body a.btn.button-4:hover .btn-round-shape { background: #000 !important; color: #FFCC00 !important; }
+		body a.btn.button-4:hover .btn-round-shape i { color: #FFCC00 !important; }
+
+		/* ============================================================
+		   SERVICE CARD STYLES (matches Kariez look)
+		   ============================================================ */
+		.services-wrap{ padding: 100px 0; background: #f7f8f4; }
+		.services-wrap .rt-container{ max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+		.service-item{
+			display: flex; align-items: stretch; background: #fff;
+			border-radius: 20px; overflow: hidden; margin-bottom: 40px;
+			box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+			transition: transform 0.35s ease, box-shadow 0.35s ease;
+		}
+		.service-item:hover{ transform: translateY(-6px); box-shadow: 0 25px 70px rgba(0,0,0,0.10); }
+		.service-item .service-media{
+			position: relative; flex: 0 0 46%; overflow: hidden; min-height: 340px;
+		}
+		.service-item .service-media img{
+			position: absolute; inset: 0; width: 100%; height: 100%;
+			object-fit: cover; display: block;
+			transition: transform 0.6s ease;
+		}
+		.service-item:hover .service-media img{ transform: scale(1.06); }
+		.service-item .service-media .service-badge{
+			position: absolute; top: 22px; left: 22px;
+			width: 60px; height: 60px; border-radius: 50%;
+			background: #FFCC00; color: #000;
+			display: flex; align-items: center; justify-content: center;
+			font-size: 26px; z-index: 2;
+			box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+		}
+		.service-item .service-body{
+			flex: 1 1 auto; padding: 55px 50px;
+			display: flex; flex-direction: column; justify-content: center;
+		}
+		.service-item .service-body h2{
+			font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700;
+			color: #111; margin: 0 0 18px; line-height: 1.2;
+		}
+		.service-item .service-body p{
+			font-size: 15px; line-height: 1.85; color: #666; margin: 0 0 30px;
+		}
+		.service-item .service-body .btn{
+			display: inline-flex; align-items: center; gap: 14px;
+			background: #000; color: #fff; text-decoration: none;
+			padding: 14px 16px 14px 26px; border-radius: 50px;
+			font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
+			width: max-content; transition: 0.3s;
+		}
+		.service-item .service-body .btn:hover{ background: #FFCC00; color: #000; }
+		.service-item .service-body .btn .btn-round-shape{
+			width: 38px; height: 38px; min-width: 38px; border-radius: 50%;
+			background: #FFCC00; color: #000; display: flex;
+			align-items: center; justify-content: center; font-size: 15px;
+			transition: 0.3s;
+		}
+		.service-item .service-body .btn:hover .btn-round-shape{ background: #000; color: #FFCC00; }
+
+		/* Alternating direction */
+		.service-item.reverse{ flex-direction: row-reverse; }
+
+		/* CTA */
+		.services-cta{
+			background: #111; padding: 70px 0; text-align: center;
+		}
+		.services-cta .rt-container{ max-width: 900px; margin: 0 auto; padding: 0 20px; }
+		.services-cta h2{
+			font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 700;
+			color: #fff; margin: 0 0 14px;
+		}
+		.services-cta p{ color: #bbb; font-size: 16px; margin: 0 0 30px; }
+		.services-cta .cta-btn{
+			display: inline-flex; align-items: center; gap: 16px;
+			background: #FFCC00; color: #000; text-decoration: none;
+			padding: 14px 16px 14px 28px; border-radius: 50px;
+			font-weight: 700; font-size: 16px; transition: 0.3s;
+		}
+		.services-cta .cta-btn:hover{ background: #fff; }
+		.services-cta .cta-btn .cta-round{
+			width: 42px; height: 42px; border-radius: 50%; background: #000;
+			color: #FFCC00; display: flex; align-items: center; justify-content: center;
+			font-size: 16px;
+		}
+
+		/* Breadcrumb */
+		.kariez-breadcrumb-wrapper{
+			position: relative; padding: 190px 0 90px; text-align: center; overflow: hidden;
+		}
+		.kariez-breadcrumb-wrapper .banner-image{
+			position: absolute; inset: 0; z-index: 1;
+		}
+		.kariez-breadcrumb-wrapper::after{
+			content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 2;
+		}
+		.kariez-breadcrumb-wrapper .container{ position: relative; z-index: 3; }
+		.kariez-breadcrumb-wrapper .entry-title{
+			font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 700;
+			color: #fff; margin: 0 0 15px;
+		}
+		.entry-breadcrumb{ display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: #eee; }
+		.entry-breadcrumb a{ color: #FFCC00; text-decoration: none; }
+		.entry-breadcrumb .dvdr{ width: 6px; height: 6px; background: #FFCC00; border-radius: 50%; }
+
+		/* Responsive */
+		@media (max-width: 991px){
+			.service-item{ flex-direction: column !important; }
+			.service-item .service-media{ flex: 0 0 auto; width: 100%; min-height: 260px; }
+			.service-item .service-body{ padding: 40px 30px; }
+			.service-item .service-body h2{ font-size: 26px; }
+			.services-cta h2{ font-size: 30px; }
+		}
+		@media (max-width: 767px){
+			.kariez-breadcrumb-wrapper{ padding: 130px 0 70px; }
+			.kariez-breadcrumb-wrapper .entry-title{ font-size: 32px; }
+			.services-wrap{ padding: 60px 0; }
+			.service-item .service-body{ padding: 30px 24px; }
+			.service-item .service-body h2{ font-size: 24px; }
+			.service-item .service-media{ min-height: 220px; }
+			.service-item .service-media .service-badge{ width: 50px; height: 50px; font-size: 22px; }
+			.services-cta{ padding: 50px 0; }
+			.services-cta h2{ font-size: 26px; }
+			.services-cta .cta-btn{ font-size: 14px; padding: 12px 14px 12px 22px; }
+		}
+	</style>
+</head>
+
+<body>
+
+<!-- preloader -->
+<div id="preloader"><img width="200" height="200" src="https://thunderboltcarriers.com/wp-content/uploads/2024/12/preloader.gif" alt=""></div>
+<div class="rt-focus"></div>
+
+<div id="page" class="site">
+
+	<!-- =========================================================
+	     HEADER
+	     ========================================================= -->
+	<header id="masthead" class="site-header headroom" role="banner">
+		<div class="main-header-section">
+			<div class="header-container rt-container">
+				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex; align-items:center;">
+
+					<div class="site-branding">
+						<span class="site-title">
+							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
+							</a>
+						</span>
+					</div>
+
+					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
+						<div class="menu-main-menu-container">
+							<ul class="kariez-navbar" style="display:flex; justify-content:center; list-style:none; margin:0; padding:0; gap:24px;">
+
+								<!-- HOME (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Home
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Multi Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+						 						<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- One Pages</h4>
+											<ul>
+												<li><a href="index.html">Main Home</a></li>
+												<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home02.html">Ship Shipping</a></li>
+												<li><a href="home03.html">Air Shipping</a></li>
+												<li><a href="home04.html">Moving Company</a></li>
+												<li><a href="home05.html">Land Transport</a></li>
+												<li><a href="home06.html">Shipment</a></li>
+												<li><a href="home07.html">Slider Home</a></li>
+												<li><a href="home08.html">Global Logistics</a></li>
+												<li><a href="home09.html">Transport</a></li>
+												<li><a href="home10.html">Global Logistics 02</a></li>
+												<li><a href="home11.html">Transportation</a></li>
+												<li><a href="home12.html">Moving Service</a></li>
+												<li><a href="home13.html">Truck Freight</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- SERVICES (current) -->
+								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
+									<a href="service-kariez.html" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Services
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="current-menu-item"><a href="all-services.html">All Services</a></li>
+										<li><a href="air-kariez">Air Freight</a></li>
+										<li><a href="road-kariez.html">Road Transport</a></li>
+										<li><a href="ocean-kariez.html">Ocean Transport</a></li>
+										<li><a href="railway-kariez.html">Railway Transport</a></li>
+										<li><a href="warehousing-kariez.html">Warehousing</a></li>
+										<li><a href="distribution-kariez.html">Distribution</a></li>
+									</ul>
+								</li>
+
+								<!-- PAGES -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Pages
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="about-page.html">About Us</a></li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Team Default <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="team-01.html">Team 01</a></li>
+												<li><a href="alex-hales.html">Team Single</a></li>
+											</ul>
+										</li>
+										<li><a href="error.html">Error Page</a></li>
+										<li><a href="job-application.html">Job Application</a></li>
+										<li><a href="job-details.html">Job Details</a></li>
+										<li><a href="faq.html">Faq</a></li>
+									</ul>
+								</li>
+
+								<!-- PROJECT -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Project
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Grid View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="grid-col-2.html">Grid Col-2</a></li>
+												<li><a href="grid-col-3.html">Grid Col-3</a></li>
+												<li><a href="grid-col-4.html">Grid Col-4</a></li>
+												<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+												<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+											</ul>
+										</li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Masonry View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="col2.html">Masonry col-2</a></li>
+												<li><a href="col3.html">Masonry col-3</a></li>
+												<li><a href="masonry-wide.html">Masonry Wide</a></li>
+												<li><a href="masonry-hover.html">Masonry Hover</a></li>
+											</ul>
+										</li>
+										<li><a href="project-single.html">Project Single</a></li>
+									</ul>
+								</li>
+
+								<!-- BLOG (Mega Menu) -->
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Blog
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col">
+											<h4>- Blog Archive</h4>
+											<ul>
+												<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+												<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+												<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+												<li><a href="blog-list-01.html">Blog List 01</a></li>
+												<li><a href="blog-list-02.html">Blog List 02</a></li>
+											</ul>
+										</div>
+										<div class="mega-col">
+											<h4>- Blog Single</h4>
+											<ul>
+												<li><a href="blog-single-01.html">Default From Theme</a></li>
+												<li><a href="blog-single-02.html">Container width Thumb</a></li>
+												<li><a href="blog-single-03.html">Transparent Thumb</a></li>
+												<li><a href="blog-single-04.html">Content Over on Thumb</a></li>
+												<li><a href="blog-single-05.html">Meta Under Thumb</a></li>
+											</ul>
+										</div>
+									</ul>
+								</li>
+
+								<!-- CONTACT -->
+								<li class="menu-item"><a href="contact-kariez.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+
+					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+						<ul class="menu-icon-action" style="display:flex; align-items:center; gap:18px; list-style:none; margin:0; padding:0;">
+							<li style="display:flex; align-items:center;">
+								<div id="google_translate_element"></div>
+							</li>
+							<li class="ham-burger mobile-hamburg">
+								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</li>
+							<li class="rt-phone-2">
+								<a class="phone-box" href="tel:+16788563229" aria-label="phone number" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+									<div class="phone-icon" style="width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-phone"></i></div>
+									<div class="content" style="display:flex; flex-direction:column; line-height:1.3;">
+										<span class="phone-label" style="font-size:12px; opacity:0.8;">Have Any Questions?</span>
+										<span class="phone-number" style="font-size:14px; font-weight:700;">+1 (442) 888-6223</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+		<!-- =========================================================
+	     OFFCANVAS MOBILE MENU
+	     ========================================================= -->
+	<div class="kariez-offcanvas-drawer">
+		<div class="offcanvas-logo">
+			<a href="index.html" class="site-title-logo">
+				<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Kariez">
+			</a>
+			<a class="trigger-icon trigger-off-canvas" href="#"><i class="fa-solid fa-xmark"></i></a>
+		</div>
+
+		<div class="offcanvas-about offcanvas-address">
+			<label>About Us</label>
+			<p>Manage and streamline operations across multiple locations, sales channels, and employees to has improve efficiency and your bottom line.</p>
+		</div>
+
+		<nav class="offcanvas-navigation" role="navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu-1" class="menu">
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Home</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html">Main Home</a></li>
+							<li><a href="home01.html">Cargo Shipping</a></li>
+							<li><a href="home02.html">Ship Shipping</a></li>
+							<li><a href="home03.html">Air Shipping</a></li>
+							<li><a href="home04.html">Moving Company</a></li>
+							<li><a href="home05.html">Land Transport</a></li>
+							<li><a href="home06.html">Shipment</a></li>
+							<li><a href="home07.html">Slider Home</a></li>
+							<li><a href="home08.html">Global Logistics</a></li>
+							<li><a href="home09.html">Transport</a></li>
+							<li><a href="home10.html">Global Logistics 02</a></li>
+							<li><a href="home11.html">Transportation</a></li>
+							<li><a href="home12.html">Moving Service</a></li>
+							<li><a href="home13.html">Truck Freight</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children current-menu-item">
+						<a href="service.html"><span class="menu-text">Services</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="service-kariez.html">All Services</a></li>
+							<li><a href="air-kariez.html">Air Freight</a></li>
+							<li><a href="road-kariez.html">Road Transport</a></li>
+							<li><a href="ocean-kariez.html">Ocean Transport</a></li>
+							<li><a href="railway-kariez.html">Railway Transport</a></li>
+							<li><a href="warehousing-kariez.html">Warehousing</a></li>
+							<li><a href="distribution-kariez.html">Distribution</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Pages</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="team-01.html">Team Default</a></li>
+							<li><a href="job-application.html">Job Application</a></li>
+							<li><a href="job-details.html">Job Details</a></li>
+							<li><a href="error.html">Error Page</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Project</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="project-grid.html">Grid View</a></li>
+							<li><a href="project-masonry.html">Masonry View</a></li>
+							<li><a href="project-single.html">Project Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Blog</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="blog-archive.html">Blog Archive</a></li>
+							<li><a href="blog-single.html">Blog Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item"><a href="contact-kariez.html"><span class="menu-text">Contact</span></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="offcanvas-address">
+			<label>Contact Info</label>
+			<ul class="offcanvas-info">
+				<li><i class="fa-solid fa-location-dot"></i> <span>USA, Canada, UK, Europe, Australia, Asia.</span></li>
+				<li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@kariez.com">info@kariez.com</a></li>
+				<li><i class="fa-regular fa-clock"></i> <span>Mon - Frd : 8:00 -16:00</span></li>
+			</ul>
+			<div class="offcanvas-social-icon">
+				<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+				<a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+				<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="kariez-body-overlay"></div>
+
+	<!-- ============================== BREADCRUMB ============================== -->
+	<div id="content" class="site-content">
+		<div class="kariez-breadcrumb-wrapper">
+			<span class="banner-image" style="background-image:url(https://thunderboltcarriers.com/wp-content/uploads/2025/02/breadcrumb-1-scaled-1.jpg);background-position:center center;background-repeat:no-repeat;background-size:cover;"></span>
+			<div class="container default">
+				<h1 class="entry-title">All Services</h1>
+				<div class="breadcrumb-area">
+					<div class="entry-breadcrumb">
+						<span><a href="index.html" class="home"><span>Kariez</span></a></span>
+						<span class="dvdr"></span>
+						<span><span class="post post-page current-item">All Services</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ============================== SERVICES ============================== -->
+		<div class="services-wrap">
+			<div class="rt-container">
+
+				<!-- Road Transport -->
+				<div class="service-item">
+					<div class="service-media">
+						<div class="service-badge"><i class="fa-solid fa-truck"></i></div>
+						<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/service-big.jpg" alt="Road Transport">
+					</div>
+					<div class="service-body">
+						<h2>Road Transport</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris consectetur platea.</p>
+						<a href="road-kariez.html" class="btn">
+							<span class="button-text">Get In Touch</span>
+							<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Air Freight -->
+				<div class="service-item reverse">
+					<div class="service-media">
+						<div class="service-badge"><i class="fa-solid fa-plane"></i></div>
+						<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/service-big-2.jpg" alt="Air Freight Transport">
+					</div>
+					<div class="service-body">
+						<h2>Air Freight Transport</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris consectetur platea.</p>
+						<a href="air-kariez.html" class="btn">
+							<span class="button-text">Get In Touch</span>
+							<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Ocean Transport -->
+				<div class="service-item">
+					<div class="service-media">
+						<div class="service-badge"><i class="fa-solid fa-ship"></i></div>
+						<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/service-big-3.jpg" alt="Ocean Transport">
+					</div>
+					<div class="service-body">
+						<h2>Ocean Transport</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris consectetur platea.</p>
+						<a href="ocean-kariez.html" class="btn">
+							<span class="button-text">Get In Touch</span>
+							<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Railway Transport -->
+				<div class="service-item reverse">
+					<div class="service-media">
+						<div class="service-badge"><i class="fa-solid fa-train"></i></div>
+						<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/service-big-4.jpg" alt="Railway Transport">
+					</div>
+					<div class="service-body">
+						<h2>Railway Transport</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris any nullam the as integer quam dolor nunc semper. Ornare non nulla as faucibus pulvinar vulputate neque. The as Suscipit tristique nam it enim mauris consectetur platea.</p>
+						<a href="railway-kariez.html" class="btn">
+							<span class="button-text">Get In Touch</span>
+							<span class="btn-round-shape"><i class="fa-solid fa-arrow-right"></i></span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- ============================== CTA ============================== -->
+		<div class="services-cta">
+			<div class="rt-container">
+				<h2>Have a Project in Mind?</h2>
+				<p>As a app web crawler expert, We will help to organise.</p>
+				<a href="contact-kariez.html" class="cta-btn">
+					<span>Get In Touch</span>
+					<span class="cta-round"><i class="fa-solid fa-arrow-right"></i></span>
+				</a>
+			</div>
+		</div>
+
+	</div><!-- #content -->
+
+	<!-- ============================== FOOTER ============================== -->
+	<footer class="rt-footer">
+		<div class="rt-footer-container">
+			<div class="rt-footer-grid">
+				<div>
+					<a href="index.html" class="rt-logo" style="color:#fff; font-family:'Outfit',sans-serif; font-weight:700;">Kariez</a>
+					<p style="margin-top:18px;">At Kariez, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+					<div class="rt-footer-social">
+						<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+					</div>
+				</div>
+				<div>
+					<h4>Company Links</h4>
+					<ul>
+						<li><a href="service-kariez.html">Services</a></li>
+						<li><a href="contact-kariez.html">Contact Us</a></li>
+						<li><a href="disclaimer-kariez.html">Disclaimer</a></li>
+						<li><a href="job-application-kariez.html">Careers</a></li>
+						<li><a href="privacy-kariez.html">Privacy Policy</a></li>
+						<li><a href="contact-kariez.html">Location</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Company Service</h4>
+					<ul>
+						<li><a href="service-kariez.html">What We Do</a></li>
+						<li><a href="contact-kariez.html">Request a Freight</a></li>
+						<li><a href="track-kariez.html">Track &amp; Trace</a></li>
+						<li><a href="air-kariez.html">Air Freight</a></li>
+						<li><a href="railway-kariez.html">Rail Freight</a></li>
+						<li><a href="ocean-kariez.html">Maritime Transport</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Say Hello!</h4>
+					<ul class="rt-footer-contact">
+						<li><i class="fa-solid fa-phone"></i><div><strong style="color:#fff;">Support Centre 24/7</strong><br>+1 (442) 888-6223</div></li>
+						<li><i class="fa-regular fa-envelope"></i><div><strong style="color:#fff;">Get in touch with us:</strong><br><a href="mailto:info@kariez.com">info@kariez.com</a></div></li>
+						<li><i class="fa-solid fa-location-dot"></i><div><strong style="color:#fff;">Address:</strong><br>USA, Canada, UK, Europe, Australia, Asia.</div></li>
+					</ul>
+				</div>
+			</div>
+			<div class="rt-footer-bottom">
+				<div>© 2026 Kariez. All Rights Reserved</div>
+			</div>
+		</div>
+	</footer>
+
+	<a href="#" class="kariez-bc-totop" id="bcTop" style="position:fixed; bottom:90px; right:30px; width:50px; height:50px; border-radius:50%; background:#FFCC00; color:#000; display:flex; align-items:center; justify-content:center; z-index:9998; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,0.2);">
+		<i class="fa-solid fa-arrow-up" style="color:#000; font-size:18px;"></i>
+	</a>
+
+</div><!-- #page -->
+
+<!-- FLOATING BUY NOW BUTTON -->
+<div class="rtdsp-buy-now-float-wrap rtdsp-buy-now-float-wrap--middle-right" style="--rtdsp-bnf-dx: 15px; --rtdsp-bnf-dy: 24px; position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 99;">
+	<a class="rtdsp-buy-now-float-btn" href="#" target="_blank" rel="noopener" style="background-color: #82b440; color: #ffffff; display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 30px 0 0 30px; text-decoration: none; font-weight: 600; font-size: 14px;">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+		<span class="rtdsp-buy-now-float-btn__text">Buy Now</span>
+	</a>
+</div>
+
+<style>
+	@media (max-width: 767px) {
+		div[onclick*="cookieIframe"] { width: 42px !important; height: 42px !important; bottom: 15px !important; left: 15px !important; }
+		div[onclick*="chatIframe"]   { width: 50px !important; height: 50px !important; bottom: 15px !important; right: 15px !important; }
+		div[onclick*="chatIframe"] svg   { width: 26px !important; height: 26px !important; }
+		div[onclick*="cookieIframe"] svg { width: 20px !important; height: 20px !important; }
+	}
+	.rt-footer { background: #0a0a0a !important; color: #aaa !important; padding: 80px 0 0; }
+	.rt-footer-container { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+	.rt-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 60px; }
+	.rt-footer h4 { color: #fff !important; font-size: 20px; font-weight: 600; margin: 0 0 22px; font-family: 'Outfit', sans-serif; }
+	.rt-footer p { font-size: 15px; line-height: 1.8; color: #aaa !important; }
+	.rt-footer ul { list-style: none; padding: 0; margin: 0; }
+	.rt-footer ul li { margin-bottom: 12px; }
+	.rt-footer a { text-decoration: none !important; box-shadow: none !important; }
+	.rt-footer ul li a, .rt-footer-contact a { position: relative; color: #aaa !important; display: inline-block; padding-bottom: 3px; transition: color .3s ease; font-size: 15px; }
+	.rt-footer ul li a::after, .rt-footer-contact a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #FFCC00 !important; transform: scaleX(0); transform-origin: left center; transition: transform .35s ease; }
+	.rt-footer ul li a:hover, .rt-footer-contact a:hover { color: #FFCC00 !important; }
+	.rt-footer ul li a:hover::after, .rt-footer-contact a:hover::after { transform: scaleX(1); }
+	.rt-footer-social { display: flex; gap: 14px; margin-top: 22px; }
+	.rt-footer-social a { width: 40px; height: 40px; border-radius: 50%; background: #1c1c1c; display: flex; align-items: center; justify-content: center; color: #aaa; text-decoration: none !important; transition: 0.3s; }
+	.rt-footer-social a:hover { background: #FFCC00; color: #000; }
+	.rt-footer-contact li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 18px; color: #aaa; font-size: 15px; }
+	.rt-footer-contact i { color: #FFCC00 !important; margin-top: 5px; }
+	.rt-footer-bottom { border-top: 1px solid #1e1e1e; padding: 25px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; font-size: 14px; color: #aaa; }
+	@media (max-width: 991px) { .rt-footer-grid { grid-template-columns: repeat(2,1fr); gap: 34px; } .rt-footer { padding-top: 60px; } }
+	@media (max-width: 767px) {
+		.rt-footer-grid { grid-template-columns: 1fr; gap: 30px; padding-bottom: 40px; }
+		.rt-footer h4 { font-size: 18px; margin-bottom: 16px; }
+		.rt-footer-bottom { flex-direction: column; text-align: center; align-items: center; }
+	}
+</style>
+
+<script>
+window.addEventListener('message', function(event) {
+	if (event.data && event.data.action === 'closeCookieWidget') { document.getElementById('cookieIframe').style.display = 'none'; }
+	if (event.data && event.data.action === 'cookiePreferencesSaved') { document.getElementById('cookieIframe').style.display = 'none'; }
+	if (event.data && event.data.action === 'closeChatWidget') { document.getElementById('chatIframe').style.display = 'none'; }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+	// Offcanvas Menu Toggle
+	const triggerBtns = document.querySelectorAll('.trigger-off-canvas');
+	const drawer = document.querySelector('.kariez-offcanvas-drawer');
+	const overlay = document.querySelector('.kariez-body-overlay');
+
+	triggerBtns.forEach(btn => {
+		btn.addEventListener('click', function(e) {
+			e.preventDefault();
+			drawer.classList.toggle('active');
+			overlay.classList.toggle('active');
+		});
+	});
+
+	overlay.addEventListener('click', function() {
+		drawer.classList.remove('active');
+		overlay.classList.remove('active');
+	});
+
+	// Mobile Submenu Toggle
+	const parents = document.querySelectorAll('.offcanvas-navigation li.menu-item-has-children > a');
+	parents.forEach(function(a){
+		a.addEventListener('click', function(e){
+			e.preventDefault();
+			a.parentElement.classList.toggle('open');
+		});
+	});
+});
+</script>
+
+<script src="https://thunderboltcarriers.com/wp-includes/js/jquery/jquery.min.js"></script>
+<script src="https://thunderboltcarriers.com/wp-content/themes/kariez/assets/js/headroom.js"></script>
+
+<script>
+(function(){
+	function initHeadroom(){
+		if (typeof Headroom === 'undefined'){
+			if (!initHeadroom.tries) initHeadroom.tries = 0;
+			if (initHeadroom.tries++ < 20) return setTimeout(initHeadroom, 150);
+			return;
+		}
+		var headerEl = document.querySelector('.site-header');
+		if (!headerEl) return;
+		new Headroom(headerEl, {
+			offset: 80,
+			tolerance: { up: 5, down: 5 },
+			classes: { initial:'headroom', pinned:'headroom--pinned', unpinned:'headroom--unpinned', top:'headroom--top', notTop:'headroom--not-top' }
+		}).init();
+	}
+
+	function initBackToTop(){
+		var top = document.getElementById('bcTop');
+		if (!top) return;
+		top.addEventListener('click', function(e){
+			e.preventDefault();
+			window.scrollTo({top:0, behavior:'smooth'});
+		});
+	}
+
+	function boot(){
+		initHeadroom();
+		initBackToTop();
+	}
+	if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', boot); } else { boot(); }
+})();
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,fr,es,de,it,pt,ru,zh-CN,ar',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

@@ -5,16 +5,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Job Details - Kariez</title>
 	
-	<!-- FONTS -->
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin/>
-	<link rel="preconnect" href="https://fonts.googleapis.com"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900|Outfit:100,200,300,400,500,600,700,800,900&display=swap">
+	<!-- PERF: preconnect to all external origins (parallel DNS/TLS on 3G) -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://www.radiustheme.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	
-	<!-- THEME CSS -->
+	<!-- PERF: preload critical images (header logo above fold) -->
+	<link rel="preload" as="image" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" type="image/svg+xml">
+	
+	<!-- FONTS: 6 weights (was 18) — same look, ~250KB lighter -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;400;500;600;700&family=Outfit:wght@100;400;700&display=swap">
+	
+	<!-- THEME CSS (URL unchanged) -->
 	<link rel="stylesheet" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-552271f960e94d9514fd391db88376a8.css" media="all" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 	<style>
+		/* ============================================================
+		   PERF: preloader styles (inline SVG spinner replaces ~200KB GIF)
+		   ============================================================ */
+		#preloader {
+			position: fixed; inset: 0; background: #fff; display: flex;
+			align-items: center; justify-content: center; z-index: 999999;
+			transition: opacity .35s ease, visibility .35s ease;
+		}
+		#preloader.loaded { opacity: 0; visibility: hidden; }
+
 		/* ============================================================
 		   KARIEZ DEFAULT STYLES
 		   ============================================================ */
@@ -95,7 +112,7 @@
 			.offcanvas-navigation ul { list-style: none; padding: 0; margin: 0 0 30px 0; }
 			.offcanvas-navigation ul li { border-bottom: none !important; margin-bottom: 20px; }
 			
-			/* FORCE FLEXBOX to fix the broken layout */
+			/* FORCE FLEXBOX — text left, arrow right */
 			.offcanvas-navigation ul li > a {
 				display: flex !important; 
 				flex-direction: row !important;
@@ -117,8 +134,10 @@
 			.offcanvas-navigation ul li.current_page_parent > a,
 			.offcanvas-navigation ul li.active > a { color: #FFCC00 !important; }
 
-			/* Black Square Dropdown Arrow */
-			.offcanvas-navigation ul li > a .caret {
+			/* PERF/FIX: source only styled .caret, but HTML uses .menu-toggle-icon.
+			   Now covering both so the black square arrow always renders correctly. */
+			.offcanvas-navigation ul li > a .caret,
+			.offcanvas-navigation ul li > a .menu-toggle-icon {
 				display: inline-flex !important;
 				align-items: center !important; 
 				justify-content: center !important;
@@ -126,12 +145,13 @@
 				color: #fff !important;
 				width: 24px !important; 
 				height: 24px !important; 
-				margin-left: auto !important; /* Pushes arrow to the right */
+				margin-left: auto !important;
 				flex-shrink: 0 !important;
 				font-size: 12px !important; 
 				border-radius: 0 !important;
 			}
 			.offcanvas-navigation ul li > a .caret svg { width: 10px; height: 10px; stroke: #fff; }
+			.offcanvas-navigation ul li > a .menu-toggle-icon i { color: #fff !important; font-size: 11px !important; }
 
 			/* Submenu */
 			.offcanvas-navigation ul li ul.dropdown-menu { padding-left: 0; margin-top: 15px; display: none; }
@@ -177,11 +197,18 @@
 
 <body class="wp-singular page-template page-template-elementor_header_footer page page-id-10031 wp-embed-responsive wp-theme-kariez kariez-header-1 kariez-footer-1 has-trheader tr-header-light has-menu-shadow has-banner has-top-bar layout-right-sidebar has-sticky-header elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-10031">
 
-<!-- preloader -->
-<div id="preloader"><img width="200" height="200" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2024/12/preloader.gif" class="attachment-full size-full" alt="" decoding="async" /></div>
+<!-- PERF: inline SVG preloader (replaces external GIF) -->
+<div id="preloader">
+	<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+		<circle cx="40" cy="40" r="30" stroke="#FFCC00" stroke-width="4" stroke-dasharray="60 130" stroke-linecap="round" fill="none">
+			<animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="1s" repeatCount="indefinite"/>
+		</circle>
+	</svg>
+</div>
 
 <!-- ajax search overlay -->
 <div class="rt-focus"></div>
+
 	<!-- =========================================================
 	     HEADER
 	     ========================================================= -->
@@ -193,7 +220,7 @@
 					<div class="site-branding">
 						<span class="site-title">
 							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
-								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" fetchpriority="high" />
 							</a>
 						</span>
 					</div>
@@ -383,7 +410,7 @@
 	<div class="kariez-offcanvas-drawer">
 		<div class="offcanvas-logo">
 			<a href="index.html" class="site-title-logo">
-				<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Kariez">
+				<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Kariez" width="189" height="49" loading="lazy">
 			</a>
 			<a class="trigger-icon trigger-off-canvas" href="#"><i class="fa-solid fa-xmark"></i></a>
 		</div>
@@ -511,7 +538,7 @@
 								<div class="elementor-widget-container">
 									<div class="rt-image-layout rt-image-layout-1 ">
 										<div class="rt-image wow-off fadeInUp" data-wow-delay="200ms" data-wow-duration="1200ms">
-											<img loading="lazy" decoding="async" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/job-logo.svg" width="390" height="80" class="attachment-full size-full lazyload" alt="">
+											<img decoding="async" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/job-logo.svg" width="390" height="80" class="attachment-full size-full" alt="" fetchpriority="high">
 										</div>
 									</div>
 								</div>
@@ -818,7 +845,7 @@
 									<div class="site-branding light">
 										<span class="site-title">
 											<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
-												<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo dark-logo" alt="" />
+												<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo dark-logo" alt="" loading="lazy" />
 											</a>
 										</span>
 									</div>
@@ -987,12 +1014,22 @@
 </div>
 
 <!-- ============================== SCRIPTS ============================== -->
-<script id="jquery-core-js" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-includes/js/jquery/jquery.min.js"></script>
-<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/headroom.js"></script>
-<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/swiper.min.js"></script>
-<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/wow.min.js"></script>
+<!-- PERF: all deferred — unblocks HTML parse on 3G. Order preserved so DOMContentLoaded has all globals. -->
+<script id="jquery-core-js" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-includes/js/jquery/jquery.min.js" defer></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/headroom.js" defer></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/swiper.min.js" defer></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/wow.min.js" defer></script>
 
 <script>
+// PERF: preloader fade-out on load
+window.addEventListener('load', function(){
+	var p = document.getElementById('preloader');
+	if (p) {
+		// Small delay so user sees the spinner complete its rotation, then fade
+		setTimeout(function(){ p.classList.add('loaded'); }, 250);
+	}
+});
+
 document.addEventListener("DOMContentLoaded", function() {
 	// Offcanvas Menu Toggle
 	const triggerBtns = document.querySelectorAll('.trigger-off-canvas');

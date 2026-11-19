@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Air Freight - Kariez</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://www.radiustheme.com" crossorigin>
+
+	<link rel="preload" as="image" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" type="image/svg+xml">
+	<link rel="preload" as="image" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/breadcrumb-1-scaled.jpg" fetchpriority="high">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;700&display=swap">
+	<link rel="stylesheet" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-78bafcb5e2a1f97a1580fc75483b478b.css" media="all">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<style>
+	#preloader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:999999;transition:opacity .25s ease,visibility .25s ease}
+	#preloader.loaded{opacity:0;visibility:hidden}
+
+	:root{
+		--rt-primary-color:#FFCC00;--rt-secondary-color:#FFFCEE;--rt-tertiary-color:#ffb000;
+		--rt-body-bg-color:#ffffff;--rt-body-color:#484848;--rt-border-color:#B0B0B0;
+		--rt-title-color:#000000;--rt-button-color:#ffffff;--rt-button-text-color:#000000;
+		--rt-meta-color:#FFCC00;--rt-meta-light:#b2c2c0;--rt-gray10:#f1f1f1;--rt-gray20:#edf5f4;
+		--rt-body-rgb:72,72,72;--rt-title-rgb:0,0,0;--rt-primary-rgb:255,204,0;
+		--rt-secondary-rgb:255,252,238;--rt-tertiary-rgb:255,176,0;--rt-container-width:1320px;
+		--rt-body-font:'DM Sans',sans-serif;--rt-heading-font:'Outfit',sans-serif;--rt-menu-font:'DM Sans',sans-serif;
+	}
+	body{color:#484848;font-family:'DM Sans',sans-serif;font-size:16px;line-height:30px;margin:0;top:0 !important}
+	.site-header{font-family:'DM Sans',sans-serif}
+	.kariez-navigation ul li a{font-size:16px;line-height:22px;font-weight:600}
+	h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:'Outfit',sans-serif;font-weight:700}
+	h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{font-weight:100}
+	.site-branding .rt-mobile-logo{max-width:180px;max-height:40px;object-fit:contain}
+	body .main-header-section{border-bottom:none}
+	body .kariez-breadcrumb-wrapper{border-bottom:none}
+
+	/* Offcanvas */
+	.kariez-offcanvas-drawer{position:fixed;top:0;right:-400px;width:360px;max-width:90vw;height:100vh;background:#fff;z-index:99999;padding:30px;overflow-y:auto;transition:right .35s ease;box-shadow:-10px 0 30px rgba(0,0,0,.15)}
+	.kariez-offcanvas-drawer.active{right:0}
+	.kariez-body-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:99998;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+	.kariez-body-overlay.active{opacity:1;visibility:visible}
+	.offcanvas-logo{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+	.offcanvas-logo .site-title img{max-height:40px;width:auto}
+	.offcanvas-logo .trigger-icon{background:#FFCC00 !important;color:#fff !important;width:30px !important;height:30px !important;display:flex !important;align-items:center !important;justify-content:center !important;font-size:18px !important;text-decoration:none !important;transition:.3s !important}
+	.offcanvas-logo .trigger-icon:hover{background:#000 !important}
+	.offcanvas-address label{font-size:18px;font-weight:700;color:#000;text-transform:none;letter-spacing:0;margin-bottom:20px;font-family:'Outfit',sans-serif;display:block}
+	.offcanvas-address p{font-size:14px;line-height:1.7;color:#555;margin-bottom:30px}
+	.offcanvas-navigation ul{list-style:none;padding:0;margin:0 0 30px 0}
+	.offcanvas-navigation ul li{border-bottom:none !important;margin-bottom:20px}
+	.offcanvas-navigation ul li > a{display:flex !important;flex-direction:row !important;justify-content:space-between !important;align-items:center !important;width:100% !important;flex-wrap:nowrap !important;padding:0 !important;color:#000 !important;font-size:17px !important;font-weight:700 !important;font-family:'Outfit',sans-serif !important;text-decoration:none !important}
+	.offcanvas-navigation ul li.current-menu-item > a,
+	.offcanvas-navigation ul li.current-menu-parent > a,
+	.offcanvas-navigation ul li.current_page_parent > a,
+	.offcanvas-navigation ul li.active > a{color:#FFCC00 !important}
+	.offcanvas-navigation ul li > a .menu-toggle-icon{display:inline-flex !important;align-items:center !important;justify-content:center !important;background:#000 !important;color:#fff !important;width:24px !important;height:24px !important;margin-left:auto !important;flex-shrink:0 !important;font-size:12px !important;border-radius:0 !important}
+	.offcanvas-navigation ul li > a .menu-toggle-icon i{color:#fff !important;font-size:11px !important}
+	.offcanvas-navigation ul li ul.dropdown-menu{padding-left:0;margin-top:15px;display:none}
+	.offcanvas-navigation ul li.open ul.dropdown-menu{display:block}
+	.offcanvas-navigation ul li ul.dropdown-menu li{margin-bottom:12px}
+	.offcanvas-navigation ul li ul.dropdown-menu li a{font-weight:500 !important;color:#666 !important;font-size:15px !important;font-family:'DM Sans',sans-serif !important;display:block !important;padding:0 !important}
+	.offcanvas-navigation ul li ul.dropdown-menu li a:hover{color:#FFCC00 !important}
+	.offcanvas-address .offcanvas-info{list-style:none;padding:0;margin:0 0 25px 0}
+	.offcanvas-info li{display:flex;gap:12px;align-items:flex-start;margin-bottom:15px;font-size:15px;line-height:1.5;color:#555}
+	.offcanvas-info li i{color:#333;font-size:16px;margin-top:4px;width:20px;text-align:center}
+	.offcanvas-info li a{color:#555;text-decoration:none}
+	.offcanvas-info li a:hover{color:#FFCC00}
+	.offcanvas-social-icon{display:flex;gap:10px;margin-top:25px}
+	.offcanvas-social-icon a{width:36px;height:36px;border:1px solid #ccc;border-radius:50%;color:#333;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.3s}
+	.offcanvas-social-icon a:hover{background:#FFCC00;border-color:#FFCC00;color:#000}
+
+	@media (max-width:991px){
+		.site-branding .rt-site-logo{display:none}
+		.site-branding .rt-mobile-logo{display:block}
+	}
+	@media (min-width:992px){
+		.site-branding .rt-mobile-logo{display:none}
+		.site-branding .rt-site-logo.dark-logo{display:block}
+	}
+
+	/* ===== PROJECT CATEGORY ARCHIVE ===== */
+	.content-area{padding:90px 0 80px;background:#fff}
+	.content-area .container{max-width:1320px;margin:0 auto;padding:0 20px}
+
+	.rt-project-default .row{
+		display:flex;
+		flex-wrap:wrap;
+		margin:0 -12px;
+	}
+	.rt-project-default .row > [class*="col-"]{padding:0 12px 24px}
+	.rt-project-default .col-lg-4{flex:0 0 33.3333%;max-width:33.3333%}
+	.rt-project-default .col-sm-6{flex:0 0 50%;max-width:50%}
+
+	/* Portrait cards — same as Related Projects */
+	.rt-project-default .project-item{
+		position:relative;
+		border-radius:14px;
+		overflow:hidden;
+	}
+	.rt-project-default .project-thumbs{
+		position:relative;
+		overflow:hidden;
+		border-radius:14px;
+	}
+	.rt-project-default .post-thumbnail{
+		margin:0;
+		line-height:0;
+		overflow:hidden;
+	}
+	.rt-project-default .post-thumbnail img{
+		width:100%;
+		height:auto;
+		aspect-ratio:450/600;
+		object-fit:cover;
+		display:block;
+		transition:transform .5s ease;
+	}
+	.rt-project-default .project-item:hover .post-thumbnail img{
+		transform:scale(1.06);
+	}
+	.rt-project-default .project-content{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		padding:28px 24px 24px;
+		background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,0) 100%);
+	}
+	.rt-project-default .project-info{
+		display:flex;
+		flex-direction:column;
+		gap:10px;
+	}
+	.rt-project-default .project-cat{
+		display:inline-block;
+		color:#FFCC00;
+		font-size:12px;
+		font-weight:600;
+		letter-spacing:.4px;
+		text-transform:uppercase;
+	}
+	.rt-project-default .project-cat a{
+		color:#FFCC00;
+		text-decoration:none;
+	}
+	.rt-project-default .project-cat a:hover{color:#fff}
+	.rt-project-default .project-title{
+		margin:0;
+		font-size:22px;
+		font-weight:700;
+		font-family:'Outfit',sans-serif;
+		line-height:1.35;
+	}
+	.rt-project-default .project-title a{
+		color:#fff;
+		text-decoration:none;
+		transition:color .25s;
+	}
+	.rt-project-default .project-title a:hover{color:#FFCC00}
+
+	@media (max-width:991px){
+		.rt-project-default .col-lg-4,
+		.rt-project-default .col-sm-6{flex:0 0 50%;max-width:50%}
+		.rt-project-default .project-title{font-size:19px}
+	}
+	@media (max-width:575px){
+		.rt-project-default .row > [class*="col-"]{flex:0 0 100% !important;max-width:100% !important}
+	}
+	</style>
+</head>
+
+<body class="archive tax-rt-project-category term-air-freight wp-theme-kariez kariez-header-1 kariez-footer-1 has-trheader tr-header-light has-menu-shadow has-banner has-top-bar layout-full-width">
+
+<div id="preloader">
+	<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+		<circle cx="40" cy="40" r="30" stroke="#FFCC00" stroke-width="4" stroke-dasharray="60 130" stroke-linecap="round" fill="none">
+			<animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="1s" repeatCount="indefinite"/>
+		</circle>
+	</svg>
+</div>
+
+<div class="rt-focus"></div>
+
+<div id="page" class="site">
+
+	<!-- ===== HEADER ===== -->
+	<header id="masthead" class="site-header headroom" role="banner">
+		<div class="main-header-section">
+			<div class="header-container rt-container">
+				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex;align-items:center;">
+					<div class="site-branding">
+						<span class="site-title">
+							<a href="index.html" rel="home" aria-label="site logo">
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" fetchpriority="high" />
+							</a>
+						</span>
+					</div>
+
+					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
+						<div class="menu-main-menu-container">
+							<ul class="kariez-navbar" style="display:flex;justify-content:center;list-style:none;margin:0;padding:0;gap:24px;">
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex;align-items:center;gap:4px;">Home
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col"><h4>- Multi Pages</h4><ul>
+											<li><a href="index.html">Main Home</a></li>
+											<li><a href="home01.html">Cargo Shipping</a></li>
+											<li><a href="home02.html">Ship Shipping</a></li>
+											<li><a href="home03.html">Air Shipping</a></li>
+											<li><a href="home04.html">Moving Company</a></li>
+											<li><a href="home05.html">Land Transport</a></li>
+											<li><a href="home06.html">Shipment</a></li>
+											<li><a href="home07.html">Slider Home</a></li>
+											<li><a href="home08.html">Global Logistics</a></li>
+											<li><a href="home09.html">Transport</a></li>
+											<li><a href="home10.html">Global Logistics 02</a></li>
+											<li><a href="home11.html">Transportation</a></li>
+											<li><a href="home12.html">Moving Service</a></li>
+											<li><a href="home13.html">Truck Freight</a></li>
+										</ul></div>
+										<div class="mega-col"><h4>- One Pages</h4><ul>
+											<li><a href="index.html">Main Home</a></li>
+											<li><a href="home01.html">Cargo Shipping</a></li>
+											<li><a href="home02.html">Ship Shipping</a></li>
+											<li><a href="home03.html">Air Shipping</a></li>
+											<li><a href="home04.html">Moving Company</a></li>
+											<li><a href="home05.html">Land Transport</a></li>
+											<li><a href="home06.html">Shipment</a></li>
+											<li><a href="home07.html">Slider Home</a></li>
+											<li><a href="home08.html">Global Logistics</a></li>
+											<li><a href="home09.html">Transport</a></li>
+											<li><a href="home10.html">Global Logistics 02</a></li>
+											<li><a href="home11.html">Transportation</a></li>
+											<li><a href="home12.html">Moving Service</a></li>
+											<li><a href="home13.html">Truck Freight</a></li>
+										</ul></div>
+									</ul>
+								</li>
+
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="service.html" class="dropdown-toggle" style="display:inline-flex;align-items:center;gap:4px;">Services
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="service.html">All Services</a></li>
+										<li><a href="air-freight-service.html">Air Freight</a></li>
+										<li><a href="road-transport.html">Road Transport</a></li>
+										<li><a href="ocean-transport.html">Ocean Transport</a></li>
+										<li><a href="railway-transport.html">Railway Transport</a></li>
+										<li><a href="warehousing.html">Warehousing</a></li>
+										<li><a href="distribution.html">Distribution</a></li>
+									</ul>
+								</li>
+
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex;align-items:center;gap:4px;">Pages
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li><a href="about-page.html">About Us</a></li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Team Default <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="team-01.html">Team 01</a></li>
+												<li><a href="alex-hales.html">Team Single</a></li>
+											</ul>
+										</li>
+										<li><a href="error.html">Error Page</a></li>
+										<li><a href="job-application.html">Job Application</a></li>
+										<li><a href="job-details.html">Job Details</a></li>
+										<li><a href="faq.html">Faq</a></li>
+									</ul>
+								</li>
+
+								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex;align-items:center;gap:4px;">Project
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Grid View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="grid-col-2.html">Grid Col-2</a></li>
+												<li><a href="grid-col-3.html">Grid Col-3</a></li>
+												<li><a href="grid-col-4.html">Grid Col-4</a></li>
+												<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+												<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+											</ul>
+										</li>
+										<li class="dropdown-submenu">
+											<a href="#" class="dropdown-toggle">Masonry View <b class="caret">&#9656;</b></a>
+											<ul class="dropdown-menu sub-menu depth_1">
+												<li><a href="col2.html">Masonry col-2</a></li>
+												<li><a href="col3.html">Masonry col-3</a></li>
+												<li><a href="masonry-wide.html">Masonry Wide</a></li>
+												<li><a href="masonry-hover.html">Masonry Hover</a></li>
+											</ul>
+										</li>
+										<li><a href="project-single.html">Project Single</a></li>
+									</ul>
+								</li>
+
+								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
+									<a href="#" class="dropdown-toggle" style="display:inline-flex;align-items:center;gap:4px;">Blog
+										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+									</a>
+									<ul class="dropdown-menu depth_0">
+										<div class="mega-col"><h4>- Blog Archive</h4><ul>
+											<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+											<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+											<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+											<li><a href="blog-list-01.html">Blog List 01</a></li>
+											<li><a href="blog-list-02.html">Blog List 02</a></li>
+										</ul></div>
+										<div class="mega-col"><h4>- Blog Single</h4><ul>
+											<li><a href="blog-single-01.html">Default From Theme</a></li>
+											<li><a href="blog-single-02.html">Container width Thumb</a></li>
+											<li><a href="blog-single-03.html">Transparent Thumb</a></li>
+											<li><a href="blog-single-04.html">Content Over on Thumb</a></li>
+											<li><a href="blog-single-05.html">Meta Under Thumb</a></li>
+										</ul></div>
+									</ul>
+								</li>
+
+								<li class="menu-item"><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+
+					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+						<ul class="menu-icon-action" style="display:flex;align-items:center;gap:18px;list-style:none;margin:0;padding:0;">
+							<li style="display:flex;align-items:center;"><div id="google_translate_element"></div></li>
+							<li class="ham-burger mobile-hamburg">
+								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</li>
+							<li class="rt-phone-2">
+								<a class="phone-box" href="tel:+14428886223" aria-label="phone number" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+									<div class="phone-icon" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-phone"></i></div>
+									<div class="content" style="display:flex;flex-direction:column;line-height:1.3;">
+										<span class="phone-label" style="font-size:12px;opacity:.8;">Have Any Questions?</span>
+										<span class="phone-number" style="font-size:14px;font-weight:700;">+1 (442) 888-6223</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- ===== OFFCANVAS DRAWER ===== -->
+	<div class="kariez-offcanvas-drawer">
+		<div class="offcanvas-logo">
+			<a href="index.html" class="site-title-logo">
+				<img src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/dark-logo-2.svg" alt="Kariez" width="189" height="49" loading="lazy">
+			</a>
+			<a class="trigger-icon trigger-off-canvas" href="#"><i class="fa-solid fa-xmark"></i></a>
+		</div>
+		<div class="offcanvas-about offcanvas-address">
+			<label>About Us</label>
+			<p>Manage and streamline operations across multiple locations, sales channels, and employees to has improve efficiency and your bottom line.</p>
+		</div>
+		<nav class="offcanvas-navigation" role="navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu-1" class="menu">
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Home</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html">Main Home</a></li>
+							<li><a href="home01.html">Cargo Shipping</a></li>
+							<li><a href="home02.html">Ship Shipping</a></li>
+							<li><a href="home03.html">Air Shipping</a></li>
+							<li><a href="home04.html">Moving Company</a></li>
+							<li><a href="home05.html">Land Transport</a></li>
+							<li><a href="home06.html">Shipment</a></li>
+							<li><a href="home07.html">Slider Home</a></li>
+							<li><a href="home08.html">Global Logistics</a></li>
+							<li><a href="home09.html">Transport</a></li>
+							<li><a href="home10.html">Global Logistics 02</a></li>
+							<li><a href="home11.html">Transportation</a></li>
+							<li><a href="home12.html">Moving Service</a></li>
+							<li><a href="home13.html">Truck Freight</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="service.html"><span class="menu-text">Services</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="service.html">All Services</a></li>
+							<li><a href="air-freight-service.html">Air Freight</a></li>
+							<li><a href="road-transport.html">Road Transport</a></li>
+							<li><a href="ocean-transport.html">Ocean Transport</a></li>
+							<li><a href="railway-transport.html">Railway Transport</a></li>
+							<li><a href="warehousing.html">Warehousing</a></li>
+							<li><a href="distribution.html">Distribution</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Pages</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="team-01.html">Team Default</a></li>
+							<li><a href="job-application.html">Job Application</a></li>
+							<li><a href="job-details.html">Job Details</a></li>
+							<li><a href="error.html">Error Page</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children current-menu-item">
+						<a href="#"><span class="menu-text">Project</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="grid-col-2.html">Grid Col-2</a></li>
+							<li><a href="grid-col-3.html">Grid Col-3</a></li>
+							<li><a href="grid-col-4.html">Grid Col-4</a></li>
+							<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+							<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+							<li><a href="col2.html">Masonry col-2</a></li>
+							<li><a href="col3.html">Masonry col-3</a></li>
+							<li><a href="masonry-wide.html">Masonry Wide</a></li>
+							<li><a href="masonry-hover.html">Masonry Hover</a></li>
+							<li><a href="project-single.html">Project Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item menu-item-has-children">
+						<a href="#"><span class="menu-text">Blog</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="blog-archive.html">Blog Archive</a></li>
+							<li><a href="blog-single.html">Blog Single</a></li>
+						</ul>
+					</li>
+					<li class="menu-item"><a href="contact.html"><span class="menu-text">Contact</span></a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="offcanvas-address">
+			<label>Contact Info</label>
+			<ul class="offcanvas-info">
+				<li><i class="fa-solid fa-location-dot"></i> <span>USA, Canada, UK, Europe, Australia, Asia.</span></li>
+				<li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@kariez.com">info@kariez.com</a></li>
+				<li><i class="fa-regular fa-clock"></i> <span>Mon - Frd : 8:00 -16:00</span></li>
+			</ul>
+			<div class="offcanvas-social-icon">
+				<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+				<a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="kariez-body-overlay"></div>
+
+	<!-- ===== BREADCRUMB ===== -->
+	<div class="kariez-breadcrumb-wrapper has-bg no-color banner-light">
+		<span class="banner-image" style="background-image:url(https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/02/breadcrumb-1-scaled.jpg);background-position:center center;background-repeat:no-repeat;background-size:cover;"></span>
+		<div class="container default">
+			<h1 class="entry-title">Air Freight</h1>
+			<div class="breadcrumb-area">
+				<div class="entry-breadcrumb">
+					<span><a href="index.html" class="home"><span>Kariez</span></a></span>
+					<span class="dvdr"></span>
+					<span><a href="grid-col-3.html"><span>Project</span></a></span>
+					<span class="dvdr"></span>
+					<span><span class="archive taxonomy current-item">Air Freight</span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ===== PROJECT CATEGORY GRID ===== -->
+	<div id="primary" class="content-area">
+		<div class="container">
+			<div class="rt-project-default rt-project-multi-layout-default">
+				<div class="row g-4 item-parent">
+
+					<div class="col-sm-6 col-lg-4 item">
+						<article>
+							<div class="project-item">
+								<div class="project-thumbs default">
+									<div class="post-thumbnail-wrap">
+										<figure class="post-thumbnail">
+											<a class="post-thumb-link" href="project-single.html" aria-hidden="true" tabindex="-1">
+												<img width="450" height="600" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/project-32-1-450x600.jpg" alt="Industrial Container Ship">
+											</a>
+										</figure>
+									</div>
+								</div>
+								<div class="project-content">
+									<div class="project-info">
+										<span class="project-cat"><a href="air-freight.html">Air Freight</a></span>
+										<h2 class="project-title"><a href="project-single.html">Industrial Container Ship</a></h2>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<div class="col-sm-6 col-lg-4 item">
+						<article>
+							<div class="project-item">
+								<div class="project-thumbs default">
+									<div class="post-thumbnail-wrap">
+										<figure class="post-thumbnail">
+											<a class="post-thumb-link" href="project-single.html" aria-hidden="true" tabindex="-1">
+												<img width="450" height="600" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/project-28-1-450x600.jpg" alt="Air Fright Forwarding">
+											</a>
+										</figure>
+									</div>
+								</div>
+								<div class="project-content">
+									<div class="project-info">
+										<span class="project-cat"><a href="air-freight.html">Air Freight</a></span>
+										<h2 class="project-title"><a href="project-single.html">Air Fright Forwarding</a></h2>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ===== FOOTER ===== -->
+	<footer class="rt-footer">
+		<div class="rt-footer-container">
+			<div class="rt-footer-grid">
+				<div>
+					<h4>Kariez</h4>
+					<p>At Kariez, we deliver fast, reliable, and efficient transport and logistics solutions tailored to meet the demands of modern businesses.</p>
+					<div class="rt-footer-social">
+						<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="#"><i class="fa-brands fa-instagram"></i></a>
+					</div>
+				</div>
+				<div>
+					<h4>Company Links</h4>
+					<ul>
+						<li><a href="service.html">Services</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="disclaimer.html">Disclaimer</a></li>
+						<li><a href="job-application.html">Careers</a></li>
+						<li><a href="privacy-policy.html">Privacy Policy</a></li>
+						<li><a href="contact.html">Location</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Company Service</h4>
+					<ul>
+						<li><a href="service.html">What We Do</a></li>
+						<li><a href="contact.html">Request a Freight</a></li>
+						<li><a href="track.html">Track &amp; Trace</a></li>
+						<li><a href="air-freight.html">Air Freight</a></li>
+						<li><a href="railway-transport.html">Rail Freight</a></li>
+						<li><a href="ocean-transport.html">Maritime Transport</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Say Hello!</h4>
+					<ul class="rt-footer-contact">
+						<li>
+							<i class="fa-solid fa-phone"></i>
+							<div>
+								<span style="display:block;font-weight:600;color:#fff;">Support Centre 24/7</span>
+								<a href="tel:+14428886223" style="color:#FFCC00;">+1 (442) 888-6223</a>
+							</div>
+						</li>
+						<li>
+							<i class="fa-regular fa-envelope"></i>
+							<div>
+								<span style="display:block;font-weight:600;color:#fff;">Get in touch with us:</span>
+								<a href="mailto:info@kariez.com">info@kariez.com</a>
+							</div>
+						</li>
+						<li>
+							<i class="fa-solid fa-location-dot"></i>
+							<div>
+								<span style="display:block;font-weight:600;color:#fff;">Address:</span>
+								USA, Canada, UK, Europe, Australia, Asia.
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="rt-footer-bottom">
+			<div class="rt-footer-container" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;">
+				<div>© 2026 Kariez. All Rights Reserved.</div>
+				<ul>
+					<li><a href="privacy-policy.html">Privacy</a></li>
+					<li><a href="terms-condition.html">Terms &amp; Conditions</a></li>
+					<li><a href="contact.html">Site map</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+	<a href="#" class="kariez-bc-totop" id="bcTop" style="position:fixed;bottom:90px;right:30px;width:50px;height:50px;border-radius:50%;background:#FFCC00;color:#000;display:flex;align-items:center;justify-content:center;z-index:9998;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.2);">
+		<i class="fa-solid fa-arrow-up" style="color:#000;font-size:18px;"></i>
+	</a>
+</div>
+
+<script>
+(function(){
+	var p = document.getElementById('preloader');
+	if (!p) return;
+	function hide(){ p.classList.add('loaded'); }
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function(){ setTimeout(hide, 120); });
+	} else { setTimeout(hide, 120); }
+	setTimeout(hide, 1500);
+})();
+
+document.addEventListener("DOMContentLoaded", function() {
+	var drawer = document.querySelector('.kariez-offcanvas-drawer');
+	var overlay = document.querySelector('.kariez-body-overlay');
+	document.querySelectorAll('.trigger-off-canvas').forEach(function(btn){
+		btn.addEventListener('click', function(e){
+			e.preventDefault();
+			if (drawer) drawer.classList.toggle('active');
+			if (overlay) overlay.classList.toggle('active');
+		});
+	});
+	if (overlay) overlay.addEventListener('click', function(){
+		if (drawer) drawer.classList.remove('active');
+		overlay.classList.remove('active');
+	});
+	document.querySelectorAll('.offcanvas-navigation li.menu-item-has-children > a').forEach(function(a){
+		a.addEventListener('click', function(e){
+			e.preventDefault();
+			a.parentElement.classList.toggle('open');
+		});
+	});
+	if (typeof Headroom !== 'undefined') {
+		var headerEl = document.querySelector('.site-header');
+		if (headerEl) new Headroom(headerEl, {
+			offset: 80, tolerance: { up: 5, down: 5 },
+			classes: { initial:'headroom', pinned:'headroom--pinned', unpinned:'headroom--unpinned', top:'headroom--top', notTop:'headroom--not-top' }
+		}).init();
+	}
+	var top = document.getElementById('bcTop');
+	if (top) top.addEventListener('click', function(e){
+		e.preventDefault();
+		window.scrollTo({top:0, behavior:'smooth'});
+	});
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'en',
+			includedLanguages: 'en,fr,es,de,it,pt,ru,zh-CN,ar',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+	window.googleTranslateElementInit = googleTranslateElementInit;
+	setTimeout(function(){
+		var s = document.createElement('script');
+		s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+		s.async = true;
+		document.body.appendChild(s);
+	}, 1500);
+});
+</script>
+
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-includes/js/jquery/jquery.min.js" defer></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/headroom.js" defer></script>
+<script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/scripts.js" defer></script>
+
+</body>
+</html>

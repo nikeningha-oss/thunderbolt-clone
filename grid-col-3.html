@@ -20,6 +20,8 @@
 
 	<!-- THEME CSS (grid-col-3 bundle URL preserved) -->
 	<link rel="stylesheet" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-d74a797c0f22d56fa077d1f24ea32ab8.css" media="all">
+	
+	<!-- FONT AWESOME -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 	<style>
@@ -34,30 +36,43 @@
 		#preloader.loaded { opacity: 0; visibility: hidden; }
 
 		/* ============================================================
+		   TOPBAR ALIGNMENT FIX
+		   ============================================================ */
+		.kariez-topbar { width: 100%; position: relative; }
+		.kariez-topbar .topbar-container {
+			display: flex !important; justify-content: space-between !important;
+			align-items: center !important; flex-direction: row !important;
+			width: 100%; padding: 10px 30px; box-sizing: border-box;
+		}
+		.kariez-topbar .topbar-left {
+			display: flex !important; align-items: center !important;
+			flex-direction: row !important; flex-wrap: wrap; gap: 20px;
+		}
+		.kariez-topbar .topbar-left span { display: inline-flex !important; align-items: center; gap: 8px; white-space: nowrap; }
+		.kariez-topbar .topbar-right { display: flex !important; align-items: center !important; margin-left: auto; }
+		.kariez-topbar .social-icon { display: flex !important; align-items: center; gap: 18px; }
+		.kariez-topbar .social-icon a { display: inline-flex; align-items: center; }
+
+		@media (max-width: 767px) {
+			.kariez-topbar .topbar-container { flex-direction: column !important; gap: 10px; }
+			.kariez-topbar .topbar-left { justify-content: center; flex-wrap: wrap; }
+			.kariez-topbar .topbar-right { margin-left: 0; }
+		}
+
+		/* ============================================================
 		   KARIEZ DEFAULT STYLES
 		   ============================================================ */
 		:root{
-			--rt-primary-color: #FFCC00;
-			--rt-secondary-color: #FFFCEE;
-			--rt-tertiary-color: #ffb000;
-			--rt-body-bg-color: #ffffff;
-			--rt-body-color: #484848;
-			--rt-border-color: #B0B0B0;
-			--rt-title-color: #000000;
-			--rt-button-color: #ffffff;
-			--rt-button-text-color: #000000;
-			--rt-meta-color: #FFCC00;
-			--rt-meta-light: #b2c2c0;
-			--rt-gray10: #f1f1f1;
-			--rt-gray20: #edf5f4;
-			--rt-body-rgb: 72, 72, 72;
-			--rt-title-rgb: 0, 0, 0;
-			--rt-primary-rgb: 255, 204, 0;
-			--rt-secondary-rgb: 255, 252, 238;
-			--rt-tertiary-rgb: 255, 176, 0;
-			--rt-container-width: 1320px;
-			--rt-body-font: 'DM Sans', sans-serif;
-			--rt-heading-font: 'Outfit', sans-serif;
+			--rt-primary-color: #FFCC00; --rt-secondary-color: #FFFCEE;
+			--rt-tertiary-color: #ffb000; --rt-body-bg-color: #ffffff;
+			--rt-body-color: #484848; --rt-border-color: #B0B0B0;
+			--rt-title-color: #000000; --rt-button-color: #ffffff;
+			--rt-button-text-color: #000000; --rt-meta-color: #FFCC00;
+			--rt-meta-light: #b2c2c0; --rt-gray10: #f1f1f1; --rt-gray20: #edf5f4;
+			--rt-body-rgb: 72, 72, 72; --rt-title-rgb: 0, 0, 0;
+			--rt-primary-rgb: 255, 204, 0; --rt-secondary-rgb: 255, 252, 238;
+			--rt-tertiary-rgb: 255, 176, 0; --rt-container-width: 1320px;
+			--rt-body-font: 'DM Sans', sans-serif; --rt-heading-font: 'Outfit', sans-serif;
 			--rt-menu-font: 'DM Sans', sans-serif;
 		}
 		body{color: #484848; font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 30px; font-weight: normal; margin: 0;}
@@ -73,6 +88,13 @@
 		.site-branding .rt-mobile-logo{max-width: 180px; max-height: 40px; object-fit: contain;}
 		body .main-header-section{border-bottom: none;}
 		body .kariez-breadcrumb-wrapper{border-bottom: none;}
+
+		/* ---------- LOGO FIX ---------- */
+		.site-branding .rt-site-logo {
+			display: block !important;
+			max-height: 40px;
+			width: auto;
+		}
 
 		/* ============================================================
 		   MOBILE MENU OFFCANVAS (matching prior pages)
@@ -174,19 +196,19 @@
 				text-decoration: none; transition: 0.3s;
 			}
 			.offcanvas-social-icon a:hover { background: #FFCC00; border-color: #FFCC00; color: #000; }
-		}
 
-		/* ========= Mobile logo swap ========= */
-		@media (max-width: 991px) {
-			.site-branding .rt-site-logo { display: none; }
-			.site-branding .rt-mobile-logo { display: block; }
-		}
-		@media (min-width: 992px) {
-			.site-branding .rt-mobile-logo { display: none; }
-			.site-branding .rt-site-logo.dark-logo { display: block; }
+			/* FORCE BLACK HEADER ON MOBILE */
+			.site-header,
+			.site-header.headroom--top,
+			.site-header .main-header-section,
+			.site-header.headroom--top .main-header-section {
+				background-color: #000 !important;
+				box-shadow: 0 4px 20px rgba(0,0,0,.25) !important;
+			}
 		}
 
 		/* ========= Grid Col-3 fallback (3 cols desktop / 2 tablet / 1 mobile) ========= */
+		.project-section { padding: 100px 0 80px; background: #fff; }
 		.project-grid-layout-2 { margin-bottom: 0; }
 		.project-grid-layout-2 .row { display: flex; flex-wrap: wrap; margin: 0 -12px; }
 		.project-grid-layout-2 .rt-grid-item { padding: 0 12px 24px; }
@@ -197,33 +219,189 @@
 		@media (max-width: 767px) {
 			.project-grid-layout-2 .rt-grid-item { flex: 0 0 100% !important; max-width: 100% !important; }
 		}
+
+		/* ============================================================
+		   "ALL PROJECT" BUTTON (Moved to bottom)
+		   ============================================================ */
+		.all-project-btn-wrap { text-align: center; margin-top: 40px; margin-bottom: 0; }
+		.all-project-btn {
+			display: inline-flex; align-items: center; gap: 12px;
+			background: #fff; color: #000; border: 1px solid #ddd;
+			padding: 8px 8px 8px 24px; border-radius: 50px;
+			font-weight: 600; font-size: 15px; text-decoration: none;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s;
+		}
+		.all-project-btn:hover { box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+		.all-project-btn .btn-icon {
+			width: 32px; height: 32px; border-radius: 50%;
+			background: #FFCC00; color: #000;
+			display: flex; align-items: center; justify-content: center; font-size: 14px;
+		}
+
+		/* ============================================================
+		   YELLOW CTA SECTION
+		   ============================================================ */
+		.project-cta-section {
+			background-color: #FFCC00;
+			padding: 80px 0;
+			text-align: center;
+			background-image: radial-gradient(rgba(0,0,0,0.1) 1px, transparent 1px);
+			background-size: 20px 20px;
+		}
+		.project-cta-section h2 {
+			font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 700;
+			color: #000; margin: 0 0 10px;
+		}
+		.project-cta-section p { color: #333; font-size: 16px; margin: 0 0 30px; }
+		.project-cta-section .btn-project {
+			display: inline-flex; align-items: center; gap: 12px;
+			background: #fff; color: #000;
+			padding: 8px 8px 8px 24px; border-radius: 50px;
+			font-weight: 700; font-size: 15px; text-decoration: none;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
+		}
+		.project-cta-section .btn-project:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+		.project-cta-section .btn-project .btn-icon {
+			width: 36px; height: 36px; border-radius: 50%;
+			background: #FFCC00; color: #000;
+			display: flex; align-items: center; justify-content: center; font-size: 14px;
+		}
+
+		/* ============================================================
+		   FOOTER (BLACK - MATCHING GRID 2)
+		   ============================================================ */
+		.rt-footer { background: #000000 !important; color: #aaa !important; padding: 80px 0 0; }
+		.rt-footer-container { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+		.rt-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 60px; }
+		.rt-footer h4 { color: #fff !important; font-size: 20px; font-weight: 600; margin: 0 0 22px; font-family: 'Outfit', sans-serif; }
+		.rt-footer p { font-size: 15px; line-height: 1.8; color: #aaa !important; }
+		.rt-footer ul { list-style: none; padding: 0; margin: 0; }
+		.rt-footer ul li { margin-bottom: 12px; }
+		.rt-footer a { text-decoration: none !important; box-shadow: none !important; }
+		.rt-footer ul li a, .rt-footer-contact a { position: relative; color: #aaa !important; display: inline-block; padding-bottom: 3px; transition: color .3s ease; font-size: 15px; }
+		.rt-footer ul li a::after, .rt-footer-contact a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #FFCC00 !important; transform: scaleX(0); transform-origin: left center; transition: transform .35s ease; }
+		.rt-footer ul li a:hover, .rt-footer-contact a:hover { color: #FFCC00 !important; }
+		.rt-footer ul li a:hover::after, .rt-footer-contact a:hover::after { transform: scaleX(1); }
+		.rt-footer-social { display: flex; gap: 14px; margin-top: 22px; }
+		.rt-footer-social a { width: 40px; height: 40px; border-radius: 50%; background: #1c1c1c; display: flex; align-items: center; justify-content: center; color: #aaa; text-decoration: none !important; transition: 0.3s; }
+		.rt-footer-social a:hover { background: #FFCC00; color: #000; }
+		.rt-footer-contact li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 18px; color: #aaa; font-size: 15px; }
+		.rt-footer-contact i { color: #FFCC00 !important; margin-top: 5px; }
+		.rt-footer-bottom { border-top: 1px solid #1e1e1e; padding: 25px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; font-size: 14px; color: #aaa; background: #000 !important; }
+
+		/* =========================================
+		   CLEAN MEGA MENU DESIGN
+		   ========================================= */
+		.kariez-navigation .mega-menu > ul.dropdown-menu {
+			width: 480px !important;
+			min-width: 480px !important;
+			max-width: calc(100vw - 30px);
+			padding: 18px 20px !important;
+			margin-top: 0 !important;
+			top: 100% !important;
+			transform: none !important;
+			background: #ffffff !important;
+			background-image: none !important;
+			border: none !important;
+			border-radius: 0 !important;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10) !important;
+			box-sizing: border-box;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 25px;
+			row-gap: 0;
+			list-style: none !important;
+		}
+		.kariez-navigation .mega-menu:hover > ul.dropdown-menu,
+		.kariez-navigation .mega-menu:focus-within > ul.dropdown-menu,
+		.kariez-navigation .mega-menu > ul.dropdown-menu.show {
+			display: grid !important;
+		}
+		.kariez-navigation .mega-menu .mega-col {
+			width: 100% !important; min-width: 0; padding: 0 !important; margin: 0 !important;
+			background: transparent !important; box-sizing: border-box; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col h4 {
+			margin: 0 0 12px !important; padding: 0 !important; color: #222222 !important;
+			background: transparent !important; font-family: 'Outfit', sans-serif !important;
+			font-size: 10px !important; font-weight: 700 !important; line-height: 1.5 !important;
+			text-transform: uppercase; white-space: nowrap;
+		}
+		.kariez-navigation .mega-menu .mega-col ul {
+			width: 100% !important; margin: 0 !important; padding: 0 !important;
+			background: transparent !important; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li {
+			display: block !important; width: 100% !important; float: none !important;
+			margin: 0 !important; padding: 0 !important; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li a {
+			display: block !important; width: 100% !important; padding: 3px 0 !important;
+			margin: 0 !important; color: #484848 !important; background: transparent !important;
+			font-family: 'DM Sans', sans-serif !important; font-size: 10px !important;
+			font-weight: 400 !important; line-height: 1.6 !important; white-space: nowrap !important;
+			text-decoration: none !important; transition: color 0.2s ease;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li a:hover { color: #FFCC00 !important; }
+		
+		.kariez-navigation .mega-menu > ul.dropdown-menu {
+			grid-template-columns: 165px 165px !important;
+			justify-content: start !important;
+			column-gap: 15px !important;
+		}
+		.kariez-navigation .mega-menu .mega-col { width: 100% !important; min-width: 0 !important; }
+
+		@media (max-width: 575px) {
+			.kariez-navigation .mega-menu > ul.dropdown-menu {
+				width: 340px !important; min-width: 340px !important;
+				max-width: calc(100vw - 30px); padding: 15px !important;
+				grid-template-columns: 145px 145px !important; column-gap: 8px !important;
+			}
+			.kariez-navigation .mega-menu .mega-col ul li a { font-size: 9px !important; }
+		}
 	</style>
 </head>
 
 <body class="wp-singular page-template page-template-elementor_header_footer page page-id-10993 wp-embed-responsive wp-theme-kariez kariez-header-1 kariez-footer-1 has-trheader tr-header-light has-menu-shadow has-banner has-top-bar layout-right-sidebar has-sticky-header elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-10993">
 
-<!-- PERF: inline SVG preloader -->
-<div id="preloader">
-	<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-		<circle cx="40" cy="40" r="30" stroke="#FFCC00" stroke-width="4" stroke-dasharray="60 130" stroke-linecap="round" fill="none">
-			<animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="1s" repeatCount="indefinite"/>
-		</circle>
-	</svg>
-</div>
-
+<!-- PRELOADER -->
+<div id="preloader"><img width="200" height="200" src="https://thunderboltcarriers.com/wp-content/uploads/2024/12/preloader.gif" alt=""></div>
 <div class="rt-focus"></div>
 
 <div id="page" class="site">
 
-	<!-- ============================== HEADER ============================== -->
+	<!-- =========================================================
+	     HEADER
+	     ========================================================= -->
 	<header id="masthead" class="site-header headroom" role="banner">
+
+		<!-- TOPBAR -->
+		<div class="kariez-topbar">
+			<div class="topbar-container">
+				<div class="topbar-left">
+					<span><i class="fa-regular fa-clock"></i>Mon - Frd : 8:00 -16:00</span>
+					<span><i class="fa-regular fa-envelope"></i><a href="mailto:radiustheme.com">radiustheme.com</a></span>
+					<span><i class="fa-solid fa-location-dot"></i>785 15h Street, Office 478Berlin</span>
+				</div>
+				<div class="topbar-right">
+					<div class="social-icon">
+						<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="main-header-section">
 			<div class="header-container rt-container">
 				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex; align-items:center;">
+
 					<div class="site-branding">
 						<span class="site-title">
 							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
-								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" fetchpriority="high" />
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
 							</a>
 						</span>
 					</div>
@@ -231,7 +409,7 @@
 					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
 						<div class="menu-main-menu-container">
 							<ul class="kariez-navbar" style="display:flex; justify-content:center; list-style:none; margin:0; padding:0; gap:24px;">
-
+								
 								<!-- HOME (Mega Menu) -->
 								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
 									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Home
@@ -380,11 +558,9 @@
 						</div>
 					</nav>
 
-					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+					<div class="menu-icon-wrapper" style="margin-left:auto;">
 						<ul class="menu-icon-action" style="display:flex; align-items:center; gap:18px; list-style:none; margin:0; padding:0;">
-							<li style="display:flex; align-items:center;">
-								<div id="google_translate_element"></div>
-							</li>
+							<li style="display:flex; align-items:center;"><div id="google_translate_element"></div></li>
 							<li class="ham-burger mobile-hamburg">
 								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
 									<i class="fa-solid fa-bars"></i>
@@ -405,7 +581,7 @@
 			</div>
 		</div>
 	</header>
-
+	
 	<!-- =========================================================
 	     OFFCANVAS MOBILE MENU
 	     ========================================================= -->
@@ -424,7 +600,7 @@
 
 		<nav class="offcanvas-navigation" role="navigation">
 			<div class="menu-main-menu-container">
-				<ul id="menu-main-menu-1" class="menu">
+				<ul class="menu">
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Home</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
@@ -459,7 +635,7 @@
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Pages</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="about.html">About Us</a></li>
+							<li><a href="about-page.html">About Us</a></li>
 							<li><a href="team-01.html">Team Default</a></li>
 							<li><a href="job-application.html">Job Application</a></li>
 							<li><a href="job-details.html">Job Details</a></li>
@@ -484,8 +660,11 @@
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Blog</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="blog-archive.html">Blog Archive</a></li>
-							<li><a href="blog-single.html">Blog Single</a></li>
+							<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+							<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+							<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+							<li><a href="blog-list-01.html">Blog List 01</a></li>
+							<li><a href="blog-list-02.html">Blog List 02</a></li>
 						</ul>
 					</li>
 					<li class="menu-item"><a href="contact.html"><span class="menu-text">Contact</span></a></li>
@@ -509,6 +688,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="kariez-body-overlay"></div>
 
 	<!-- ============================== CONTENT ============================== -->
@@ -707,8 +887,38 @@
 											</div>
 										</div>
 
+										<!-- 9. Global Freight Network (9th Image Added) -->
+										<div class="rt-grid-item col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 wow-off fadeInUp">
+											<div class="project-item">
+												<div class="project-thumbs shape-hidden">
+													<div class="post-thumbnail-wrap">
+														<figure class="post-thumbnail">
+															<a class="post-thumb-link alignwide" href="project-single.html" aria-hidden="true" tabindex="-1">
+																<img loading="lazy" decoding="async" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/project-24-1-810x520.jpg" width="810" height="520" class="attachment-kariez-size2 size-kariez-size2 wp-post-image" alt="Global Freight Network">
+															</a>
+														</figure>
+													</div>
+													<div class="project-content">
+														<div class="project-info">
+															<h3 class="project-title"><a href="project-single.html">Global Freight Network</a></h3>
+															<span class="project-cat"><a href="grid-col-3.html">Air Freight</a></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div> <!-- END .row -->
+									
+									<!-- "ALL PROJECT" BUTTON MOVED TO BOTTOM -->
+									<div class="all-project-btn-wrap">
+										<a href="grid-col-4.html" class="all-project-btn">
+											<span>All Project</span>
+											<span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+										</a>
 									</div>
-								</div>
+
+								</div> <!-- END .project-grid-layout-2 -->
 							</div>
 						</div>
 					</div>
@@ -716,9 +926,26 @@
 			</div>
 		</div>
 
+		<!-- =========================================================
+		     CTA SECTION (Yellow) - NOW RESTORED
+		     ========================================================= -->
+		<section class="project-cta-section">
+			<div class="container">
+				<h2>Have a Project in Mind?</h2>
+				<p>As a app web crawler expert, We will help to organise.</p>
+				<a href="contact.html" class="btn-project">
+					<span>Get In Touch</span>
+					<span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+				</a>
+			</div>
+		</section>
+
 	</div><!-- #content -->
 
-	<!-- ============================== FOOTER ============================== -->
+
+	<!-- =========================================================
+	     FOOTER
+	     ========================================================= -->
 	<footer class="rt-footer">
 		<div class="rt-footer-container">
 			<div class="rt-footer-grid">
@@ -765,7 +992,7 @@
 							<i class="fa-solid fa-phone"></i>
 							<div>
 								<span style="display:block; font-weight:600; color:#fff;">Support Centre 24/7</span>
-								<a href="tel:+14428886223" style="color: #FFCC00;">+1 (442) 888-6223</a>
+								<a href="tel:+14428886223" style="color:#FFCC00;">+1 (442) 888-6223</a>
 							</div>
 						</li>
 						<li>
@@ -791,21 +1018,28 @@
 		<div class="rt-footer-bottom">
 			<div class="rt-footer-container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap;">
 				<div>© 2026 Kariez. All Rights Reserved.</div>
-				<ul>
-					<li><a href="privacy-policy.html">Privacy</a></li>
-					<li><a href="terms-condition.html">Terms &amp; Conditions</a></li>
-					<li><a href="contact.html">Site map</a></li>
-					<li><a href="contact.html">Contact</a></li>
+				<ul style="display:flex; gap:24px; list-style:none; padding:0; margin:0;">
+					<li><a href="privacy-policy.html" style="color:#aaa; text-decoration:none;">Privacy</a></li>
+					<li><a href="terms-condition.html" style="color:#aaa; text-decoration:none;">Terms &amp; Conditions</a></li>
+					<li><a href="contact.html" style="color:#aaa; text-decoration:none;">Site map</a></li>
+					<li><a href="contact.html" style="color:#aaa; text-decoration:none;">Contact</a></li>
 				</ul>
 			</div>
 		</div>
 	</footer>
-
+	
 	<a href="#" class="kariez-bc-totop" id="bcTop" style="position:fixed; bottom:90px; right:30px; width:50px; height:50px; border-radius:50%; background:#FFCC00; color:#000; display:flex; align-items:center; justify-content:center; z-index:9998; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,0.2);">
 		<i class="fa-solid fa-arrow-up" style="color:#000; font-size:18px;"></i>
 	</a>
 
 </div><!-- #page -->
+
+<div class="rtdsp-buy-now-float-wrap">
+	<a class="rtdsp-buy-now-float-btn" href="#" target="_blank" rel="noopener">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+		<span>Buy Now</span>
+	</a>
+</div>
 
 <!-- ============================== SCRIPTS (all deferred) ============================== -->
 <script>

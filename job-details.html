@@ -5,25 +5,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Job Details - Kariez</title>
 	
-	<!-- PERF: preconnect to all external origins (parallel DNS/TLS on 3G) -->
+	<!-- PERF: preconnect -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://www.radiustheme.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	
-	<!-- PERF: preload critical images (header logo above fold) -->
+	<!-- PERF: preload -->
 	<link rel="preload" as="image" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" type="image/svg+xml">
 	
-	<!-- FONTS: 6 weights (was 18) — same look, ~250KB lighter -->
+	<!-- FONTS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;400;500;600;700&family=Outfit:wght@100;400;700&display=swap">
 	
-	<!-- THEME CSS (URL unchanged) -->
+	<!-- THEME CSS -->
 	<link rel="stylesheet" href="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-552271f960e94d9514fd391db88376a8.css" media="all" />
+	
+	<!-- FONT AWESOME -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 	<style>
 		/* ============================================================
-		   PERF: preloader styles (inline SVG spinner replaces ~200KB GIF)
+		   PERF: Preloader (Using Kariez GIF)
 		   ============================================================ */
 		#preloader {
 			position: fixed; inset: 0; background: #fff; display: flex;
@@ -33,30 +35,43 @@
 		#preloader.loaded { opacity: 0; visibility: hidden; }
 
 		/* ============================================================
+		   TOPBAR ALIGNMENT FIX
+		   ============================================================ */
+		.kariez-topbar { width: 100%; position: relative; }
+		.kariez-topbar .topbar-container {
+			display: flex !important; justify-content: space-between !important;
+			align-items: center !important; flex-direction: row !important;
+			width: 100%; padding: 10px 30px; box-sizing: border-box;
+		}
+		.kariez-topbar .topbar-left {
+			display: flex !important; align-items: center !important;
+			flex-direction: row !important; flex-wrap: wrap; gap: 20px;
+		}
+		.kariez-topbar .topbar-left span { display: inline-flex !important; align-items: center; gap: 8px; white-space: nowrap; }
+		.kariez-topbar .topbar-right { display: flex !important; align-items: center !important; margin-left: auto; }
+		.kariez-topbar .social-icon { display: flex !important; align-items: center; gap: 18px; }
+		.kariez-topbar .social-icon a { display: inline-flex; align-items: center; }
+
+		@media (max-width: 767px) {
+			.kariez-topbar .topbar-container { flex-direction: column !important; gap: 10px; }
+			.kariez-topbar .topbar-left { justify-content: center; flex-wrap: wrap; }
+			.kariez-topbar .topbar-right { margin-left: 0; }
+		}
+
+		/* ============================================================
 		   KARIEZ DEFAULT STYLES
 		   ============================================================ */
 		:root{
-			--rt-primary-color: #FFCC00;
-			--rt-secondary-color: #FFFCEE;
-			--rt-tertiary-color: #ffb000;
-			--rt-body-bg-color: #ffffff;
-			--rt-body-color: #484848;
-			--rt-border-color: #B0B0B0;
-			--rt-title-color: #000000;
-			--rt-button-color: #ffffff;
-			--rt-button-text-color: #000000;
-			--rt-meta-color: #FFCC00;
-			--rt-meta-light: #b2c2c0;
-			--rt-gray10: #f1f1f1;
-			--rt-gray20: #edf5f4;
-			--rt-body-rgb: 72, 72, 72;
-			--rt-title-rgb: 0, 0, 0;
-			--rt-primary-rgb: 255, 204, 0;
-			--rt-secondary-rgb: 255, 252, 238;
-			--rt-tertiary-rgb: 255, 176, 0;
-			--rt-container-width: 1320px;
-			--rt-body-font: 'DM Sans', sans-serif;
-			--rt-heading-font: 'Outfit', sans-serif;
+			--rt-primary-color: #FFCC00; --rt-secondary-color: #FFFCEE;
+			--rt-tertiary-color: #ffb000; --rt-body-bg-color: #ffffff;
+			--rt-body-color: #484848; --rt-border-color: #B0B0B0;
+			--rt-title-color: #000000; --rt-button-color: #ffffff;
+			--rt-button-text-color: #000000; --rt-meta-color: #FFCC00;
+			--rt-meta-light: #b2c2c0; --rt-gray10: #f1f1f1; --rt-gray20: #edf5f4;
+			--rt-body-rgb: 72, 72, 72; --rt-title-rgb: 0, 0, 0;
+			--rt-primary-rgb: 255, 204, 0; --rt-secondary-rgb: 255, 252, 238;
+			--rt-tertiary-rgb: 255, 176, 0; --rt-container-width: 1320px;
+			--rt-body-font: 'DM Sans', sans-serif; --rt-heading-font: 'Outfit', sans-serif;
 			--rt-menu-font: 'DM Sans', sans-serif;
 		}
 		body{color: #484848; font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 30px; font-weight: normal; margin: 0;}
@@ -73,8 +88,15 @@
 		body .main-header-section{border-bottom: none;}
 		body .kariez-breadcrumb-wrapper{border-bottom: none;}
 
+		/* ---------- LOGO FIX ---------- */
+		.site-branding .rt-site-logo {
+			display: block !important;
+			max-height: 40px;
+			width: auto;
+		}
+
 		/* ============================================================
-		   MOBILE MENU OFFCANVAS CUSTOMIZATION (MATCHING IMAGE)
+		   MOBILE MENU OFFCANVAS (matching prior pages)
 		   ============================================================ */
 		@media (max-width: 991px) {
 			.kariez-offcanvas-drawer {
@@ -92,11 +114,11 @@
 
 			.offcanvas-logo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
 			.offcanvas-logo .site-title img { max-height: 40px; width: auto; }
-			
-			/* Yellow Square Close Button */
+
 			.offcanvas-logo .trigger-icon {
 				background: #FFCC00 !important; color: #fff !important;
-				width: 30px !important; height: 30px !important; display: flex !important; align-items: center !important; justify-content: center !important;
+				width: 30px !important; height: 30px !important;
+				display: flex !important; align-items: center !important; justify-content: center !important;
 				font-size: 18px !important; text-decoration: none !important; transition: 0.3s !important;
 			}
 			.offcanvas-logo .trigger-icon:hover { background: #000 !important; }
@@ -108,52 +130,46 @@
 			}
 			.offcanvas-address p { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 30px; }
 
-			/* Navigation List - Fixed Flexbox Layout */
 			.offcanvas-navigation ul { list-style: none; padding: 0; margin: 0 0 30px 0; }
 			.offcanvas-navigation ul li { border-bottom: none !important; margin-bottom: 20px; }
-			
-			/* FORCE FLEXBOX — text left, arrow right */
+
 			.offcanvas-navigation ul li > a {
-				display: flex !important; 
+				display: flex !important;
 				flex-direction: row !important;
-				justify-content: space-between !important; 
+				justify-content: space-between !important;
 				align-items: center !important;
 				width: 100% !important;
 				flex-wrap: nowrap !important;
-				padding: 0 !important; 
-				color: #000 !important; 
-				font-size: 17px !important; 
+				padding: 0 !important;
+				color: #000 !important;
+				font-size: 17px !important;
 				font-weight: 700 !important;
-				font-family: 'Outfit', sans-serif !important; 
+				font-family: 'Outfit', sans-serif !important;
 				text-decoration: none !important;
 			}
-			
-			/* Active State */
+
 			.offcanvas-navigation ul li.current-menu-item > a,
 			.offcanvas-navigation ul li.current-menu-parent > a,
 			.offcanvas-navigation ul li.current_page_parent > a,
 			.offcanvas-navigation ul li.active > a { color: #FFCC00 !important; }
 
-			/* PERF/FIX: source only styled .caret, but HTML uses .menu-toggle-icon.
-			   Now covering both so the black square arrow always renders correctly. */
 			.offcanvas-navigation ul li > a .caret,
 			.offcanvas-navigation ul li > a .menu-toggle-icon {
 				display: inline-flex !important;
-				align-items: center !important; 
+				align-items: center !important;
 				justify-content: center !important;
-				background: #000 !important; 
+				background: #000 !important;
 				color: #fff !important;
-				width: 24px !important; 
-				height: 24px !important; 
+				width: 24px !important;
+				height: 24px !important;
 				margin-left: auto !important;
 				flex-shrink: 0 !important;
-				font-size: 12px !important; 
+				font-size: 12px !important;
 				border-radius: 0 !important;
 			}
 			.offcanvas-navigation ul li > a .caret svg { width: 10px; height: 10px; stroke: #fff; }
 			.offcanvas-navigation ul li > a .menu-toggle-icon i { color: #fff !important; font-size: 11px !important; }
 
-			/* Submenu */
 			.offcanvas-navigation ul li ul.dropdown-menu { padding-left: 0; margin-top: 15px; display: none; }
 			.offcanvas-navigation ul li.open ul.dropdown-menu { display: block; }
 			.offcanvas-navigation ul li ul.dropdown-menu li { margin-bottom: 12px; }
@@ -163,7 +179,6 @@
 			}
 			.offcanvas-navigation ul li ul.dropdown-menu li a:hover { color: #FFCC00 !important; }
 
-			/* Contact Info */
 			.offcanvas-address .offcanvas-info { list-style: none; padding: 0; margin: 0 0 25px 0; }
 			.offcanvas-info li {
 				display: flex; gap: 12px; align-items: flex-start;
@@ -173,7 +188,6 @@
 			.offcanvas-info li a { color: #555; text-decoration: none; }
 			.offcanvas-info li a:hover { color: #FFCC00; }
 
-			/* Social Icons */
 			.offcanvas-social-icon { display: flex; gap: 10px; margin-top: 25px; }
 			.offcanvas-social-icon a {
 				width: 36px; height: 36px; border: 1px solid #ccc; border-radius: 50%; color: #333;
@@ -181,38 +195,122 @@
 				text-decoration: none; transition: 0.3s;
 			}
 			.offcanvas-social-icon a:hover { background: #FFCC00; border-color: #FFCC00; color: #000; }
+
+			/* FORCE BLACK HEADER ON MOBILE */
+			.site-header,
+			.site-header.headroom--top,
+			.site-header .main-header-section,
+			.site-header.headroom--top .main-header-section {
+				background-color: #000 !important;
+				box-shadow: 0 4px 20px rgba(0,0,0,.25) !important;
+			}
 		}
 
-		/* Fix for mobile logos displaying properly */
-		@media (max-width: 991px) {
-			.site-branding .rt-site-logo { display: none; }
-			.site-branding .rt-mobile-logo { display: block; }
+		/* =========================================
+		   CLEAN MEGA MENU DESIGN
+		   ========================================= */
+		.kariez-navigation .mega-menu > ul.dropdown-menu {
+			width: 480px !important;
+			min-width: 480px !important;
+			max-width: calc(100vw - 30px);
+			padding: 18px 20px !important;
+			margin-top: 0 !important;
+			top: 100% !important;
+			transform: none !important;
+			background: #ffffff !important;
+			background-image: none !important;
+			border: none !important;
+			border-radius: 0 !important;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10) !important;
+			box-sizing: border-box;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 25px;
+			row-gap: 0;
+			list-style: none !important;
 		}
-		@media (min-width: 992px) {
-			.site-branding .rt-mobile-logo { display: none; }
-			.site-branding .rt-site-logo.dark-logo { display: block; }
+		.kariez-navigation .mega-menu:hover > ul.dropdown-menu,
+		.kariez-navigation .mega-menu:focus-within > ul.dropdown-menu,
+		.kariez-navigation .mega-menu > ul.dropdown-menu.show {
+			display: grid !important;
+		}
+		.kariez-navigation .mega-menu .mega-col {
+			width: 100% !important; min-width: 0; padding: 0 !important; margin: 0 !important;
+			background: transparent !important; box-sizing: border-box; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col h4 {
+			margin: 0 0 12px !important; padding: 0 !important; color: #222222 !important;
+			background: transparent !important; font-family: 'Outfit', sans-serif !important;
+			font-size: 10px !important; font-weight: 700 !important; line-height: 1.5 !important;
+			text-transform: uppercase; white-space: nowrap;
+		}
+		.kariez-navigation .mega-menu .mega-col ul {
+			width: 100% !important; margin: 0 !important; padding: 0 !important;
+			background: transparent !important; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li {
+			display: block !important; width: 100% !important; float: none !important;
+			margin: 0 !important; padding: 0 !important; list-style: none !important;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li a {
+			display: block !important; width: 100% !important; padding: 3px 0 !important;
+			margin: 0 !important; color: #484848 !important; background: transparent !important;
+			font-family: 'DM Sans', sans-serif !important; font-size: 10px !important;
+			font-weight: 400 !important; line-height: 1.6 !important; white-space: nowrap !important;
+			text-decoration: none !important; transition: color 0.2s ease;
+		}
+		.kariez-navigation .mega-menu .mega-col ul li a:hover { color: #FFCC00 !important; }
+		
+		.kariez-navigation .mega-menu > ul.dropdown-menu {
+			grid-template-columns: 165px 165px !important;
+			justify-content: start !important;
+			column-gap: 15px !important;
+		}
+		.kariez-navigation .mega-menu .mega-col { width: 100% !important; min-width: 0 !important; }
+
+		@media (max-width: 575px) {
+			.kariez-navigation .mega-menu > ul.dropdown-menu {
+				width: 340px !important; min-width: 340px !important;
+				max-width: calc(100vw - 30px); padding: 15px !important;
+				grid-template-columns: 145px 145px !important; column-gap: 8px !important;
+			}
+			.kariez-navigation .mega-menu .mega-col ul li a { font-size: 9px !important; }
 		}
 	</style>
 </head>
 
 <body class="wp-singular page-template page-template-elementor_header_footer page page-id-10031 wp-embed-responsive wp-theme-kariez kariez-header-1 kariez-footer-1 has-trheader tr-header-light has-menu-shadow has-banner has-top-bar layout-right-sidebar has-sticky-header elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-10031">
 
-<!-- PERF: inline SVG preloader (replaces external GIF) -->
-<div id="preloader">
-	<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-		<circle cx="40" cy="40" r="30" stroke="#FFCC00" stroke-width="4" stroke-dasharray="60 130" stroke-linecap="round" fill="none">
-			<animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="1s" repeatCount="indefinite"/>
-		</circle>
-	</svg>
-</div>
-
-<!-- ajax search overlay -->
+<!-- PRELOADER (Kariez GIF) -->
+<div id="preloader"><img width="200" height="200" src="https://thunderboltcarriers.com/wp-content/uploads/2024/12/preloader.gif" alt=""></div>
 <div class="rt-focus"></div>
+
+<div id="page" class="site">
 
 	<!-- =========================================================
 	     HEADER
 	     ========================================================= -->
 	<header id="masthead" class="site-header headroom" role="banner">
+
+		<!-- TOPBAR -->
+		<div class="kariez-topbar">
+			<div class="topbar-container">
+				<div class="topbar-left">
+					<span><i class="fa-regular fa-clock"></i>Mon - Frd : 8:00 -16:00</span>
+					<span><i class="fa-regular fa-envelope"></i><a href="mailto:radiustheme.com">radiustheme.com</a></span>
+					<span><i class="fa-solid fa-location-dot"></i>785 15h Street, Office 478Berlin</span>
+				</div>
+				<div class="topbar-right">
+					<div class="social-icon">
+						<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+						<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+						<a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="main-header-section">
 			<div class="header-container rt-container">
 				<div class="row navigation-menu-wrap align-middle m-0" style="display:flex; align-items:center;">
@@ -220,7 +318,7 @@
 					<div class="site-branding">
 						<span class="site-title">
 							<a href="index.html" rel="home" aria-label="site logo" class="has-mobile-logo">
-								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" fetchpriority="high" />
+								<img width="188" height="46" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/uploads/2025/01/light-logo.svg" class="rt-site-logo light-logo" alt="" />
 							</a>
 						</span>
 					</div>
@@ -228,7 +326,7 @@
 					<nav class="kariez-navigation pl-15 pr-15 justify-content-center" role="navigation" style="flex:1;">
 						<div class="menu-main-menu-container">
 							<ul class="kariez-navbar" style="display:flex; justify-content:center; list-style:none; margin:0; padding:0; gap:24px;">
-
+								
 								<!-- HOME (Mega Menu) -->
 								<li class="menu-item menu-item-has-children dropdown mega-menu" style="position:relative;">
 									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Home
@@ -239,7 +337,7 @@
 											<h4>- Multi Pages</h4>
 											<ul>
 												<li><a href="index.html">Main Home</a></li>
-						 						<li><a href="home01.html">Cargo Shipping</a></li>
+												<li><a href="home01.html">Cargo Shipping</a></li>
 												<li><a href="home02.html">Ship Shipping</a></li>
 												<li><a href="home03.html">Air Shipping</a></li>
 												<li><a href="home04.html">Moving Company</a></li>
@@ -276,24 +374,24 @@
 									</ul>
 								</li>
 
-								<!-- SERVICES (current) -->
-								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
-									<a href="service-kariez.html" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Services
+								<!-- SERVICES -->
+								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+									<a href="service.html" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Services
 										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
 									</a>
 									<ul class="dropdown-menu depth_0">
-										<li class="current-menu-item"><a href="all-services.html">All Services</a></li>
-										<li><a href="air-kariez">Air Freight</a></li>
-										<li><a href="road-kariez.html">Road Transport</a></li>
-										<li><a href="ocean-kariez.html">Ocean Transport</a></li>
-										<li><a href="railway-kariez.html">Railway Transport</a></li>
-										<li><a href="warehousing-kariez.html">Warehousing</a></li>
-										<li><a href="distribution-kariez.html">Distribution</a></li>
+										<li><a href="service.html">All Services</a></li>
+										<li><a href="air-freight.html">Air Freight</a></li>
+										<li><a href="road-transport.html">Road Transport</a></li>
+										<li><a href="ocean-transport.html">Ocean Transport</a></li>
+										<li><a href="railway-transport.html">Railway Transport</a></li>
+										<li><a href="warehousing.html">Warehousing</a></li>
+										<li><a href="distribution.html">Distribution</a></li>
 									</ul>
 								</li>
 
 								<!-- PAGES -->
-								<li class="menu-item menu-item-has-children dropdown" style="position:relative;">
+								<li class="menu-item menu-item-has-children dropdown active current-menu-parent" style="position:relative;">
 									<a href="#" class="dropdown-toggle" style="display:inline-flex; align-items:center; gap:4px;">Pages
 										<b class="caret"><svg width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.75 0.625L4.5 4.375L8.25 0.625" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
 									</a>
@@ -308,7 +406,7 @@
 										</li>
 										<li><a href="error.html">Error Page</a></li>
 										<li><a href="job-application.html">Job Application</a></li>
-										<li><a href="job-details.html">Job Details</a></li>
+										<li class="current-menu-item"><a href="job-details.html">Job Details</a></li>
 										<li><a href="faq.html">Faq</a></li>
 									</ul>
 								</li>
@@ -372,23 +470,21 @@
 								</li>
 
 								<!-- CONTACT -->
-								<li class="menu-item"><a href="contact-kariez.html">Contact</a></li>
+								<li class="menu-item"><a href="contact.html">Contact</a></li>
 							</ul>
 						</div>
 					</nav>
 
-					<div class="menu-icon-wrapper ml-auto" style="margin-left:auto;">
+					<div class="menu-icon-wrapper" style="margin-left:auto;">
 						<ul class="menu-icon-action" style="display:flex; align-items:center; gap:18px; list-style:none; margin:0; padding:0;">
-							<li style="display:flex; align-items:center;">
-								<div id="google_translate_element"></div>
-							</li>
+							<li style="display:flex; align-items:center;"><div id="google_translate_element"></div></li>
 							<li class="ham-burger mobile-hamburg">
 								<button type="button" class="menu-bar trigger-off-canvas" aria-label="hamburger menu">
 									<i class="fa-solid fa-bars"></i>
 								</button>
 							</li>
 							<li class="rt-phone-2">
-								<a class="phone-box" href="tel:+16788563229" aria-label="phone number" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+								<a class="phone-box" href="tel:+14428886223" aria-label="phone number" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
 									<div class="phone-icon" style="width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-phone"></i></div>
 									<div class="content" style="display:flex; flex-direction:column; line-height:1.3;">
 										<span class="phone-label" style="font-size:12px; opacity:0.8;">Have Any Questions?</span>
@@ -398,7 +494,6 @@
 							</li>
 						</ul>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -422,7 +517,7 @@
 
 		<nav class="offcanvas-navigation" role="navigation">
 			<div class="menu-main-menu-container">
-				<ul id="menu-main-menu-1" class="menu">
+				<ul class="menu">
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Home</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
@@ -442,22 +537,22 @@
 							<li><a href="home13.html">Truck Freight</a></li>
 						</ul>
 					</li>
-					<li class="menu-item menu-item-has-children current-menu-item">
+					<li class="menu-item menu-item-has-children">
 						<a href="service.html"><span class="menu-text">Services</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="service-kariez.html">All Services</a></li>
-							<li><a href="air-kariez.html">Air Freight</a></li>
-							<li><a href="road-kariez.html">Road Transport</a></li>
-							<li><a href="ocean-kariez.html">Ocean Transport</a></li>
-							<li><a href="railway-kariez.html">Railway Transport</a></li>
-							<li><a href="warehousing-kariez.html">Warehousing</a></li>
-							<li><a href="distribution-kariez.html">Distribution</a></li>
+							<li><a href="service.html">All Services</a></li>
+							<li><a href="air-freight.html">Air Freight</a></li>
+							<li><a href="road-transport.html">Road Transport</a></li>
+							<li><a href="ocean-transport.html">Ocean Transport</a></li>
+							<li><a href="railway-transport.html">Railway Transport</a></li>
+							<li><a href="warehousing.html">Warehousing</a></li>
+							<li><a href="distribution.html">Distribution</a></li>
 						</ul>
 					</li>
-					<li class="menu-item menu-item-has-children">
+					<li class="menu-item menu-item-has-children current-menu-item">
 						<a href="#"><span class="menu-text">Pages</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="about.html">About Us</a></li>
+							<li><a href="about-page.html">About Us</a></li>
 							<li><a href="team-01.html">Team Default</a></li>
 							<li><a href="job-application.html">Job Application</a></li>
 							<li><a href="job-details.html">Job Details</a></li>
@@ -467,19 +562,29 @@
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Project</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="project-grid.html">Grid View</a></li>
-							<li><a href="project-masonry.html">Masonry View</a></li>
+							<li><a href="grid-col-2.html">Grid Col-2</a></li>
+							<li><a href="grid-col-3.html">Grid Col-3</a></li>
+							<li><a href="grid-col-4.html">Grid Col-4</a></li>
+							<li><a href="grid-col-wide.html">Grid Col Wide</a></li>
+							<li><a href="grid-no-gap.html">Grid No Gap</a></li>
+							<li><a href="col2.html">Masonry col-2</a></li>
+							<li><a href="col3.html">Masonry col-3</a></li>
+							<li><a href="masonry-wide.html">Masonry Wide</a></li>
+							<li><a href="masonry-hover.html">Masonry Hover</a></li>
 							<li><a href="project-single.html">Project Single</a></li>
 						</ul>
 					</li>
 					<li class="menu-item menu-item-has-children">
 						<a href="#"><span class="menu-text">Blog</span> <span class="menu-toggle-icon"><i class="fa-solid fa-chevron-down"></i></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="blog-archive.html">Blog Archive</a></li>
-							<li><a href="blog-single.html">Blog Single</a></li>
+							<li><a href="blog-grid-01.html">Blog Grid 01</a></li>
+							<li><a href="blog-grid-02.html">Blog Grid 02</a></li>
+							<li><a href="blog-grid-03.html">Blog Grid 03</a></li>
+							<li><a href="blog-list-01.html">Blog List 01</a></li>
+							<li><a href="blog-list-02.html">Blog List 02</a></li>
 						</ul>
 					</li>
-					<li class="menu-item"><a href="contact-kariez.html"><span class="menu-text">Contact</span></a></li>
+					<li class="menu-item"><a href="contact.html"><span class="menu-text">Contact</span></a></li>
 				</ul>
 			</div>
 		</nav>
@@ -500,17 +605,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="kariez-body-overlay"></div>
 
-	<div id="header-search" class="header-search">
-		<div class="header-search-wrap">
-			<button type="button" aria-label="close button" class="close">×</button>
-			<form method="get" class="header-search-form" action="#">
-				<input type="search" value="" name="s" placeholder="Type your search........">
-				<button type="submit" aria-label="submit button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-			</form>
-		</div>
-	</div>
+	<div class="kariez-body-overlay"></div>
 
 	<div id="content" class="site-content">
 		
@@ -1014,7 +1110,6 @@
 </div>
 
 <!-- ============================== SCRIPTS ============================== -->
-<!-- PERF: all deferred — unblocks HTML parse on 3G. Order preserved so DOMContentLoaded has all globals. -->
 <script id="jquery-core-js" src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-includes/js/jquery/jquery.min.js" defer></script>
 <script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/headroom.js" defer></script>
 <script src="https://www.radiustheme.com/demo/wordpress/themes/kariez/wp-content/themes/kariez/assets/js/swiper.min.js" defer></script>
